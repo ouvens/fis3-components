@@ -1,0 +1,357 @@
+@charset "utf-8";
+
+// 公告牌组件
+// @css fierayan
+
+.mod-board{
+	@include background-rgba(rgba(0,0,0,0.4));
+	width: 220px;
+	height: 260px;
+}
+.mod-board__top{
+	width: 220px;
+	height: 150px;
+	position: relative;
+}
+.mod-board__top-text_whole{
+	padding: 15px;
+	width: 13em;
+	line-height: 1.8;
+	color: white;
+}
+.mod-board__text-author{
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+.mod-board__top-notice-list{
+	list-style:square;
+	padding-left: 15px;
+	color: white;
+	margin-left: 20px;
+	li{
+		list-style:square;
+		padding: 13px 10px 0 0;
+	}
+}
+.mod-board__top-notice{
+	color: white;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+.mod-board__bottom{
+	@include background-rgba(rgba(0,0,0,0.2));
+	width: 220px;
+	height: 110px;
+	font-size: 0;
+}
+.qr-app-link{
+	width: 180px;
+	height: 58px;
+	border: 1px solid #fff;
+	:root &{
+		border: 2px solid rgba(255,255,255,0.5);
+	}
+	color: #fff;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 20px;
+	display: block;
+	@extend %center-block;
+	border-radius: 30px;
+	position: relative;
+	top: 26px;
+	-webkit-animation: expandIn 0.9s cubic-bezier(.8,-0.01,.29,1) 0.2s;
+	animation: expandIn 0.9s cubic-bezier(.8,-0.01,.29,1)  0.2s;
+
+	.qr-app-link-inner{
+		position: absolute;
+		line-height: 56px;
+		top: 0;
+		left: 50%;
+		padding: 0 10px 0 40px;
+		margin-left: -65px;
+		-webkit-animation: linkFadeIn 1.6s cubic-bezier(.8,-0.01,.29,1);
+		animation: linkFadeIn 1.6s cubic-bezier(.8,-0.01,.29,1);
+		overflow: hidden;
+	}
+
+	.icon-app-phone{
+		position: absolute;
+		width: 24px;
+		height: 30px;
+		background: url("/common/img/bg/index-sprite.png#unsprite") no-repeat -150px -400px;
+		left: 8px;
+		top: 50%;
+		margin-top: -15px;
+		transition: top 0.3s;
+		-webkit-animation: waggle 3s linear 1.2s infinite;
+		animation: waggle 3s linear 1.2s infinite;
+	}
+	.icon-app-animation{
+		position: absolute;
+		width: 24px;
+		height: 30px;
+		background: url("../img/bg/icon-app-hover-animation.png#unsprite") no-repeat;
+		left: 8px;
+		top: 50%;
+		margin-top: -15px;
+		display: none;
+	}
+	.icon-app-download {
+		position: absolute;
+		width: 24px;
+		height: 30px;
+		background: url("/common/img/bg/index-sprite.png#unsprite") no-repeat -110px -398px;
+		left: 8px;
+		top: 50%;
+		margin-top: -15px;
+		display: none;
+	}
+
+	.qr-app-tips{
+		position: absolute;
+		width: 220px;
+		height: 168px;
+		background: url("/common/img/bg/index-sprite.png#unsprite") no-repeat 0 -80px;
+		left: -22px;
+		top: -178px;
+		display: none;
+
+		&.tips-force-in{
+			display: block;
+			-webkit-animation: tipsIn 0.3s linear 1.6s both;
+			animation: tipsIn 0.3s linear 1.6s both;
+		}
+	}
+	&:hover{
+		.tips-force-out{
+			display: block;
+			-webkit-animation: tipsIn 0.3s both;
+			animation: tipsIn 0.3s both;
+			// animation-fill-mode: both;
+		}
+		.icon-app-phone{
+			display: none;
+		}
+		.icon-app-download{
+			display: block;
+		}
+	}
+	// ie10+ 动画效果
+	&.hover{
+		.icon-app-download,
+		.icon-app-phone{
+			display: none !important;
+		}
+		.icon-app-animation{
+			display: block;
+			-webkit-animation: hoverAnimation 0.7s steps(34,end) forwards;
+			animation: hoverAnimation 0.7s steps(34,end) forwards;
+		}
+	}
+	&.hover-leave{
+		.icon-app-phone{
+			display: none !important;
+		}
+		.icon-app-animation{
+			display: block;
+			-webkit-animation: hoverLeaveAnimation 0.7s steps(34,end) forwards;
+			animation: hoverLeaveAnimation 0.7s steps(34,end) forwards;
+		}
+	}
+}
+@keyframes hoverAnimation {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -816px 0;
+	}
+}
+@-webkit-keyframes hoverAnimation {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -816px 0;
+	}
+}
+@keyframes hoverLeaveAnimation {
+	0% {
+		background-position: -816px 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+@-webkit-keyframes hoverLeaveAnimation {
+	0% {
+		background-position: -816px 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+@keyframes tipsIn {
+	0% {
+		transform: translate(0,10px);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(0,0);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes tipsIn {
+	0% {
+		-webkit-transform: translate(0,10px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translate(0,0);
+		opacity: 1;
+	}
+}
+@keyframes expandIn {
+	0% {
+		width: 10px;
+		opacity: 0;
+	}
+	100% {
+		width: 180px;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes expandIn {
+	0% {
+		width: 10px;
+		opacity: 0;
+	}
+	100% {
+		width: 180px;
+		opacity: 1;
+	}
+}
+@keyframes linkFadeIn {
+	0% {
+		opacity: 0;
+	}
+	62% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes linkFadeIn {
+	0% {
+		opacity: 0;
+	}
+	62% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes waggle {
+	0% {
+		transform: rotate(-12deg);
+	}
+	10% {
+		transform: rotate(12deg);
+	}
+	20% {
+		transform: rotate(-12deg);
+	}
+	25% {
+		transform: rotate(0);
+	}
+}
+@-webkit-keyframes waggle {
+	0% {
+		-webkit-transform: rotate(-12deg);
+	}
+	10% {
+		-webkit-transform: rotate(12deg);
+	}
+	20% {
+		-webkit-transform: rotate(-12deg);
+	}
+	25% {
+		-webkit-transform: rotate(0);
+	}
+}
+
+// 内页可切换tab公告牌
+
+.mod-board__wrap-tab{
+	width: 298px;
+	height: 168px;
+	border: 1px solid #E9E9E9;
+	background: #FFFFFF;
+}
+.mod-board__tab-header{
+	height:34px;
+	border-bottom: 1px solid #E9E9E9;
+	background: #F9F9F9;
+	font-size: 0;
+	z-index: 2;
+}
+.mod-board__tab-item{
+	display:inline-block;vertical-align:middle;
+	vertical-align: middle;
+	font-size: 14px;
+	padding: 0 15px;
+	height: 34px;
+	line-height: 34px;
+	color: #333;
+	border: 1px solid #E9E9E9;
+	border-top: none;
+	border-right: none;
+	margin-left: -1px;
+	&.mod-board__tab-item_current{
+		background: #FFFFFF;
+		border-right:1px solid #E9E9E9 ;
+		padding-right: 14px;
+		border-bottom:1px solid #ffffff;
+	}
+}
+.mod-board_inner{
+	z-index: 1;
+}
+.mod-board__notice-list{
+	list-style:square;
+	color: #999999;
+	padding-left: 15px;
+	margin-left: 20px;
+	li{
+		list-style:square;
+		padding: 10px 10px 0 0;
+		position: relative;
+	}
+	li.visited a{
+	  color: #999;
+	}
+	li.empty{
+	  padding-left: 20px;
+	}
+}
+.mod-board__notice{
+	font-size: 14px;
+	color: #333;
+	&.mod-board__notice_disable{
+		color: #999999;
+		text-decoration: none;
+		cursor: default;
+	}
+}
+.mod-board__notice-time{
+	position: absolute;
+	color: #999999;
+	font-size: 14px;
+	top:10px;
+	right:20px;
+}

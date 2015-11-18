@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.banner {
+    width: 758px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+
+    .slider {
+        width: 5000px;
+        height: 280px;
+
+        li{
+            float: left;
+            width: 758px;
+            height: 280px;
+            overflow: hidden;
+        }
+    }
+    .sliderbox {
+        float: left;
+        position: relative;
+    }
+
+    .b-prev-btn {
+        position: absolute;
+        left:0px;
+        top:85px;
+    }
+    .b-next-btn {
+        position: absolute;
+        right:0;
+        top:85px;
+    }
+    .slidernav {
+        position: absolute;
+        bottom: 7px;
+        width: 100%;
+        height: 10px;
+        line-height: 0;
+        text-align: center;
+        li {
+            width: 8px;
+            height: 8px;
+            margin-right:1px;
+            background-color: white;
+            cursor:pointer;
+            overflow: hidden;
+            border-radius: 4px;
+            @include opacity(0.4);
+            display:inline-block;vertical-align:middle;
+            &.current{
+                @include opacity(1);
+            }
+        }
+    }
+}

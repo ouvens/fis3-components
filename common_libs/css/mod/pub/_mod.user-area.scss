@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+// 登陆用户区域
+// 抽离整理  @fierayan
+
+// 请使用模板中所示的规范写法
+
+.mod-user-area{
+	height:190px;
+	border-bottom:1px solid #dcdcdc;
+	overflow: hidden;
+}
+.mod-user-area__wrap{
+	position: relative;
+	height: 120px;
+	padding: 29px 23px 12px 23px;
+}
+.mod-user-area__op{
+	position: absolute;
+	left: 23px;
+	bottom: 0;
+}
+.mod-user-area__btn{
+	width:171px;
+	height:36px;
+	line-height:36px;
+}
+
+
+
+
+// 旧版写法
+
+.user-area{
+	height:190px;
+	border-bottom:1px solid #dcdcdc;
+	overflow: hidden;
+	.user{
+		/* 避免闪动:本元素设置为relative并设置默认高度, 给user-tool设absolute以及bottom */
+		position: relative;
+		height: 120px;
+		margin: 29px 23px 0 23px;
+		padding-bottom: 20px;
+	}
+	.user-tool{
+		position: absolute;
+		margin: 20px 0 0;
+		bottom: 9px;
+	}
+}
+.user-tool{
+	.btn-2{
+		font-size: 14px;
+	}
+	.btn-3{
+		width:170px;
+	}
+}

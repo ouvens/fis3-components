@@ -1,0 +1,12 @@
+<%
+var bgtime = termInfo.sub_bgtime * 1000,
+    endtime = termInfo.sub_endtime * 1000,
+    objBgtime = new Date(bgtime), objEndtime = new Date(endtime),
+    mapWeekday = ['周日','周一','周二','周三','周四','周五','周六'];
+
+%>
+<div class="custom_msg">
+    <p class="succ-wording">试听课预约成功 <a class="to-my-course" target="_blank" href="http://ke.qq.com/myCourse/index.html#sid=plan">查看我的课表</a></p>
+    <p class="class-notice">请准时上课，上课前您将收到QQ提醒</p>
+    <p class="class-time"> 最近一节课上课时间：<%=$.render.time.formatDate('M月DD日', bgtime)%>（<%=mapWeekday[objBgtime.getDay(mapWeekday)]%>） <%=$.render.timeSpan([{bgtime: termInfo.sub_bgtime, endtime: termInfo.sub_endtime}])%></p>
+</div>

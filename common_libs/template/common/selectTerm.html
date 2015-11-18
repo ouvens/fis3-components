@@ -1,0 +1,18 @@
+<div class="mod-course-banner__other-time<%=data.terms.length < 2?' mod-course-banner__other-time_none':''%>">
+    <i class="icon-calender-two-column"></i>
+    <span>其他上课时间</span>
+    <div class="mod-choose-time mod-choose-time_pop">
+        <i class="icon-triangle"></i>
+        <ul>
+            <%for(var i =0 ,len = data.terms.length ; i < len ; i++){
+                _terms = data.terms[i];
+            %>
+            <li data-idx="<%=i%>" data-termid="<%=_terms.tid%>" class="mod-choose-time__li<%=i == currentIdx?' mod-choose-time__li_current':''%><%=i == len - 1?' mod-choose-time__li_last':''%>">
+                <i class="icon-corner-selected"></i>
+                <i class="icon-font i-calender"></i>
+                <span class="mod-choose-time__time" title="<%=_terms.parse_time%>"><%=_terms.parse_time%></span>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</div>

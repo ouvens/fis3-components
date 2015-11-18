@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+.live-guide-tips{
+	width: 575px;
+}
+.modal-live-guide{
+	width: 495px;
+	margin: 0px 40px 0 0px;
+	.module-live-t{
+		padding-bottom: 35px;
+		.live-guide-title{
+			float: left;
+			font-size: 18px;
+			padding-left: 20px;
+			padding-top: 10px;
+		}
+	}
+	.guide-hint{
+		clear: left;
+		float: left;
+		width: 300px;
+		.guide-hint-p{
+			font-size: 14px;
+			line-height: 18px;
+			padding-bottom: 30px;
+		}
+	}
+	.guide-pic{
+		float: right;
+		width: 185px;
+		height: 205px;
+		background: url("../img/bg/client-open-hint-bg.png#unsprite");
+	}
+}

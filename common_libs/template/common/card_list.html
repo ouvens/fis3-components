@@ -1,0 +1,67 @@
+<ul class="mod-course-card_list">
+    <% for(var i = 0, len = items.length; i < len; i++) {
+        var item = items[i],
+            courseURL;
+
+        item.activity_label = item.activity_label || [];
+        typeof item.course_id == 'undefined' && (item.course_id = item.id);
+
+
+        if(item.type !== 2) {
+            courseURL = 'http://ke.qq.com/cgi-bin/courseDetail?course_id=' + item.course_id;
+        } else if(opt && opt.show_last_lesson) {
+            courseURL = 'http://ke.qq.com/cgi-bin/courseDetail?course_id=' + item.course_id + '&chapter=' + (item.last_lesson.lesson - 1);
+        } else {
+            courseURL = 'http://ke.qq.com/cgi-bin/courseDetail?course_id=' + item.course_id;
+        }
+        
+		typeof item.activity_label == 'undefined' && (item.activity_label = []);
+        item.activity_label === '' && (item.activity_label = []);
+    %>
+    <li class="mod-course-card__item">
+        <div class="mod-course-card<%= item.type === 2 ? ' mod-course-card_lu' : '' %>">
+            <a href="<%=courseURL%>" target="_blank" class="mod-course-card__link-img" data-id="<%=item.course_id%>" data-index="<%= i + 1 %>" report-tdw="action=classclk">
+                <img src="<%=item.cover_url%>220" alt="<%=item.name%>" title="<%=item.name%>" class="mod-course-card__img" width="220" height="124"/>
+                <% if (item.type === 2) { %>
+                <i class="icon-card-lu"></i>
+                <% } %>
+                <%if(item.reserve_flag == 1 || (opt.refer != 'myCourse/video' && item.expr_flag)){%>
+                <div class="mod-support-listen">免费试听</div>
+                <%}%>
+                <%if (opt && opt.show_last_lesson){%>
+                <div class="mod-cur-lesson">已观看到第<%=item.last_lesson.lesson%>节</div>
+                <%}%>
+            </a>
+            <div class="course-title">
+            <%
+                item.activity_label.forEach(function(label){ 
+                    if(label.icon_url){ %>
+                        <a class="icon_label" href="<%=label.activity_url%>" target="_blank" title="<%=label.name%>"><img src="<%=label.icon_url%>" width="12px" height="12px" /></a>
+            <%  }});
+            %>            
+            <a href="http://ke.qq.com/cgi-bin/courseDetail?course_id=<%=item.course_id%>" target="_blank" class="mod-course-card__name" title="<%=item.name%>" data-id="<%=item.course_id%>" data-index="<%= i + 1 %>" report-tdw="action=classclk"><%=item.name%></a>
+            </div>
+            <p class="mod-course-card__line">
+                <span class="mod-course-card__price<%= item.price === 0 ? ' mod-course-card__price_free' : '' %>"><%=$.render.formatPrice(item.price)%></span>
+                <%if (!opt.hidden_agency_info){%>
+                <i class="icon-sep"></i>
+                <%if (opt && opt.show_group){%>
+                    <a href="javascript:void(0);" data-cid="<%=item.course_id%>" data-gc="<%=item.group_id%>" class="mod-course-card__group js-group-entrance" title="<%=item.group_name%>(<%=item.group_id%>)"><i class="icon-qun"></i><span class="mod-course-card__gn">学友群聊(<%=item.group_id%>)</span></a>
+                <%}else{%>
+                    <a href="http://<%=item.agency_domain%>" target="_blank" class="mod-course-card__agency" title="<%=item.agency_name%>"><%=item.agency_name%></a>
+                <%}%>
+                <%}else{%>
+
+                    <%if(item.type ==2 && item.see_num){%>
+                        <i class="icon-sep"></i><span class="mod-course-card__apply-num"><%=item.see_num + '人观看'%></span>
+                    <%} else if(item.apply_num){%>
+                        <i class="icon-sep"></i><span class="mod-course-card__apply-num"><%=item.apply_num + (item.price>0?'人购买':'人报名')%></span>
+                    <%}%>
+
+                <%}%>
+
+            </p>
+        </div>
+    </li>
+    <% } %>
+</ul>

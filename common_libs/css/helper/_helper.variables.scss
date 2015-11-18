@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+
+// font
+//-----------------------------------------------------	
+$fontFamily: "Hiragino Sans GB", "Microsoft Yahei", arial,\5b8b\4f53, "Helvetica Neue", Helvetica, STHeiTi, sans-serif !default;
+$fontSize:    14px !default;
+
+
+// 背景色，文本色，边框色，链接色
+//-----------------------------------------------------	
+$gray6:                          #666;
+$gray9:                          #999;
+$grayC:                          #ccc;
+$grayF:                          #f3f3f3 !default;
+$white:                          #fff;
+
+$colorText:                      #333 !default;
+$colorBg:                        #fff !default;
+$colorBorder:                    #e5e5e5 !default;
+$colorLink:                      #039ae3 !default; // 如果只有一个值则滑过的值为这个值的darken 5%，如果有两个值则第二个值为滑过的值
+$colorLinkHover:                 #62b4f7 !default;
+$colorPlaceholder:               #999 !default; // input placeholder color
+$colorDisabled:                  #999 #e3e3e3 #dbdbdb !default; // textColor bgColor borderColor
+$colorError:                     #e80808 !default; // 错误提示色
+
+$primary:                        #039ae3 !default;//主色 蓝
+$blue:                           #3672a2 !default;//次色 蓝
+$blueLight:                      #daedfd !default;//浅色 蓝
+
+$orange:                         #e85308 !default;//价格的橙色
+$green:                          #5fb41b !default; //价格免费色等绿色
+$red:                            #e80808 !default; // 目前和错误提示色一样
+
+// 元素上下间距
+//-----------------------------------------------------	
+$gap:                            20px !default;
+
+
+// btn colors
+// btn-name,bg-color,text-color,bg-color-hover,bg-color-active
+$btns:  (default #04acf7 #ffffff #04bbf7 #038dcc) 
+		(primary #ff9a00 #fff #ffad2f #ed7b00)
+		(weak #f3f3f3 #202020 #fff #dcdcdc) !default;
+
+
+// z-index
+//-----------------------------------------------------	
+$zIndexHeader:                   1000 !default;
+$zIndexFooter:                   2000 !default;
+$zIndexPopup:					 3000 !default;                     
+$zIndexOverlay:                  4000 !default; // 默认高于header和footer部分

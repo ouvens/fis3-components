@@ -1,0 +1,613 @@
+@charset "UTF-8";
+
+// $formElePadding:              30px !default; // to B 30px, to C 40px
+$formGap:                  20px !default;
+$formElePadding:           5px !default;
+$formEleHeight:            20px !default;
+$formEleWidth:             370px !default;
+$formLabelWidth:           100px !default; //当label和元素同行时，label的宽度
+$formTextWidth:            200px !default; //输入框的宽度
+$colorBorderHover:         darken($colorBorder, 20%);
+
+// 文本框，文本域，模拟选择框
+.f-text,
+.f-textarea,
+.f-value-wrap,
+.f-date{
+	padding: $formElePadding - 1px;
+	transition: 0.2s;
+	border: 1px solid $colorBorder;
+	&:hover{
+		border-color: $colorBorderHover;
+	}
+
+}
+.f-text,
+.f-textarea{
+	&.f-ele-error{
+		border-color: $colorError;
+	}
+}
+.f-select,
+.f-multi-select,
+.f-popup-select,
+.f-popup-lines-select{
+	&.f-ele-error{
+		.f-value-wrap{
+			border-color: $colorError;
+		}
+	}
+}
+
+.f-text{
+	height: $formEleHeight;
+	width: $formEleWidth;
+}
+.f-textarea{
+	vertical-align: top;
+	height: 60px;
+	width: $formEleWidth;
+	resize: none;
+}
+
+
+
+// 模拟radio和checkbox，r表示radio，c表示checkbox
+.f-radio-list,
+.f-checkbox-list{
+	display: inline-block;
+	vertical-align: middle;
+}
+.list--block{
+	.f-radio,
+	.f-checkbox{
+		display: block;
+		float: none;
+		overflow: auto;
+		padding-left: 25px;
+	}
+    .icon-radio,
+	.icon-checkbox{
+		margin-left: -25px;
+	}
+
+}
+.f-radio,
+.f-checkbox{
+    float: left;
+    margin-right: 10px;
+	line-height:$formEleHeight;
+	cursor: pointer;
+}
+.icon-radio,
+.icon-checkbox{
+	float: left;
+	width: 18px;
+	height: 18px;
+	background: url('/common/img/bg/icon-form.png#unsprite') no-repeat;
+	margin-right: 5px;
+	margin-top: 1px;
+	cursor: pointer;
+}
+.f-radio{
+	&:hover{
+		.icon-radio{
+			background-position: 0 -20px;
+		}
+	}
+	&.checked{
+		.icon-radio{
+			background-position: 0 -40px;
+		}
+		&.disabled{
+			.icon-radio{
+				background-position: 0 -60px;
+			}
+		}
+	}
+	&.disabled{
+		.icon-radio{
+			background-position: 0 -80px;
+		}
+		.f-rc-label{
+			color: nth($colorDisabled, 1);
+		}
+	}
+}
+.f-checkbox{
+	.icon-checkbox{
+		background-position: 0 -100px;
+	}
+	&:hover{
+		.icon-checkbox{
+			background-position: 0 -120px;
+		}
+	}
+	&.checked{
+		.icon-checkbox{
+			background-position: 0 -140px;
+		}
+		&.disabled{
+			.icon-checkbox{
+				background-position: 0 -160px;
+			}
+		}
+	}
+	&.disabled{
+		.icon-checkbox{
+			background-position: 0 -180px;
+		}
+		.f-rc-label{
+			color: nth($colorDisabled, 1);
+		}
+	}
+}
+
+.f-rc{
+    float: left;
+
+	.f-rc-list--block &{
+	    display: block;
+	    float: none;
+	    overflow: auto;
+	    padding-left: 25px;
+
+	    .icon-radio,
+		.icon-checkbox{
+			margin-left: -25px;
+		}
+	}
+
+	.icon-radio,
+	.icon-checkbox{
+		float: left;
+		width: 18px;
+		height: 18px;
+		background: url('/common/img/bg/icon-form.png#unsprite') no-repeat;
+		margin-right: 5px;
+		margin-top: 1px;
+		cursor: pointer;
+	}
+
+}
+
+// 模拟下拉选择框
+// 状态.selecting表示展开下来，.selected表示已选择值
+.f-value-list{
+	li{
+		position: relative;
+		background: #fff;
+		height: $formEleHeight + $formElePadding * 2;
+		line-height: $formEleHeight + $formElePadding * 2;
+		padding: 0 10px;
+		border-top: 1px solid $colorBorder;
+		&:first-child{
+			border-top: none;
+		}
+		&:hover{
+			background: #eee;
+		}
+	}
+}
+.f-select-dropdown{
+	width: 100%;
+	box-sizing: border-box;
+	top: 100%;
+	background: #fff;
+	border: 1px solid $colorBorderHover;
+	overflow: hidden;
+	&.f-select-dropdown--center{
+		text-align: center;
+	}
+}
+.f-select,
+.f-multi-select{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	background: #fff;
+
+	&:focus{
+		outline:0
+	}
+
+	.f-select-dropdown{
+		display: none;
+		position: absolute;
+		left: 0;
+		margin-top: -1px;
+		z-index: 10;
+		li{
+			position: relative;
+		}
+	}
+	&.selecting{
+		.f-select-dropdown{
+			display: block;
+		}
+	}
+}
+// 多选项选择
+.f-multi-select{
+	.f-select-dropdown{
+		padding-bottom: 40px;
+	}
+	// padding-bottom: 40px;
+	.f-value-btn{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-top: 1px solid $colorBorder;
+		&:hover{
+			background: none;
+		}
+		.btn-default{
+			width: 100%;
+			box-sizing: border-box;
+			max-width: 90px;
+		}
+	}
+}
+// 滚动选择
+.f-select--scroll{
+	.f-value-list{
+		overflow-y: scroll;
+	}
+}
+.f-value-wrap{
+	position: relative;
+	padding-right: 30px;
+	line-height: $formEleHeight;
+	height: $formEleHeight;
+	overflow: hidden;
+	white-space: nowrap;
+	.f-select-icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		top: 50%;
+		margin-top: -15px;
+		text-align: center;
+		color: #999;
+		background-color: #fff;
+	}
+	.icon-arrow-down{
+		@include triangle(bottom);
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.i-calendar{
+		right: 5px;
+		top: 1px;
+	}
+	&:hover{
+		border-color: $colorBorderHover;
+	}
+	.selected & {
+		.placeholder{
+			display: none;
+		}
+	}
+}
+// 弹窗选择
+.f-popup-select,
+.f-popup-lines-select{
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	width: $formEleWidth + $formElePadding * 2;
+}
+// 弹窗选择 每个选择单行显示
+.f-popup-lines-select.selected{
+	.f-value-wrap{
+		display: none;
+	}
+	.f-value-list{
+		border: 1px solid $colorBorder;
+		.f-value-item{
+			padding-right: 50px;
+			@extend %ellipsis;
+			cursor: default;
+		}
+		.item-del{
+			position: absolute;
+			right: 0;
+			color: $colorLink;
+			padding: 0 10px;
+			cursor: pointer;
+		}
+		.f-value-add{
+			background: $grayF;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+}
+
+// 日历选择框
+.f-date-wrap{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	.f-date{
+		padding-right: 30px;
+		width: 90px;
+	}
+	&.f-ele-error{
+		.f-date{
+			border-color: $colorError;
+		}
+	}
+	.i-calendar{
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		top: 50%;
+		margin-top: -15px;
+		&:before{
+			margin-top: 5px;
+			margin-left: 5px;
+		}
+	}
+}
+// 模拟图片上传
+.f-upload-wrap{
+	min-height: 127px;
+	.f-upload{
+		float: left;
+	}
+	.f-upload-intro{
+		margin-left: 244px;
+		.f-msg{
+			margin-left: 0;
+		}
+	}
+}
+.f-upload{
+	width: 222px;
+	height: 125px;
+	overflow: hidden;
+	border: 1px solid $colorBorder;
+	position: relative;
+	cursor: pointer;
+	.f-upload-icon,
+	.f-upload-text{
+		font-size: 80px;
+		line-height: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: #bfbfbf;
+		text-align: center;
+		width: 100%;
+	}
+	.f-upload-text{
+		font-size: 14px;
+		top: 90px;
+	}
+	.f-upload-img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+	.f-upload-again{
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		line-height: 125px;
+		text-align: center;
+		@include background-rgba;
+
+	}
+	.f-file{
+		padding: 0;
+		height: auto;
+		font-size: 200px;
+		position: absolute;
+		right: -1px;
+		top: -1px;
+		z-index: 997;
+		cursor: pointer;
+		opacity: 0.01;
+		filter: alpha(opacity=1);
+	}
+	&:hover{
+		.f-upload-icon{
+			color: #68b30f;
+		}
+	}
+}
+
+.f-upload--success{
+	&:hover{
+		.f-upload-again{
+			display: block;
+		}
+	}
+}
+// 交互信息
+.f-msg{
+	// display: inline-block;
+	display: none;
+	vertical-align: middle;
+	position: relative;
+	padding-left: 20px;
+	line-height: 16px;
+	margin-left: $formGap - 5px;
+	.icon-msg{
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		left: 0;
+		top: 50%;
+		margin-top: -7px;
+		background: url("/common/img/bg/icon-form.png#unsprite") no-repeat;
+	}
+	&.f-msg--block{
+		display: block;
+		position: relative;
+		margin-left: 0;
+	}
+	&.f-msg--position{
+		position: absolute;
+		top: 50%;
+		margin-top: -8px;
+	}
+}
+.f-item--info,
+.f-item--error,
+.f-item--success,
+.f-item--error-msg{
+	.f-msg{
+		display: inline-block;
+	}
+}
+.f-item--info{
+	.f-msg .icon-msg{
+		background-position: -2px -220px;
+	}
+}
+.f-item--error-msg,
+.f-item--error{
+	.f-msg .icon-msg{
+		background-position: -2px -260px;
+	}
+	.f-msg-text{
+		color: $colorError;
+	}
+}
+.f-item--error{
+	.f-text,
+	.f-textarea,
+	.f-value-wrap,
+	.f-date{
+		border-color: $colorError;
+	}
+}
+.f-item--success{
+	.f-msg .icon-msg{
+		background-position: -2px -240px;
+	}
+}
+
+// additional
+//-----------------------------------------------------
+.f-disabled {
+	@include disabled;
+	&.f-text,
+	&.f-textarea{
+		border-color: nth($colorDisabled, 3) !important;
+	}
+}
+.f-required{
+	color: #e80808;
+	margin-right: 3px;
+}
+.f-question{
+	color: #999;
+}
+.f-des{
+	color: #999;
+}
+.f-prefix{
+	margin-right: 5px;
+}
+.f-suffix{
+	margin-left: 5px;
+}
+.f-join{
+	margin: 0 5px;
+}
+
+// 默认表单
+// label独立一行
+//-----------------------------------------------------
+.form{
+	margin-bottom: $formGap;
+
+	.f-item{
+		margin-bottom: $formGap;
+		clear: both;
+		position: relative;
+
+		// 多个item同行
+		&.f-item--line{
+			float: left;
+			clear:none;
+		}
+		.f-checkbox,
+		.f-radio{
+			padding-top: $formElePadding;
+			padding-bottom: $formElePadding;
+		}
+	}
+	// form-label 及 与元素等高的class
+	.f-label,
+	.f-lh{
+		line-height: $formEleHeight + $formElePadding * 2;
+	}
+	.f-gray{
+		color: #999;
+	}
+
+	// inline
+	.f-ele-inline{
+	    margin-right: 10px;
+	}
+}
+
+// form--h
+// label与input元素同行表单
+//-----------------------------------------------------
+.form--h{
+	.f-label{
+		float: left;
+	    text-align: right;
+		width:$formLabelWidth;
+	}
+	.f-field{
+		margin-left: $formLabelWidth + 20px;
+	}
+}
+
+// form--c
+//-----------------------------------------------------
+.form--c{
+	$formElePadding:           10px;
+	.f-text,
+	.f-textarea,
+	.f-value-wrap,
+	.f-date{
+		padding: $formElePadding - 1px;
+	}
+	.f-rc{
+	    padding-top: $formElePadding;
+		padding-bottom: $formElePadding;
+	}
+	.f-label,
+	.f-lh{
+		line-height: $formElePadding + $formEleHeight;
+	}
+	.f-value-wrap{
+		padding-right: 30px + $formElePadding;
+	}
+	.f-value-list{
+		li{
+			height: $formEleHeight + $formElePadding * 2;
+			line-height: $formEleHeight + $formElePadding * 2;
+		}
+	}
+}

@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+// 老师卡片
+// @css fierayan
+
+.mod-teacher-card{
+	cursor: default;
+	height: 90px;
+	width: 300px;
+}
+.mod-teacher-card__img-wrap,.mod-teacher-card__img{
+	display:inline-block;vertical-align:middle;
+	vertical-align: top;
+	width: 90px;
+	height: 90px;
+}
+.mod-teacher-card__right-wrap{
+	display:inline-block;vertical-align:middle;
+	vertical-align: top;
+	padding-left: 10px;
+	width: 195px;
+	height: 90px;
+	position: relative;
+}
+.mod-teacher-card__name{
+	position: absolute;
+	left: 10px;
+	top: -5px;
+	display: block;
+	width: 195px;
+	font-size: 14px;
+	@include ellipsis();
+	color:#333333;
+	transition:.3s;
+	&:hover{
+		color: #62B4F7;
+	}
+}
+.mod-teacher-card__des,.mod-teacher-card__class-number{
+	font-size: 12px;
+	position: absolute;
+	left: 10px;
+	top: 19px;
+	width: 195px;
+	color: #999999;
+}
+.mod-teacher-card__des{
+	@include ellipsis-lines(3);
+	height: 53px;
+}
+.mod-teacher-card__class-number{
+	top:75px;
+}

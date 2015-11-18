@@ -1,0 +1,2 @@
+void function(){setTimeout(function(){var b=document.cookie.match(/(^| )nohost_guid=([^;]*)(;|$)/);if(!b?0:decodeURIComponent(b[2])){var b="/nohost_htdocs/js/SwitchHost.js?random="+Math.random(),c=function(a){try{eval(a)}catch(b){}window.SwitchHost&&window.SwitchHost.init&&window.SwitchHost.init()},a=window.ActiveXObject?new ActiveXObject("Microsoft.XMLHTTP"):new XMLHttpRequest;a.open("GET",b);a.onreadystatechange=function(){4==a.readyState&&((200<=a.status&&300>a.status||304===a.status||1223===a.status||
+    0===a.status)&&c(a.responseText),a=null)};a.send(null)}},1500)}();

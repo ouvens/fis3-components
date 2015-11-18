@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+// Usercard
+//
+// 用户卡片
+//
+
+// 整理优化 @fierayan
+
+// 请使用模板中所示的规范写法
+// 后续全部更新完修改scss文件名为 mod.user-card.scss
+
+.mod-user-card{
+	position: relative;
+	height: 62px;
+	overflow: hidden;
+	padding-left: 71px;
+}
+.mod-user-card__img-wrap{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	border: 1px solid #E6E6E6;
+	border-radius: 2px;
+}
+.mod-user-card__img{
+	width: 60px;
+	height: 60px;
+	border-radius: 2px;
+}
+.mod-user-card__name{
+	display:inline-block;vertical-align:middle;
+	@include ellipsis;
+	@include max-width(7em);
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	margin: 2px 0 5px 0;
+	color: #333;
+	&:hover {
+		color: $colorLink;
+	}
+}
+.mod-user-card__addition-text{
+	color: #999;
+}
+
+// 旧版写法
+
+// Markup:
+//<div class="usercard">
+//    <a class="user-head" href="javascript:;" target="_blank">
+//        <img lazy-src="http://3.url.cn/face/grp/0_100.png" src="http://q.qlogo.cn/g?b=qq&nk=2039512107&s=100">
+//        <span class="border"></span>
+//    </a>
+//    <div class="user-name">
+//       <a class="user-name" href="javascript:;" target="_blank">nick name</a>
+//    </div>
+//    <div class="user-welcome">Hello，你好！</div>
+//</div>
+//
+// Styleguide 21
+
+.usercard {
+    position: relative;
+    height: 62px;
+    overflow: hidden;
+    padding-left: 71px;
+    .user-head {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 2px;
+        }
+    }
+    .user-name {
+        height: 20px;
+        line-height: 20px;
+        @include ellipsis;
+        font-size: 14px;
+        margin: 2px 0 5px 0;
+        a {
+            color: #333;
+            &:hover {
+               color: $colorLink; 
+            } 
+        }
+    }
+    .user-welcome {
+        color: #999;
+    }
+    .border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 58px;
+        height: 58px;
+        border: 1px solid #000;
+        border-radius: 2px;
+        @include opacity(0.1);
+    }
+}

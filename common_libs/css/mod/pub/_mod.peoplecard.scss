@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+// PeopleCard
+//
+// 人物卡片
+//
+// Styleguide 24
+
+// 明星人员卡片
+//
+// Markup:
+// <div class="people-card-star">
+//   <div class="people-face">
+//      <img src="http://p.qpic.cn/qqcourse_logo/ajNVdqHZLLCHHs2LyNezn1MkLR2tMwvuS4LkSCsaF0dT1a83SNEffibusgEyL8cdQGOaiaLC1xic8g/356">
+//   </div>
+//   <div class="people-content">
+//      <p class="people-name">糖达达</p>
+//      <p class="people-des">潭州学院（tanzhouedu.com）是互联网最早的网络在线教育学院，是以培养学员兴趣和从事互联网课堂研究为主的综合性网络学院，成立于2007年。其中网络营销、JAVA、前端等课程是互联网在线课程类第一名。</p>
+//      <a class="btn btn-default">主讲25们课程</a>
+//   </div>
+// </div>
+//
+// Styleguide 24.1
+
+.people-card-star {
+    .people-face {
+        float: left;
+        margin-right: 20px;
+        img {
+            border-radius: 67px;
+            width: 125px;
+            height: 125px;
+            border: 1px solid #cdcdcd;
+        }
+    }
+    .people-name {
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .people-des {
+        margin-top: 8px;
+        color: #989898;
+    }
+    .btn {
+        margin-top: 12px;
+        width: 113px;
+        height: 38px;
+        line-height: 38px;
+    }
+}

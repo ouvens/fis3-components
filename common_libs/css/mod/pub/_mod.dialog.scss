@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+// Dialog
+//
+// 浮层组件
+// 整理优化 @fierayan
+//
+// Styleguide 13
+
+// 浮层背景
+//
+// Markup:
+//<div class="mod-dialog__bg" style="position:relative;left:0;top:0;margin:0; width:100%;height:200px;"></div>
+//
+// Styleguide 13.1
+
+// 浮层弹框
+//
+// Markup:
+//<div class="mod-dialog__pop" style="position:relative;left:0;top:0;margin:0;border:1px solid #E3E3E3;">
+//	<div class="mod-dialog__hd">浮层标题</div>
+//	<a href="" class="mod-dialog__close" title="关闭">x</a>
+//<div class="mod-dialog__bd">
+//	<p class="mod-dialog__content">浮层内容，使用时需去掉展示时修改定位和便于查看的的style</p>
+//</div>
+//	<div class="mod-dialog__ft">
+//		<a href="#" title="确定" class="btn-primary">确定</a>
+//		<a href="#" title="取消" class="btn-weak">取消</a>
+//	</div>
+//</div>
+//
+// Styleguide 13.2
+
+// 请使用对应mod的规范命名
+
+.mod-dialog__bg{
+	zoom: 1;
+	position: fixed;
+	_position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	left: 0px;
+	top: 0px;
+	z-index: 999;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	// filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+	background-color:black;
+}
+.mod-dialog__pop{
+	position: fixed;
+	_position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 490px;
+	margin-left: -245px;
+	z-index: 999;
+	background: #fff;
+	font-size: 14px;
+	border-radius: 4px;
+	//box-shadow: 0 0 5px #535658;
+	overflow: hidden;
+}
+.mod-dialog__hd{
+	height: 30px;
+	line-height: 30px;
+	text-indent: 12px;
+	background: #039ae3;
+	color: #fff;
+}
+.mod-dialog__close{
+	font-size: 20px;
+	font-style: normal;
+	position: absolute;
+	right: 12px;
+	top: 0;
+	color: #B4E8E8;
+
+	&:hover {
+		color: #FDFDFD;
+	}
+	&:active {
+		color: #125D80;
+	}
+}
+.mod-dialog__bd{
+	position: relative;
+	line-height: 24px;
+	max-height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.mod-dialog__content{
+	padding: 20px;
+	font-size: 14px;
+}
+.mod-dialog__ft{
+	margin: 20px;
+	text-align: right;
+	*zoom: 1;
+	a {
+		margin-left: 10px;
+	}
+	.btn-primary{
+		width: 100px;
+		height: 32px;
+		line-height: 32px;
+		font-size: 14px;
+	}
+	.btn-weak{
+		width: 100px;
+		height: 32px;
+		line-height: 30px;
+		font-size: 14px;
+		border:1px solid #D9D9D9;
+		background: #F3F3F3;
+		&:hover{
+			background:#FDFDFD;
+		}
+		&:active{
+			background:#EBEBEB;
+		}
+	}
+}
+
+
+
+// 旧版样式
+
+
+.modal-bg {
+    zoom: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px;
+    z-index: $zIndexOverlay;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    background-color: #808080;
+}
+
+.tips {
+    position: fixed;
+    _position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 490px;
+    margin-left: -245px;
+    z-index: $zIndexOverlay;
+    background: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    //box-shadow: 0 0 5px #535658;
+    overflow: hidden;
+
+    .tips-hd {
+        height: 30px;
+        line-height: 30px;
+        text-indent: 12px;
+        background: #039ae3;
+        color: #fff;
+    }
+
+
+    .tips-tool {
+        margin: 20px;
+        text-align: right;
+        *zoom: 1;
+        a {
+            margin-left: 10px;
+        }
+        .btn-7, .btn-8 {
+            width: auto;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 2px;
+        }
+    }
+
+    .btn-close {
+        font-size: 20px;
+        font-style: normal;
+        position: absolute;
+        right: 12px;
+        top: 0;
+        color: #B4E8E8;
+
+        &:hover {
+            color: #FDFDFD;
+        }
+        &:active {
+            color: #125D80;
+        }
+    }
+    .tips-bd {
+        position: relative;
+        line-height: 24px;
+        max-height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .icon-msg-large{
+            position: absolute;
+            margin-top: -6px;
+        }
+        .add-uins {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+    }
+
+	//  此处开始未重写
+
+    .msg {
+        margin-left: 50px;
+        position: relative;
+        word-break: break-all;
+    }
+    .mrl22 {
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+}
+
+.alert-tips {
+    width: 450px;
+    margin-left: -260px;
+
+    .tips-bd {
+        padding: 30px 40px;
+    }
+}
+

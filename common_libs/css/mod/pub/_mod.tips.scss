@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+// 小黄条组件
+
+// 请使用展示页中的规范写法
+// 整理优化 @fierayan
+
+.mod-tips{
+	// 小黄条包裹容器，控制其位置和与其他元素的距离，对应没写在mod里的原有的 tip-wrap
+	padding: 20px;
+}
+
+.mod-tips__content{
+	padding-left: 11px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #fffbe5;
+	border: 1px solid #f7dcb1;
+	color: #f09e3c;
+	font-size: 12px;
+	display: block;
+	border-radius: 2px;
+	a {
+		color: #1d93f7;
+	}
+}
+
+// 通栏tips
+
+.mod-tips_whole{
+	padding: 0;
+	.mod-tips__content{
+		padding-left: 0;
+		color:#666666;
+		font-size: 14px;
+	}
+	.mod-tips__main{
+		text-align: center;
+		position: relative;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	.mod-tips__close{
+		position: absolute;
+		font-size: 16px;
+		line-height: 14px;
+		width: 16px;
+		height: 16px;
+		top: 6px;
+		right: 0;
+		color: #666;
+		&:hover{
+			color: $primary;
+		}
+	}
+}
+
+
+
+// 旧版写法
+
+// Tips
+//
+// Markup:
+// <div class="yel-tip">我是小黄条我自豪<a href="javascript:void(0);"> 这个是链接>>></a></div>
+//
+// Styleguide 4
+.yel-tip {
+	padding-left: 11px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #fffbe5;
+	border: 1px solid #f7dcb1;
+	color: #f09e3c;
+	font-size: 12px;
+	display: block;
+	border-radius: 2px;
+	a {
+		color: #1d93f7;
+	}
+}

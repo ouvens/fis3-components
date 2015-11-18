@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+//  ChangePage
+//
+// 翻页组件
+//
+// 整理优化 @fierayan
+//
+// Styleguide 11
+
+// 选中第一页
+//
+// Markup:
+//<div class="mod-change-page">
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_pre mod-change-page__btn_disabled"><i></i></a>
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_current">1</a>
+//	<a href="#" class="mod-change-page__btn">2</a>
+//	<a href="#" class="mod-change-page__btn">3</a>
+//	<a href="#" class="mod-change-page__btn">4</a>
+//	<a href="#" class="mod-change-page__btn">5</a>
+//	<a href="#" class="mod-change-page__btn">6</a>
+//	<span>...</span>
+//	<a href="#" class="mod-change-page__btn">165</a>
+//	<a href="#" class="mod-change-page__btn">166</a>
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_next"><i></i></a>
+//</div>
+//
+// Styleguide 11.1
+
+// 选中中间某页
+//
+// Markup:
+//<div class="mod-change-page">
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_pre"><i></i></a>
+//	<a href="#" class="mod-change-page__btn">1</a>
+//	<a href="#" class="mod-change-page__btn">2</a>
+//	<a href="#" class="mod-change-page__btn">3</a>
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_current">4</a>
+//	<a href="#" class="mod-change-page__btn">5</a>
+//	<a href="#" class="mod-change-page__btn">6</a>
+//	<span>...</span>
+//	<a href="#" class="mod-change-page__btn">165</a>
+//	<a href="#" class="mod-change-page__btn">166</a>
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_next"><i></i></a>
+//</div>
+//
+// Styleguide 11.2
+
+// 选中最后一页
+//
+// Markup:
+//<div class="mod-change-page">
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_pre"><i></i></a>
+//	<a href="#" class="mod-change-page__btn">1</a>
+//	<a href="#" class="mod-change-page__btn">2</a>
+//	<a href="#" class="mod-change-page__btn">3</a>
+//	<a href="#" class="mod-change-page__btn">4</a>
+//	<a href="#" class="mod-change-page__btn">5</a>
+//	<a href="#" class="mod-change-page__btn">6</a>
+//	<span>...</span>
+//	<a href="#" class="mod-change-page__btn">165</a>
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_current">166</a>
+//	<a href="#" class="mod-change-page__btn mod-change-page__btn_next mod-change-page__btn_disabled"><i></i></a>
+//</div>
+//
+// Styleguide 11.3
+
+
+
+
+// 请使用展示页中的规范写法
+// 替换完成后，更改文件为 mod.change-page.scss
+
+
+.mod-change-page{
+	text-align:center;
+	_padding-bottom:2px;
+}
+.mod-change-page__btn{
+	display:inline-block;vertical-align:middle;
+	height: 38px;
+	line-height: 38px;
+	background:#fff;
+	font-size:16px;
+	border:1px solid #d9d9d9;
+	color:#333;
+	text-align: center;
+	border-radius: 2px;
+	padding: 0 24px;
+	margin: 0 3px;
+	&:hover{
+		background-color:#f1f1f1;
+	}
+}
+.mod-change-page__btn_current{
+	background:#049ee4;
+	border-color:#049ee4;
+	color:#fff;
+	&:hover{
+		background:#049ee4;
+	}
+}
+.mod-change-page__btn_pre,.mod-change-page__btn_next{
+	margin: 0;
+	*margin:0 6px;
+	_margin:0 6px;
+	padding: 0;
+	width: 78px;
+	position: relative;
+	i{
+		display:inline-block;vertical-align:middle;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -6px 0 0 -3px;
+		width: 7px;
+		height: 12px;
+	}
+}
+.mod-change-page__btn_pre{
+	i{
+		background:url("../img/bg/page-arr-left.png") no-repeat;
+	}
+	&.mod-change-page__btn_disabled{
+		border-color:#ededed;
+		color:#bcbcbc;
+		cursor: default!important;
+		background-color:#e3e3e3!important;
+		&:hover{
+			background-color:#e3e3e3!important;
+		}
+		i{
+			background:url("../img/bg/page-arr-left-dis.png") no-repeat;
+
+		}
+	}
+}
+.mod-change-page__btn_next{
+	i{
+		background:url("../img/bg/page-arr-right.png") no-repeat;
+	}
+	&.mod-change-page__btn_disabled{
+		border-color:#ededed;
+		color:#bcbcbc;
+		cursor: default!important;
+		background-color:#e3e3e3!important;
+		&:hover{
+			background-color:#e3e3e3!important;
+		}
+		i{
+			background:url("../img/bg/page-arr-right-dis.png") no-repeat;
+		}
+	}
+}
+
+
+
+// 旧版写法
+
+/*列表页-分页按钮*/
+.page-prev-btn,.page-next-btn{
+    height: 38px;
+    line-height: 38px;
+    width: 78px;
+    background:#fff;
+    font-size:16px;
+    border:1px solid #d9d9d9;
+    color:#333;
+    text-align: center;
+    position: relative;
+    border-radius: 2px;
+    color: #333;
+	&:hover{
+        background-color:#f1f1f1;
+    }
+    &:before{
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	margin-left: -8px;
+    	margin-top: -8px;
+    	line-height: 1;
+    }
+}
+a.page-btn-dis{
+    border-color:#ededed;
+    color:#bcbcbc;
+    cursor: default!important;
+    background-color:#e3e3e3!important;
+    &:hover{
+        background-color:#e3e3e3!important;
+    }
+  //display: none!important;
+}
+
+
+.page-btn{
+    height: 38px;
+    line-height: 38px;
+    /*padding: 0 24px;*/
+    width: 64px;
+    background:#fff;
+    border:1px solid #d9d9d9;
+    margin: 0 3px;
+    color:#333;
+    font-size:16px;
+    border-radius: 2px;
+    &:hover{
+        background:#f1f1f1;
+    }
+}
+.page-btn-cur{
+    background:#049ee4;
+    border-color:#049ee4;
+    color:#fff;
+    &:hover{
+        background:#049ee4;
+    }
+}
+
+
+//  从 mod.main.scss 迁移过来
+.sort-page{
+	text-align:center;
+	_padding-bottom:2px;
+	.page-box{
+        font-size: 0;
+        margin-bottom: 97px;
+        span{
+            font-size: 12px;
+        }
+	}
+	.page-prev-btn{
+		margin-right: 3px;
+	}
+	.page-next-btn{
+		margin-left: 3px;
+	}
+	a{
+		display:inline-block;vertical-align:middle;
+	}
+}

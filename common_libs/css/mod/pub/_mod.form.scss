@@ -1,0 +1,796 @@
+@charset "utf-8";
+
+// Form
+//
+// 表单组件
+//
+// @css kaelyang
+// @优化修改 fierayan
+//
+// Styleguide 14
+
+// 简单单选组合
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line mod-form__radios-wrap">
+//		<label  class="mod-form__label"><b>*</b>简单单选组合</label>
+//		<div class="mod-form__content">
+//			<div class="radios">
+//				<div class="radio radio-check" data-value="1">
+//					<i></i><label><a href="">选项一</a></label>
+//				</div>
+//				<div class="radio" data-value="2">
+//					<i></i><label><a href="">选项二</a></label>
+//				</div>
+//			</div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.1
+
+// 复杂单选组合
+//
+// Markup:
+//<div class=mod-form>
+//	<div class="mod-form__line">
+//		<label  class="mod-form__label mod-form__label_top"><b>*</b>复杂单选组合</label>
+//		<div class="mod-form__content mod-form__radios-wrap">
+//			<div class="radios radios_line">
+//				<div class="radio radio-check">
+//					<i></i><label><a href="">选项一</a></label>
+//				</div>
+//				<div class="radio">
+//					<i></i><label><a href="">选项二</a></label>
+//					<div class="radio-input-wrap">
+//						<span class="unit">文</span>
+//						<input type="text" class="input-text_short" maxlength="3" placeholder="3">
+//						<span class="unit">本</span>
+//					</div>
+//				</div>
+//				<div class="radio radio_last">
+//					<i></i><label><a href="">选项三</a></label>
+//					<span class="radio-text-wrap">选项附加文本选项附加文本选项附加文本</span>
+//				</div>
+//			</div>
+//			<div class="field-help"></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.2
+
+// 复杂多选组合
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line">
+//		<label  class="mod-form__label mod-form__label_top"><b>*</b>复杂多选组合</label>
+//		<div class="mod-form__content mod-form__checkboxes-wrap">
+//			<div class="checkboxes">
+//				<div class="checkbox checkbox-check">
+//					<i></i><label>选项一</label>
+//					<div class="checkbox-input-wrap">
+//						<span class="unit">文</span>
+//						<input type="text" class="input-text_short" maxlength="3">
+//						<span class="unit">本</span>
+//					</div>
+//				</div>
+//			</div>
+//			<div class="field-help"></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.3
+
+// 选择时间按钮
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line mod-form__pick-date-wrap">
+//		<label  class="mod-form__label"><b>*</b><i>选择时间按钮</i></label>
+//		<div class="mod-form__content">
+//			<div class="diy-select-area">
+//				<a href=""  class="diy-select diy-picker diy-picker-toggle diy-pick-date" data-max="5">
+//					<input type="text" class="diy-select-ipt" placeholder="2014-06-26"/>
+//					<i class="icon-calender"></i>
+//				</a>
+//			</div>
+//			<div class="field-help"></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.4
+
+// 可操作组合
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line mod-form__duration-wrap">
+//		<label class="mod-form__label"><b>*</b><i>可操作组合</i></label>
+//		<div class="mod-form__content">
+//			<div class="mod-form__duration">
+//				<div class="diy-select-area">
+//					<a href=""  name="" class="diy-select diy-picker diy-picker-toggle" data-max="5">
+//						<input type="text" class="diy-select-ipt" placeholder="12:00"/>
+//						<span><b></b></span>
+//					</a>
+//				</div>
+//				<span class="time-bridge">至</span>
+//				<div class="diy-select-area">
+//					<a href="" class="diy-select diy-picker diy-picker-toggle" data-max="5" data-picker="group">
+//						<input type="text" class="diy-select-ipt" placeholder="13:52"/>
+//						<span><b></b></span>
+//					</a>
+//				</div>
+//				<a href="" class="mod-form__duration-op meta-link">删除</a>
+//			</div>
+//			<div class="mod-form__duration mod-form__duration_last">
+//				<div class="diy-select-area">
+//					<a href="" class="diy-select diy-picker diy-picker-toggle" data-max="5">
+//						<input type="text" class="diy-select-ipt" placeholder="13:52"/>
+//						<span><b></b></span>
+//					</a>
+//				</div>
+//				<span class="time-bridge">至</span>
+//				<div class="diy-select-area">
+//					<a href="" class="diy-select diy-picker diy-picker-toggle" data-max="5">
+//						<input type="text" class="diy-select-ipt" placeholder="15:00"/>
+//						<span><b></b></span>
+//					</a>
+//				</div>
+//				<a href="" class="mod-form__duration-op meta-link">添加</a>
+//			</div>
+//			<div class="field-help"></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.5
+
+// 组合下拉
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line mod-form__select-wrap">
+//		<label  class="mod-form__label"><b>*</b>组合下拉</label>
+//		<div class="mod-form__content">
+//			<div class="diy-select-area tmpl-tag1">
+//				<a href="" class="diy-select">
+//					<i class="text text-tip">请选择分类</i><span><b></b></span>
+//				</a>
+//			</div>
+//			<div class="diy-select-area tmpl-tag2">
+//				<a href="" class="diy-select">
+//					<i class="text text-tip">请选择分类</i><span><b></b></span>
+//				</a>
+//			</div>
+//			<div class="field-help"></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.6
+
+// 长下拉选择框
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line">
+//		<label  class="mod-form__label"><b>*</b><i>长下拉选择框</i><span>[<a target="_blank" href="" class="nor-link">?</a>]</span></label>
+//		<div class="mod-form__content mod-form__content-long g-succ">
+//			<!-- 这里如果要替换按钮，可参考 publish页面  -->
+//			<!-- <div class="diy-select-area select-video"> -->
+//			<div class="diy-select-area">
+//				<a href="" class="diy-select diy-picker diy-picker-toggle" data-max="5">
+//					<!-- 这里如果要替换按钮，可参考 publish页面  -->
+//					<!-- <i class="text text-tip">请选择第一节视频</i><span><i class="diy-picker-icon"></i></span> -->
+//					<i class="text text-tip">下拉框占位文本</i><span><b></b></span>
+//				</a>
+//			</div>
+//			<div class="field-help"><i></i><p></p></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.7
+
+// 输入框
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line">
+//		<label  class="mod-form__label"><b>*</b>短输入框</label>
+//		<div class="mod-form__content g-succ">
+//			<input type="text" class="input-text_short" maxlength="3" placeholder="占位">
+//			<div class="field-help"><i></i><p></p></div>
+//		</div>
+//	</div>
+//	<div class="mod-form__line">
+//		<label class="mod-form__label" for=""><b>*</b>一般长度输入框</label>
+//		<div class="mod-form__content g-info">
+//			<input type="text" class="input-text" placeholder="一般输入框占位" />
+//			<div class="field-help"><i></i><p>一般注释注释注释注释注释</p></div>
+//		</div>
+//	</div>
+//	<div class="mod-form__line">
+//		<label class="mod-form__label"><i>长输入框</i><span>[<a target="_blank" href="" class="nor-link">?</a>]</span></label>
+//		<div class="mod-form__content mod-form__content-long g-err">
+//			<input type="text" class="input-text" placeholder="长输入框占位"/>
+//			<div class="field-help"><i></i><p>警告提示很长很长很长很长很长很长很长很长很长很</p></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.8
+
+// 文本域
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line mod-form__textarea-wrap">
+//		<label  class="mod-form__label"><b>*</b>大段文本输入域</label>
+//		<div class="mod-form__content mod-form__content-long g-info">
+//			<textarea class="textarea" placeholder="请填写内容"></textarea>
+//			<div class="field-help"><i></i><p>文本域长度长度长度长度长度长度长度长度长度</p></div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.9
+
+// 上传图片
+//
+// Markup:
+//<div class="mod-form">
+//	<div class="mod-form__line mod-form__upload-img-wrap">
+//		<label  class="mod-form__label mod-form__label_top"><b>*</b>上传图片</label>
+//		<div class="mod-form__content">
+//			<!-- mod-form__upload-img_redo -->
+//			<div class="upload mod-form__upload-img">
+//				<div class="mod-form__upload-img-text">
+//					<span>+</span><i>点击上传图片</i>
+//				</div>
+//				<img class="hide" width="222" height="125" />
+//				<div class="mask">
+//					<div class="mask-bg"></div>
+//					<div class="mask-cont">重新上传图片</div>
+//				</div>
+//				<input type="file" accept="image/*"/>
+//			</div>
+//			<div class="mod-form__upload-tips">
+//				<p class="cover-tip">图片要求 <a href="http://ke.qq.com/docs/cover-description.jpg" class="nor-link" target="_blank">点击查看课程封面模版规范</a> <br>尺寸大于356X200<br>大小小于2M<br>支持JPG/PNG/BMP等格式图片</p>
+//				<div class="field-help"></div>
+//			</div>
+//		</div>
+//	</div>
+//</div>
+//
+// Styleguide 14.10
+
+// 选择卡片组合
+//
+// Markup:
+//<div class="mod-form">
+//<div class="mod-form__line mod-form__choose-card">
+//	<label  class="mod-form__label mod-form__label_top"><b>*</b><i>选择卡片组合</i><span>[<a target="_blank" href="" class="nor-link">?</a>]</span></label>
+//	<div class="mod-form__content">
+//		<a href="" class="btn-card on">
+//			<i></i>
+//			<h3>卡片1</h3>
+//			<p>上课工具：QQ客户端<br>课程的最高在线人数500左右<br>老师与学生课堂中互动性要求高<br>上课时依赖PPT或屏幕分享</p>
+//		</a>
+//		<a href="" class="btn-card">
+//			<i></i>
+//			<h3>卡片2</h3>
+//			<p>上课工具：腾讯视频<br>预计课程报名人数500以上<br>老师愿意通过真人视频进行上课直播<br>只能使用屏幕分享授课</p>
+//		</a>
+//	</div>
+//</div>
+//</div>
+//
+// Styleguide 14.11
+
+.mod-form__line{
+	position: relative;
+	_z-index:1;
+	margin-bottom: 20px;
+	font-size: 14px;
+	clear: both;
+}
+.mod-form__label{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 113px;
+	line-height: 39px;
+	_height:39px;
+	zoom: 1;
+	text-align: right;
+	&.mod-form__label_top{
+		top: -13px;
+	}
+	b{
+		color: #e80808;
+		margin-right: 3px;
+	}
+	span{
+		color: #999;
+	}
+}
+.mod-form__content{
+	font-size: 0;
+	padding-left:143px;
+	width: 775px;
+	display:inline-block;vertical-align:middle;
+	vertical-align: top;
+	.input-text{
+		width: 375px;
+		vertical-align: middle;
+	}
+	.unit{
+		font-size: 14px;
+		display:inline-block;vertical-align:middle;
+		margin:0 3px;
+	}
+}
+
+// 上传图片部分
+
+.mod-form__upload-img-wrap{
+	height: 127px;
+	overflow: hidden;
+	zoom: 1;
+	.field-help{
+		margin-left: 0;
+	}
+}
+.mod-form__upload-img{
+	float: left;
+	width: 222px;
+	height: 125px;
+	line-height: 125px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	background: #eff1f3;
+	&:hover{
+		.mask{
+			display: none;
+		}
+		.mod-form__upload-img-text span{
+			color: #68b30f;
+		}
+	}
+
+}
+.mod-form__upload-img-text{
+	span, i{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 220px;
+		text-align: center;
+		font-size: 80px;
+		line-height: 80px;
+		color: #bfbfbf;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+	i{
+		top: 90px;
+		text-align: center;
+		font-size: 14px;
+		line-height: 14px;
+	}
+}
+.mod-form__upload-img_redo{
+	.mod-form__upload-img-text{
+		display: none;
+		font-size: 14px;
+	}
+	&:hover{
+		.mask{
+			display: block;
+			font-size: 14px;
+		}
+	}
+}
+.mod-form__upload-tips{
+	font-size: 14px;
+	float: left;
+	margin: -5px 0 0 20px;
+	line-height: 25px;
+	color: #b1b1b1;
+}
+.mod-form__upload-img_covered:hover{
+	.mask{
+		display: block;
+	}
+}
+
+// 组合下拉框部分
+
+.mod-form__select-wrap{
+	_z-index: 2;
+	height: 39px;
+	.mod-form__content{
+		float: left;
+		height: 39px;
+	}
+	.diy-select-area{
+		font-size: 14px;
+		float: left;
+		width: 127px;
+		margin-right: 10px;
+		.diy-optgroud{
+			width: 125px;
+		}
+	}
+	.field-help{
+		margin-top: 12px;
+		margin-left: 0;
+	}
+}
+
+// 组合单选框部分
+
+.mod-form__radios-wrap{
+	.radios{
+		font-size: 14px;
+		float: left;
+		height: 18px;
+		padding: 10px 0 11px;
+		_margin-left: 15px;
+		.radio{
+			float: left;
+			cursor: pointer;
+			margin-right: 20px;
+			a, a:hover{
+				color: #202020;
+			}
+		}
+		.radio-disabled, .disabled{
+			a, a:hover{
+				color: #999;
+			}
+			a:active{
+				text-decoration: none;
+			}
+		}
+
+		// 为什么会出现在结构里==
+		.checkbox{
+			float: left;
+			height: 16px;
+		}
+
+
+	}
+	// 单选框分行
+	.radios_line{
+		float:none;
+		height: auto;
+		padding-top: 0;
+		.radio{
+			float: none;
+			margin-bottom: 20px;
+			height: auto;
+			overflow: visible;
+			i{
+				_left:-26px;
+			}
+		}
+		.radio_last{
+			margin-bottom: 0;
+		}
+		.radio-input-wrap{
+			position: absolute;
+			top: -13px;
+			left: 130px;
+			display:inline-block;vertical-align:middle;
+		}
+		.radio-text-wrap{
+			position: absolute;
+			top: 0;
+			left: 130px;
+			display:inline-block;vertical-align:middle;
+		}
+		a{
+			display:inline-block;vertical-align:middle;
+			vertical-align: top;
+		}
+	}
+}
+.mod-form__checkboxes-wrap{
+	.checkbox{
+		height: auto;
+		overflow: visible;
+		i{
+			*top:6px;
+			_left:-23px;
+		}
+	}
+	.checkbox-input-wrap{
+		position: absolute;
+		top: -15px;
+		left: 130px;
+		display:inline-block;vertical-align:middle;
+	}
+}
+
+// 选择card部分
+
+.mod-form__choose-card{
+	.btn-card{
+		width: 225px;
+		height: 158px;
+		padding: 0 18px;
+		margin-right: 20px;
+	}
+	h3{
+		padding: 14px 0 6px;
+		line-height: 18px;
+		text-align: left;
+		font-size: 18px;
+		color: #202020;
+
+		span {
+			color: #999;
+		}
+	}
+	p{
+		line-height: 22px;
+		text-align: left;
+		font-size: 14px;
+		color: #999;
+	}
+}
+
+// 选择日期部分
+
+.mod-form__pick-date-wrap{
+	.diy-select-area{
+		width: 125px;
+		_margin-left: 31px;
+		.diy-select{
+			.i-calender{
+				display:inline-block;vertical-align:middle;
+				margin-bottom: 2px;
+				margin-left: 5px;
+
+			}
+		}
+/* 		.chose-date{
+	display:inline-block;vertical-align:middle;
+	position: relative;
+	width: auto;
+	height: auto;
+} */
+	}
+}
+
+// 设置时间段部分
+
+.mod-form__duration-wrap{
+	.mod-form__duration{
+		font-size: 14px;
+		margin-bottom: 20px;
+		_margin-left:31px;
+		&.mod-form__duration_last{
+			margin-bottom: 0;
+		}
+		.diy-select-ipt{
+			width:60px;
+		}
+	}
+	.diy-select-area{
+		display:inline-block;vertical-align:middle;
+		width: 95px;
+		.diy-optgroud{
+			width: 93px;
+		}
+	}
+	.datetime-end{
+		width: 137px;
+		.diy-select-ipt{
+			width: 102px;
+		}
+		.diy-optgroud{
+			width: 135px;
+		}
+		.diy-option{
+			position: relative;
+			i{
+				position: absolute;
+				left: 50px;
+				top: 0;
+				color: #999;
+			}
+		}
+	}
+	.time-bridge{
+		display:inline-block;vertical-align:middle;
+		margin: 0 5px;
+		position: relative;
+	}
+	.mod-form__duration-op{
+		display:inline-block;vertical-align:middle;
+		margin-left: 5px;
+	}
+}
+
+// 包含日期选择器部分
+
+.mod-form__calender-wrap{
+	.radios{
+		float: none;
+		margin-bottom: 10px;
+	}
+}
+
+// textarea 部分
+
+.mod-form__textarea-wrap{
+	textarea{
+		float: left;
+		font-size: 14px;
+	}
+	.field-help{
+		float: left;
+		margin-top: 5px;
+	}
+}
+
+
+// 长单一输入内容区
+
+.mod-form__content-long{
+	.diy-select-area{
+		font-size: 14px;
+		display:inline-block;vertical-align:middle;
+		width:538px;
+	}
+	.input-text{
+		width: 522px;
+	}
+	.textarea{
+		width:530px;
+	}
+	.field-help{
+		i{
+			display:inline-block;vertical-align:middle;
+			float: none;
+		}
+		p{
+			display:inline-block;vertical-align:middle;
+			@include max-width(13em);
+			_width:10em;
+			float: none;
+		}
+	}
+	&.g-succ{
+		.field-help p{
+			display: none;
+		}
+	}
+}
+
+// 小输入框
+
+.input-text_short{
+	width: 34px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+// 一般文字
+
+.mod-form__normal-text{
+	font-size: 14px;
+	text-indent: 40px;
+}
+
+// 下拉框，输入框高度重写
+
+.mod-form_tight{
+	.mod-form__content{
+		.input-text,.input-text_short{
+			padding:5px 13px 3px;
+		}
+		.diy-select-area{
+			.diy-select{
+				height: 28px;
+				line-height: 28px;
+				span{
+					height: 28px;
+				}
+				b{
+					top:13px;
+				}
+			}
+			.diy-optgroud{
+				top:29px;
+				.diy-option{
+					height: 30px;
+					line-height: 30px;
+				}
+			}
+			.diy-select-ipt{
+				padding: 5px 0 5px 10px;
+			}
+		}
+		.select-qun ,.select-person ,.select-video {
+			.diy-picker-icon{
+				margin-top: -4px;
+				color: #999;
+			}
+		}
+	}
+	.mod-form__duration-wrap{
+		margin-bottom: 10px;
+	}
+	.mod-form__radios-wrap{
+		.radios{
+			padding: 6px 0;
+		}
+		.radios_line{
+			padding-top: 0;
+			.radio-input-wrap{
+				top:-8px;
+			}
+		}
+	}
+	.mod-form__checkboxes-wrap .checkbox-input-wrap{
+		top:-8px;
+	}
+	.mod-form__label{
+		line-height: 29px;
+		&.mod-form__label_top{
+			top:-8px;
+		}
+	}
+	.mod-form__select-wrap .field-help{
+		margin-top: 8px;
+	}
+}
+
+// 分模块情况新增元素
+
+.mod-form__block{
+
+}
+.mod-form__block-name{
+	font-weight: normal;
+	font-size: 18px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #F2F2F2;
+}
+.mod-form__block-content{
+	padding: 20px 0 60px;
+}
+.mod-form__main-text,.mod-form__link{
+	font-size: 14px;
+	display:inline-block;vertical-align:middle;
+	vertical-align: middle;
+	height: 30px;
+	line-height: 30px;
+}
+.mod-form__link{
+	color:#3672A2;
+	margin-left: 15px;
+	&:hover{
+		color: #62B4F7;
+	}
+}
+
+
+
+
+
