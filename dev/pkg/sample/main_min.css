@@ -1,11 +1,0 @@
-/* /widget/dialog/index.scss *//* /widget/tab/index.scss *//* /widget/tips/index.scss *//* /widget/search-bar/index.scss *//* /widget/loading/index.scss *//* /widget/slider/index.scss *//* /widget/scroller/index.scss */.ui-scroller {
-  width: auto;
-  height: 300px;
-  margin: 20px;
-  padding: 10px;
-  overflow: hidden;
-  border: 1px solid #ccc; }
-
-.ui-scroller li {
-  margin-bottom: 10px; }
-/* /widget/label-list/index.scss *//* /widget/action-sheet/index.scss */
