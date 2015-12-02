@@ -9,7 +9,11 @@
 .ui-tab{
     width: 100%;
     overflow: hidden;
+    margin: 20px 0;
+    border-top: $section-border;
+    border-bottom: $section-border;
 }
+
 .ui-tab-nav{
     width: 100%;
     background-color: $default-bg;

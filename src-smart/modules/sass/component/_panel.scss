@@ -6,6 +6,8 @@
 .ui-panel{
     overflow: hidden;
     margin-bottom: 10px;
+    background-color: #fff;
+    border: $section-border;
     .ui-grid-halve,.ui-grid-trisect{
         padding-top: 0;
     }
