@@ -1,0 +1,194 @@
+@charset "utf-8";
+/*通用*/
+
+.meta-mt-medium{
+	margin-top: 20px;
+}
+
+// .nomargin{
+//     margin:0!important;
+// }
+// .nopadding{
+//     padding:0!important;
+// }
+.mt10{
+    margin-top:10px!important;
+}
+.mt20{
+    margin-top:20px!important;
+}
+.mt30{
+    margin-top:30px!important;
+}
+.mb10{
+    margin-bottom:10px!important;
+}
+.mb20{
+    margin-bottom:20px!important;
+}
+.mb30{
+    margin-bottom:30px!important;
+}
+.pt10{
+    padding-top:10px!important;
+}
+.pt20{
+    padding-top:20px!important;
+}
+.pt30{
+    padding-top:30px!important;
+}
+.pb10{
+    padding-bottom:10px!important;
+}
+.pb20{
+    padding-bottom:20px!important;
+}
+.pb30{
+    padding-bottom:30px!important;
+}
+.mrl15{
+    margin-left:15px;
+    margin-right:15px;
+}
+.mrl25{
+    margin-left:25px;
+    margin-right:25px;
+}
+// .nofont{
+//     @include no-font();
+// }
+// .noborder{
+//     border: 0 none !important;
+// }
+.ellipsis{
+    @include ellipsis();
+}
+.nor-link{
+    color:#039ae3;
+    &:hover{
+        color:#039ae3;
+        //text-decoration: underline;
+    }
+}
+.nor-link-stress{
+    color:#039ae3;
+}
+.tb{
+    border-top:1px solid #dcdcdc;
+}
+.rb{
+    border-right:1px solid #dcdcdc;
+}
+.bb{
+    border-bottom:1px solid #dcdcdc;
+}
+.lb{
+    border-left:1px solid #dcdcdc;
+}
+.tal{
+    text-align:left;
+}
+.tar{
+    text-align:right;
+}
+.tac{
+    text-align:center;
+}
+
+.autoM{margin:0 auto;width:1200px;}
+.autoM-2{margin:0 auto;width:1110px;}
+
+/*字体颜色*/
+
+.meta-c-strong{
+	color: #E85308;
+}
+.red{
+    color:#e13c1e;
+}
+.blue{
+    color:#039ae3;
+}
+.c999{
+    color:#999;
+}
+/*字体大小*/
+.fs12{
+    font-size:12px;
+}
+.fs14{
+    font-size:14px;
+}
+.fs16{
+    font-size:16px;
+}
+.fs18{
+    font-size:18px;
+}
+.fs20{
+    font-size:20px;
+}
+.fs22{
+    font-size:22px;
+}
+.fs24{
+    font-size:24px;
+}
+/*通用ICON*/
+.icon-xl{
+    padding-left:16px;
+    background-position:-4px -62px;
+    overflow: hidden;
+}
+.icon-cl{
+    padding-left:16px;
+    background-position:-4px -21px;
+    overflow: hidden;
+}
+.icon-sy{
+    padding-left:16px;
+    background-position:-4px -41px;
+    overflow: hidden;
+}
+
+.nodata-info{
+    padding: 0 10px;
+    .ico-wording{
+        margin-left: 10px;
+        display:block;
+        float:left;
+        font-size:14px;
+    }
+}
+
+// 通用链接变色
+
+.meta-link{
+	color: #1A96E1;
+	&:hover{
+		color: #1B88DA;
+	}
+	&:active{
+		color: #1076B5;
+	}
+}
+// display
+
+// .meta-d-ib{
+// 	@include inline-block;
+// }
+
+// float:left
+
+.meta-f-l{
+	float: left;
+}
+
+// 黑色文字
+
+.meta-c-dark{
+	color: #333333!important;
+}
+
+

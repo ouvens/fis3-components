@@ -16,25 +16,22 @@
     refresh()   function    -   刷新当前位置
     destroy()   function    -   销毁对象
  */
- 
+
+var menuTpl = require('./index.tpl');
+
 var slider = {
     $el: $('#ui-page-menu'),
 
-    init: function() {
-
-        this._renderData();
+    init: function (data) {
+        this._renderData(data);
         this._bindEvent();
     },
 
-    _renderData: function() {
-        this._ajaxData();
+    _renderData: function (data) {
+        this.$el.find('#ui-slider-content').html(menuTpl({data: data}));
     },
 
-    _ajaxData: function() {
-
-    },
-
-    _bindEvent: function() {
+    _bindEvent: function () {
         var slider = new fz.Scroll('#ui-page-menu', {
             role: 'slider',
             indicator: true,
@@ -42,14 +39,14 @@ var slider = {
             interval: 30000
         });
 
-        slider.on('beforeScrollStart', function(from, to) {
+        slider.on('beforeScrollStart', function (from, to) {
             console.log(from, to);
         });
 
-        slider.on('scrollEnd', function(curPage) {
+        slider.on('scrollEnd', function (curPage) {
             console.log(curPage);
         });
     }
-}
+};
 
 module.exports = slider;

@@ -1,0 +1,12 @@
+<!--合作机构-->
+<div class="market-hd" style="padding-left:15px;margin-bottom:21px;"><span class="title">合作机构</span><a href="/agency/join/index.html"  target="_blank" class="more">机构入驻</a></div>
+<div class="hz-menu-bd">
+  <a href="javascript:void(0)" class="prev-btn dis icon-font i-v-left" title="上一页" id="js_agency_prev" style="display:none">上一页</a>
+  <a href="javascript:void(0)" class="next-btn icon-font i-v-right" class="下一页" id="js_agency_next" style="display:none">下一页</a>
+  <div class="hz-menu-bd-inner slider"  id="js_agency_cnt">
+    <ul class="business-list sliderbox" id="js_agency_list" style="width:3680px;">
+      <% TmplInline_common.agency_list({agencys: agencys}); %>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>

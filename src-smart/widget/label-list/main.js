@@ -9,27 +9,24 @@
     type    string  'info'  提示类型，可选info|warn|success
     callback    funtion function(){}    回调函数，第一个参数指示回调类型，目前有两种show|hide
  */
- 
+
+var labelTpl = require('./index.tpl');
 var labelList = {
-    $el: $('.ui-label-list'),
+    $el: $('#ui-label-panel'),
 
-    init: function() {
+    init: function(data) {
 
-        this._renderData();
+        this._renderData(data);
         this._bindEvent();
     },
 
-    _renderData: function() {
-        this._ajaxData();
-    },
-
-    _ajaxData: function() {
-
+    _renderData: function(data) {
+        this.$el.find('.ui-label-list').html(labelTpl({data: data}));
     },
 
     _bindEvent: function() {
 
     }
-}
+};
 
 module.exports = labelList;

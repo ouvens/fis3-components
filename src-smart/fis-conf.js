@@ -156,6 +156,11 @@ fis.media('dev')
         deploy: fis.plugin('local-deliver', {
             to: '../dev'
         })
+    })
+    .match('**.json', {
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
+        })
     });
 
 /**

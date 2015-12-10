@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+%side-icon-basic{
+	display: block;
+	width: 40px;
+	height: 40px;
+}
+
+// 右侧浮动操作组件
+// @css fieryaan
+.wrap-side-operation{
+    position: fixed;
+    right:20px;
+    bottom:50px;
+    z-index: 999;
+    font-size: 14px;
+
+    .js-jump-container{
+        display:none;
+        position:relative;
+        cursor:pointer;
+        width: 40px;
+        height: 40px;
+    }
+    .js-jump-plan-container{
+        position:absolute;
+        top: -7px;
+        left: -1px;
+        width:42px;
+        height:56px;
+        overflow: hidden;
+
+        .js-jump-plane{
+            display:block;
+            position:absolute;
+            width: 42px;
+            height: 56px;
+            left:0;
+            top:56px;
+            background:url("/common/img/bg/index-sprite.png#unsprite") no-repeat 0 -400px;
+		}
+    }
+}
+.mod-side-operation__jump-to-top{
+	@extend %side-icon-basic;
+	background: #ccc;
+	.i-to-top{
+		color: #fff;
+		font-size: 32px;
+		line-height: 40px;
+		width: 40px;
+		text-align: center;
+		display: block;
+	}
+}
+.mod-side-operation__jump-to-top-hover{
+	background: #188EEE;
+	.i-to-top{
+		display: none;
+	}
+}
+
+.mod-side-operation{
+	width: 40px;
+	text-align: center;
+}
+
+.side-service-item{
+	@extend %side-icon-basic;
+	text-align: center;
+	position: relative;
+	margin-top: 10px;
+
+	.item-icon{
+		@extend %side-icon-basic;
+		background-color: #ccc;
+		color: #fff;
+		font-size: 30px;
+		line-height: 40px;
+	}
+	.item-hover-text{
+		display: none;
+		width: 40px;
+		padding-top: 4px;
+		line-height: 16px;
+	}
+	.item-hover-tips{
+		display: none;
+	}
+	.item-link-block{
+		@extend %side-icon-basic;
+		&:hover{
+			color: white;
+		}
+	}
+	&:hover{
+		background: #188EEE;
+		color: white;
+		.item-icon{
+			display: none;
+		}
+		.item-hover-text{
+			display: block;
+		}
+	}
+}
+.side-service-qq,
+.side-service-weixin{
+  display: none;
+}
+.side-service-weixin{
+	&:hover{
+		.item-hover-tips{
+			display: block;
+			width: 111px;
+			height: 126px;
+			position: absolute;
+			z-index: 999;
+			left: -121px;
+			top: -34px;
+			background: url("../img/bg/side-tips-qr-code-weixin.png") no-repeat;
+		}
+	}
+}
+.side-service-qr-code{
+	&:hover{
+		.item-hover-tips{
+			display: block;
+			width: 211px;
+			height: 126px;
+			position: absolute;
+			z-index: 999;
+			left: -221px;
+			top: -34px;
+			background: url("/common/img/bg/index-sprite.png#unsprite") no-repeat  0 -260px;
+		}
+	}
+}

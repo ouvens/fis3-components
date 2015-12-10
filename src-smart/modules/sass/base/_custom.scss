@@ -17,3 +17,10 @@
     border-radius: 10px;
     background-color: #b7b7b7;
 }
+
+.transition{
+    -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}

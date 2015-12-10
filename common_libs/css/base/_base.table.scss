@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+// scss结构注释
+// 如需控制各个列的宽度，则在th上添加class`th-col-n`（n表示宽度）或`th-col-name`
+// .tb-list
+// 	thead>tr>th 
+// 	tbody>tr>td 
+
+// 内容中可能会使用到的class或@extend
+// .ellipsis
+// @extend %ellipsis //超过省略
+// .link-url
+// @extend %word-break //强制换行
+
+.tb-list{
+	table-layout: fixed;
+	width: 100%;
+	box-sizing: border-box;
+
+	tbody tr{
+		border-bottom: 1px solid $colorBorder;
+		&:hover,
+		&.active{
+			background: $colorBorder;
+		}
+	}
+	th,
+	td{
+		padding: 10px;
+		box-sizing: border-box;
+	}
+	th{
+		background: $grayF;
+		color: #999;
+		text-align: left;
+		font-weight: normal;
+	}
+	a{
+		color: #3672a2;
+		&:hover{
+			color: #0d80d7;
+		}
+	}
+}

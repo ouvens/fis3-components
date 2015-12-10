@@ -16,24 +16,26 @@
     destroy()   function    -   销毁对象
  */
 
+var recmendList = require('tab-recmend');
+var moreList = require('tab-more');
+
+var hasLoaded = false;
 var tab = {
     $el: $('.ui-tab'),
+    model: {},
     
-    init: function() {
-
-        this._renderData();
+    init: function(data) {
+        this.model = data;
+        this._renderData(data);
         this._bindEvent();
     },
 
-    _renderData: function() {
-        this._ajaxData();
-    },
-
-    _ajaxData: function() {
-
+    _renderData: function(data) {
+        recmendList.init(data.recmendList);
     },
 
     _bindEvent: function() {
+        var self = this;
         var $tab = new fz.Scroll('.ui-tab', {
             role: 'tab',
             autoplay: false,
@@ -48,6 +50,16 @@ var tab = {
         /* 滑动结束 */
         $tab.on('scrollEnd', function(curPage) {
             // curPage 当前页
+            switch(curPage){
+                case 1:
+                    moreList.init(self.model.moreList);
+                    break;
+                case 0:
+                    recmendList.init(self.model.recmendList);
+                    break;
+                default:
+                    break;
+            }
         });
     }
 }

@@ -1,0 +1,33 @@
+<div class="tips-bd">
+	<i class="icon-font i-success icon-msg-large"></i>
+	<div class="remindt-header<%=opt.noheader ? ' hide' : ''%>">
+		报名成功
+		<a href="/myCourse/index.html#sid=plan" class="remindt-header-link nor-link" target="_blank">我的课表</a>
+
+		<br>请选择希望接收上课提醒的班级（可多选）：</div>
+	<div class="mod-choose-time mod-choose-time_pop" style="position:relative;display:block;">
+		<ul>
+			<%
+				for(var i = 0, len = terms.length; i < len; i++) {
+					var e = terms[i];
+			%>
+			<li class="mod-choose-time__li<%= terms[i].isRemind ? ' mod-choose-time__li_current' : '' %>
+				" data-termid="
+				<%=terms[i].term_id%>
+				" data-index="
+				<%=i%>
+				">
+				<span class="icon-corner-selected"> <i class="icon-font i-right"></i>
+				</span>
+				<span class="choose-class-tt">班级名称班级名称</span>
+				<span class="mod-choose-time__time">
+					<%= $.render.time.formatDate('M月D日', e.bgtime * 1000) + '至' + $.render.time.formatDate('M月D日', e.endtime * 1000) %></span>
+			</li>
+			<% } %></ul>
+	</div>
+</div>
+
+<div class="modal-ft">
+    <a href="javascript:void(0);" title="继续找课" class="modal-ft-btn--link js-modal-close modal-cancel" target="_blank">继续找课</a>
+    <a href="javascript:void(0);" title="立即学习" class="btn-default js-modal-close modal-accept" target="_blank">立即学习</a>
+</div>

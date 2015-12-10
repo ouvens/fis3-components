@@ -1,0 +1,10 @@
+<div class="usercard">
+   <a class="user-head" href="<%=user.logoLink||'http://ke.qq.com/user/index/index.html#sid=course'%>">
+       <img id="user-head" lazy-src="<%=user.logo%>">
+       <span class="border"></span>
+   </a>
+   <div class="user-name">
+   		<a id="auto-test-userName" title="<%=user.nick_name%>" href="http://ke.qq.com/user/index/index.html#sid=course" target="_blank"><%=strEllipsis.substring(user.nick_name, 100/14*12, 1)%></a>
+   </div>
+   <div class="user-welcome">Hello，你好！</div>
+</div>

@@ -16,22 +16,20 @@
     refresh()   function    -   刷新当前位置
     destroy()   function    -   销毁对象
  */
- 
+
+var sliderTpl = require('./index.tpl');
+
 var slider = {
     $el: $('#ui-slider'),
 
-    init: function() {
+    init: function(data) {
 
-        this._renderData();
+        this._renderData(data);
         this._bindEvent();
     },
 
-    _renderData: function() {
-        this._ajaxData();
-    },
-
-    _ajaxData: function() {
-
+    _renderData: function(data) {
+        this.$el.find('.ui-slider-content').html(sliderTpl({data: data}));
     },
 
     _bindEvent: function() {

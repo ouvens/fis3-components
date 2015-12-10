@@ -5,17 +5,18 @@
  */
 
 'use strict';
+var labelList = require('label-list');
 
 var searchBar = {
     $el: $('#ui-search-bar'),
-    init: function() {
+    init: function(data) {
 
-        this._renderData();
+        this._renderData(data);
         this._bindEvent();
     },
 
-    _renderData: function() {
-        this._ajaxData();
+    _renderData: function(data) {
+        labelList.init(data);
     },
 
     _ajaxData: function() {
@@ -23,12 +24,15 @@ var searchBar = {
     },
 
     _bindEvent: function() {
+        var self = this;
         this.$el.on('click', '.ui-searchbar', function(){
-            $('.ui-searchbar-wrap').addClass('focus');
-            $('.ui-searchbar-input input').focus();
+            self.$el.addClass('focus');
+            self.$el.find('.ui-searchbar-input input').focus();
+            $('#ui-label-panel').addClass('show');
         });
         this.$el.on('click', '.ui-searchbar-cancel', function(){
-            $('.ui-searchbar-wrap').removeClass('focus');
+            self.$el.removeClass('focus');
+            $('#ui-label-panel').removeClass('show');
         });
     }
 }

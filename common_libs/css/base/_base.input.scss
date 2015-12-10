@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+// Radio
+//
+// 类原型radio
+//
+// :hover 			- Hover态
+// .radio-check		- Check态
+// .radio-disabled	- Disbale态
+//
+// Markup:
+// <div class="radio {$modifiers}" name="type">
+//	<i></i>
+//	<label></label>
+// </div>
+//
+// Styleguide 3
+
+.radio {
+	height: 18px;
+	line-height: 18px;
+	padding-left: 28px;
+	overflow: hidden;
+	position: relative;
+	i {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 18px;
+		width: 18px;
+		background: url("/common/img/bg/icon-form.png#unsprite") no-repeat;
+	}
+	&:hover {
+		i {
+			background-position: 0 -20px;
+		}
+	}
+	&.disabled:hover{
+		i{
+			background-position: 0 -80px;
+		}
+	}
+	&.disabled.radio-check{
+		i{
+			background-position: 0 -60px;
+		}
+	}
+}
+
+.radio-check i,
+.radio-check:hover i {
+	background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -40px;
+}
+
+.radio-disabled i,
+.radio-disabled:hover i {
+	background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -80px;
+}
+.radio-check-disabled{
+	cursor: pointer;
+}
+.radio-check-disabled i,
+.radio-check-disabled:hover i {
+  background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -60px;
+}
+
+// Checkbox
+//
+// 类原型checkbox
+//
+// :hover 				- Hover态
+// .checkbox-check		- Check态
+// .checkbox-disabled	- Disbale态
+// .checkbox-check-disabled	- Check & Disbale态
+//
+// Markup:
+// <div class="checkbox {$modifiers}" name="type">
+//	<i></i>
+//	<label></label>
+// </div>
+//
+// Styleguide 6
+
+.checkbox {
+	font-size: 14px;
+	height: 18px;
+	line-height: 18px;
+	padding-left: 28px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	i {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 18px;
+		width: 18px;
+		background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -100px;
+	}
+	&:hover {
+		i {
+			background-position: 0 -120px;
+		}
+	}
+}
+
+.checkbox-check i,
+.checkbox-check:hover i {
+	background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -140px;
+}
+
+.checkbox-disabled i,
+.checkbox-disabled:hover i,
+.checkbox.disabled i,
+.checkbox.disabled:hover i {
+	background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -180px;
+}
+
+.checkbox-check-disabled{
+	cursor: default;
+}
+.checkbox-check-disabled i,
+.checkbox-check-disabled:hover i,
+.checkbox-check.disabled i,
+.checkbox-check.disabled:hover i {
+	background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -160px;
+}
+// 输入框
+//
+// :hover       - Hover态
+// :active		- Active态
+//
+// Markup:
+// <input class="{$modifiers}" type="text" placeholder="请输入...">
+//
+// Styleguide 2.1
+input {
+	border: 1px solid $colorBorder;
+	padding: 9px 10px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	&:hover,
+	&:focus {
+		border-color: #9a9a9a;
+	}
+}
+
+
+// 文本域
+//
+
+.textarea{
+	width: 530px;
+	height: 120px;
+	padding: 10px;
+	border: 1px solid $colorBorder;
+	overflow: auto;
+	resize: none;
+	font-size: 14px;
+	&:hover{
+		border-color: #9a9a9a;
+	}
+}
+textarea{
+	border: 1px solid $colorBorder;
+}
+
+// 输入块
+//
+// .g-err		- 错误态
+// .g-info		- 提示态
+//
+// Markup:
+// <div class="field {$modifiers}">
+//		<input type="text" placeholder="请输入">
+// 		<div class="field-help"><i></i><p>课程命名不能为空</p></div>
+// </div>
+//
+// Styleguide 2.2
+.field {
+	input {
+		vertical-align: middle;
+	}
+	.field-help {
+		vertical-align: middle;
+		position: relative;
+	}
+}
+
+.field-help,
+.warning-tips {
+	display: none;
+	margin-left: 10px;
+	i {
+		display: block;
+		height: 14px;
+		width: 14px;
+		float: left;
+		background: url("/common/img/bg/icon-form.png#unsprite") no-repeat;
+	}
+	p {
+		font-size: 14px;
+		line-height: 14px;
+		margin-left: 5px;
+		float: left;
+	}
+}
+
+.g-err {
+	.field-help {
+		display:inline-block;
+		vertical-align:middle;
+		position: relative;
+		i {
+			background-position: -2px -260px;
+		}
+		p {
+			color: #ea6533;
+		}
+	}
+	input {
+		border-color: #e80808;
+	}
+	textarea{
+		border-color:#e80808;
+	}
+}
+
+.g-warn,
+.g-info {
+	.field-help,
+	.warning-tips {
+		display:inline-block;vertical-align:middle;
+		vertical-align: middle;
+		position: relative;
+		i {
+			
+			background-position: -2px -220px;
+		}
+	}
+}
+
+.g-succ {
+	.field-help {
+		display:inline-block;vertical-align:middle;
+		vertical-align: middle;
+		position: relative;
+		i {
+			background-position: -2px -240px;
+		}
+		p {
+			display: none;
+		}
+	}
+}

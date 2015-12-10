@@ -1,0 +1,96 @@
+<ul class="mycourse-remind-subtitle"><li>设置提醒的方式</li></ul>
+<div class="mycourse-remind-dl">
+    <p class="mycourse-remind-dd">该课程已有提醒：</p>
+    <% if(notifyNum) { %>
+        <% if(tips == 1) {%>
+        <div class="mycourse-remind-dt" data-propety="tips">
+            <label class="mycourse-remind-dt-rol1">QQ</label>
+            <span class="mycourse-remind-dt-rol2"><%= uin %></span><a class="mycourse-remind-dt-rol3 nor-link">取消提醒</a>
+        </div>
+        <% } %>
+        <% if(public_account == 1) {%>
+        <div class="mycourse-remind-dt" data-propety="public_account">
+            <label class="mycourse-remind-dt-rol1">公众帐号</label>
+            <span class="mycourse-remind-dt-rol2 nor-link">
+                <a class="mycourse-remind-public nor-link"><i class="icon-font i-logo"></i>腾讯课堂
+                    <span class="mycourse-remind-public-cover">
+                        <span class="mycourse-remind-public-cover-arrow"></span>
+                        <span class="mycourse-remind-public-cover-arrow-outer"></span>
+                        <span class="mycourse-remind-public-cover-avatar"><span class="qr-qq-public"></span></span>
+                    </span>
+                </a>
+            </span><a class="mycourse-remind-dt-rol3 nor-link">取消提醒</a>
+        </div>
+        <% } %>
+        <% if(sms == 1) {%>
+        <div class="mycourse-remind-dt" data-propety="sms">
+            <label class="mycourse-remind-dt-rol1">手机</label>
+            <%if(mobile_number) {%>
+                <span class="mycourse-remind-dt-rol2"><%=mobile_number%></span><a class="mycourse-remind-dt-rol3 nor-link">取消提醒</a>
+            <% } else { %>
+                <a class="mycourse-remind-dt-rol3 nor-link">设置提醒</a>
+            <% } %>
+        </div>
+        <% } %>
+        <% if(email == 1) {%>
+        <div class="mycourse-remind-dt" data-propety="email">
+            <label class="mycourse-remind-dt-rol1">邮箱</label>
+            <%if(email_string) {%>
+                <span class="mycourse-remind-dt-rol2"><%=email_string%></span><a class="mycourse-remind-dt-rol3 nor-link">取消提醒</a>
+            <% } else { %>
+                <a class="mycourse-remind-dt-rol3 nor-link">设置提醒</a>
+            <% } %>
+        </div>
+        <% } %>
+    <% } else { %>
+        <div class="mycourse-remind-dt"><label class="mycourse-remind-dt-rol1">暂无</label></div>
+    <% } %>
+</div>
+
+<div class="mycourse-remind-dl">
+    <p class="mycourse-remind-dd">可设置其他提醒：</p>
+    <% if(4 - notifyNum > 0) { %>
+        <% if(tips == 2) {%>
+        <div class="mycourse-remind-dt" data-propety="tips">
+            <label class="mycourse-remind-dt-rol1">QQ</label>
+            <span class="mycourse-remind-dt-rol2"><%= uin %></span><a class="mycourse-remind-dt-rol3 nor-link">添加提醒</a>
+        </div>
+        <% } %>
+        <% if(public_account == 2) {%>
+        <div class="mycourse-remind-dt" data-propety="public_account">
+            <label class="mycourse-remind-dt-rol1">公众帐号</label>
+            <span class="mycourse-remind-dt-rol2">
+                <a class="mycourse-remind-public nor-link"><i class="icon-font i-logo"></i>腾讯课堂
+                    <span class="mycourse-remind-public-cover">
+                        <span class="mycourse-remind-public-cover-arrow"></span>
+                        <span class="mycourse-remind-public-cover-arrow-outer"></span>
+                        <span class="mycourse-remind-public-cover-avatar"><span class="qr-qq-public"></span></span>
+                    </span>
+                </a>
+            </span><a class="mycourse-remind-dt-rol3 nor-link">添加提醒</a>
+        </div>
+        <% } %>
+        <% if(sms == 2) {%>
+        <div class="mycourse-remind-dt" data-propety="sms">
+            <label class="mycourse-remind-dt-rol1">手机</label>
+            <%if(mobile_number) {%>
+                <span class="mycourse-remind-dt-rol2"><%=mobile_number%></span><a class="mycourse-remind-dt-rol3 nor-link js-remind-cancel">添加提醒</a>
+            <% } else { %>
+                <a class="mycourse-remind-dt-rol3 nor-link">设置提醒</a>
+            <% } %>
+        </div>
+        <% } %>
+        <% if(email == 2) {%>
+        <div class="mycourse-remind-dt" data-propety="email">
+            <label class="mycourse-remind-dt-rol1">邮箱</label>
+            <%if(email_string) {%>
+                <span class="mycourse-remind-dt-rol2"><%=email_string%></span><a class="mycourse-remind-dt-rol3 nor-link">添加提醒</a>
+            <% } else { %>
+                <a class="mycourse-remind-dt-rol3 nor-link">设置提醒</a>
+            <% } %>
+        </div>
+        <% } %>
+    <% } else { %>
+        <div class="mycourse-remind-dt"><label class="mycourse-remind-dt-rol1">暂无</label></div>
+    <% } %>
+</div>
