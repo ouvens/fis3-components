@@ -1,9 +1,0 @@
-<%if(!follow_items || !follow_items.length){%>
-<li>还没有人关注TA哦！</li>
-<%}%>
-<%for(var i=0;i<follow_items.length;i++){%>
-<li class="mod mod-1" id="js_follow_<%=follow_items[i].uin%>">
-	<img src="<%=opt.face(follow_items[i].uin)%>" alt="" />
-	<span><%=follow_items[i].name%></span><p>关注了该老师</p>
-</li>
-<%}%>

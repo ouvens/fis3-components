@@ -1,9 +1,0 @@
-<div class="unit mt30<%=agency.agency_type === 2 ? ' sign-person-header' : ''%>" style="padding:0;margin-left:0;margin-right:0;">
-  <div class="unit-img"><a target="_blank" href="//<%=agency.domain%>" title="<%=agency.name%>"><img lazy-src="<%=agency.cover_url%>"/></a></div>
-  <div class="unit-info">
-    <h3 class="unit-name" style="margin-bottom:10px"><a target="_blank" title="<%=agency.name%>" href="//<%=agency.domain%>" class="nor-link"><%=agency.name%></a></h3>
-    <p class="agency-summary unit-cont" title="<%=html.decode($.render.summary(agency.summary))%>"><%=strEllipsis.substring($.render.summary(agency.summary), 169, 3)%></p>
-  </div>
-  </div>
-  <div class="clear"></div>
-</div>

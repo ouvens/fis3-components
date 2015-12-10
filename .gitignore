@@ -43,3 +43,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+src-smart/widget/panel-3/main.js
+*.js
+src-smart/widget/banner-2/main.js
+src-smart/widget/panel-3/main.js
