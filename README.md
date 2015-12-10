@@ -30,6 +30,8 @@ npm install -g fis3 fis3-hook-commonjs fis3-postpackager-loader fis3-postprocess
 
 ```
 fis3 release dev -wL // 开发，自动watch并刷新
+fis3 release dev -c // 开发，清除缓存重新构建
+
 fis3 server start --root ../dev     //启动调试服务器
 fis3 server start --root ../dev --port 80 // 开发目录
 fis3 server start --root ../dist --port 80 // 发布目录
