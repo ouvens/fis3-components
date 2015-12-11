@@ -6,14 +6,14 @@
 /**
  * 选项卡
  */
-.ui-tab{
+.el-tab{
     width: 100%;
     overflow: hidden;
     margin: 10px 0;
     border-top: $section-border;
 }
 
-.ui-tab-nav{
+.el-tab-nav{
     width: 100%;
     background-color: $default-bg;
     display: box;
@@ -23,14 +23,14 @@
     box-sizing: border-box;
 
  }
-.ui-tab-content{
+.el-tab-content{
     display: -webkit-box;
 }
-.ui-tab-content > li {
+.el-tab-content > li {
     -webkit-box-flex: 1;
     width: 100%;
 }
-.ui-tab-nav li{
+.el-tab-nav li{
     height: $tab-height;
     line-height: $tab-height;
     min-width: 70px;
@@ -42,10 +42,10 @@
     border-bottom: 2px solid transparent;
     width: 100%;
 }
-.ui-tab-nav li.current{
+.el-tab-nav li.current{
     color: $tab-current-color;
     border-bottom: 2px $tab-current-border solid;
 }
-.ui-tab-nav li:active{
+.el-tab-nav li:active{
     opacity: .8;
 }
