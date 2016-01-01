@@ -13,7 +13,6 @@
             <span class="page-item-bd <%= data[i].icon %>" style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
             <span class="page-item-ft"><%= data[i].title %></span>
         </li>
-    
     <% } %>
     </ul>
 </li>
