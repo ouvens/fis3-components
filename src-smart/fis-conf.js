@@ -28,18 +28,16 @@ fis.match('**/_*.scss', {
     //     release: false
     // })
 
-.match(/\/(.+)\.tpl$/, { // js 模版一律用 .tpl
-    isMod: true,
-    rExt: 'js',
-    id: '$1.tpl',
-    moduleId: '$1.tpl',
-    release: '$0.tpl', // 发布的后的文件名，避免和同目录下的 js 冲突
-    parser: fis.plugin('imweb-tpl')
-})
-
-// 简化 modules 引用
-// modules/index/tupu/index.js -> require('index/tupu/index');
-.match(/^\/modules\/(.+)\.js$/, {
+    .match(/.+\/(.+)\/.+\.tpl$/, { // js 模版一律用 .tpl,可以使用[模块名.tpl]作为模板
+        isMod: true,
+        rExt: 'js',
+        id: '$1.tpl',
+        moduleId: '$1.tpl',
+        release: '$1.tpl', // 发布的后的文件名，避免和同目录下的 js 冲突
+        parser: fis.plugin('imweb-tpl')
+    })
+    // modules/index/tupu/index.js -> require('index/tupu/index');
+    .match(/^\/modules\/(.+)\.js$/, {
         isMod: true,
         id: '$1'
     })
@@ -56,21 +54,19 @@ fis.match('**/_*.scss', {
         isMod: true,
         id: '$1'
     })
-    .match(/(mod|badjs|bj-report)\.js$/, { // 非模块
-        isMod: false
+    .match(/^\/asyncWidget\/(.+)\/.+\.js$/i, {
+        isMod: true,
+        id: '$1'
     })
-    .match('pages/**.js', {
+    .match(/(mod|badjs|bj-report)\.js$/, { // 非模块
         isMod: true
     })
-    .match('widget/**.js', {
+    .match('pages/**.js', {
         isMod: true
     })
     // .match('*.{html,js}', { // 同名依赖
     //     useSameNameRequire: true
     // })
-    .match('**{widget,inline}.js', { // inline | widget 结尾的不是模块
-        isMod: false
-    })
     .match('**.{scss,sass}', {
         parser: fis.plugin('node-sass', {
             include_paths: ['modules/sass']
@@ -78,21 +74,11 @@ fis.match('**/_*.scss', {
         rExt: '.css'
     })
     .match(/\/(.+\.async)\.(scss|css)$/, { // 异步 css 包裹
-        isMod: true,
+        isMod: false,
         rExt: 'js',
         isCssLike: true,
         id: '$1',
-        release: '$1.css', // @todo 这里 $1.$2 竟然有 bug ，应该和上面的 tpl 性质一样
-        extras: {
-            wrapcss: true
-        }
-    })
-    .match(/\/(.+\.async)\.(scss|css)$/, { // 异步 css 包裹
-        isMod: true,
-        rExt: 'js',
-        isCssLike: true,
-        id: '$1',
-        release: '$1.css', // @todo 这里 $1.$2 竟然有 bug ，应该和上面的 tpl 性质一样
+        release: false, // @todo 这里 $1.$2 竟然有 bug ，应该和上面的 tpl 性质一样
         extras: {
             wrapcss: true
         }
@@ -123,7 +109,8 @@ fis.match('**/_*.scss', {
         prepackager: fis.plugin('csswrapper'),
         packager: [fis.plugin('smart', {
             autoPack: true,
-            output: 'pkg/${id}.min.js'
+            output: 'pkg/${id}.min.js',
+            jsAllInOne: false
         })]
     });
 
@@ -141,7 +128,13 @@ fis.media('dev')
             to: '../dev'
         })
     })
-    .match('pkg/**/*.{css,scss,sass}', {
+    // .match('asyncWidget/**.js', {
+    //     deploy: fis.plugin('local-deliver', {
+    //         to: '../dev'
+    //     })
+    // })
+
+    .match('pkg/*/*.{css,scss,sass}', {
         optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
             to: '../dev'
@@ -168,7 +161,6 @@ fis.media('dev')
  *  压缩、合并、文件指纹
  */
 fis.media('dist')
-
     .match('/*.html', {
         deploy: fis.plugin('local-deliver', {
             to: '../dist'
@@ -177,6 +169,14 @@ fis.media('dist')
     .match('pkg/**.js', {
         useHash: true,
         optimizer: fis.plugin('uglify-js'),
+        deploy: fis.plugin('local-deliver', {
+            to: '../dist'
+        })
+    })
+    .match('pkg/*/*.{css,scss,sass}', {
+        useHash: true,
+        useSprite: true,
+        optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
             to: '../dist'
         })
@@ -194,15 +194,13 @@ fis.media('dist')
             to: '../dist'
         })
     })
-    .match('**.{ttf, eot}', {
+    .match('**.{ttf, eot, tpl}', {
         useHash: true,
         deploy: fis.plugin('local-deliver', {
             to: '../dist'
         })
     })
-    .match('pkg/**.css', {
-        useHash: true,
-        useSprite: true,
+    .match('**.json', {
         deploy: fis.plugin('local-deliver', {
             to: '../dist'
         })

@@ -47,7 +47,7 @@ var require, define;
         }
         script.type = 'text/javascript';
         script.src = url;
-        head.appendChild(script);
+        document.body.appendChild(script);
         return script;
     }
 
@@ -67,7 +67,7 @@ var require, define;
         } else {
             url = res.url || id;
         }
-        console.log(id, url);
+        // console.log(id, url);
         createScript(url, onerror && function() {
             onerror(id);
         });

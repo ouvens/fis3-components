@@ -42,6 +42,7 @@ var page = {
     },
 
     _initComponent: function(data) {
+
         searchBar.init(data.keywords);
         pageMenu.init(data.pageMenu);
         banner2.init(data.banner2);
@@ -55,9 +56,22 @@ var page = {
     _bindEvent: function(data) {
         var self = this;
         self.$el.on('click', '[data-href]', function(){
-            window.location.href = $(this).data('href');
+            /**
+             * 按需加载处理方式
+             */
+            // window.location.href = $(this).data('href');
+            require.async(['testMod', 'testMod.tpl'], function(Mod, testModTpl) {
+                $('body').append(testModTpl({word: 'haha'}));
+                Mod.init();
+            });
+            /*异步测试*/
+            require.async(['testMod1', 'testMod1.tpl'], function(Mod, testModTpl) {
+                $('body').append(testModTpl({word: 'KKK'}));
+                Mod.init();
+            });
+            
         });
     }
-}
+};
 
 module.exports = page;
