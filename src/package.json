@@ -1,7 +1,0 @@
-{
-  "name": "project",
-  "version": "0.0.1",
-  "dependencies": {
-    "fis3-parser-node-sass": "0.0.1"
-  }
-}
