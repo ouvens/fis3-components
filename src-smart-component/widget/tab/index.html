@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="./index.scss">
+
+<!-- tab 规范
+    tab 元素外层
+        for: 当前active元素
+        disable：不可点击
+
+    item 标记控制元素
+        for: 关联显示的元素块
+
+    content: 内容
+
+    元素生成的class值默认为 el-elemName
+-->
+
+<tab>
+    <item>
+        热门推荐
+    </item>
+    <item>
+        全部表情
+    </item>
+    <content>
+        <link rel="import" href="widget/tab-recmend/index.html?__inline">
+    </content>
+    <content>
+        <link rel="import" href="widget/tab-more/index.html?__inline">
+    </content>
+</tab>
+
+
