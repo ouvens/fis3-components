@@ -166,6 +166,10 @@ fis.media('dist')
             to: '../dist'
         })
     })
+    .match('**.{js,tpl}', {
+        useHash: true,
+        optimizer: fis.plugin('uglify-js')
+    })
     .match('pkg/**.js', {
         useHash: true,
         optimizer: fis.plugin('uglify-js'),
@@ -194,7 +198,7 @@ fis.media('dist')
             to: '../dist'
         })
     })
-    .match('**.{ttf, eot, tpl}', {
+    .match('**.{ttf, eot}', {
         useHash: true,
         deploy: fis.plugin('local-deliver', {
             to: '../dist'

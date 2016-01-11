@@ -62,14 +62,13 @@ var page = {
              */
             // window.location.href = $(this).data('href');
 
-            /*异步模块测试*/
+            /*按需异步模块测试*/
             require.async(['testMod'], function(Mod) {
                 Mod.init();
             });
             require.async(['testMod1'], function(Mod) {
                 Mod.init();
             });
-            
         });
     }
 };
