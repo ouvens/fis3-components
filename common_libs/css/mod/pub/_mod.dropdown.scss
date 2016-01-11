@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+// Dropdown
+//
+// 下拉panel
+//
+// Styleguide 20
+
+//默认状态
+//
+// Markup:
+//<div class="dropdown">
+//    <a class="dropdown-title" href="javascript:;" target="_blank">XXXXX</a>
+//	  <a href="javascript:;" class="dropdown-arrow"></a>
+//    <div class="dropdown-panel">
+//       <ul><li>111111</li><li>222222</li><li>33333</li></ul>
+//    </div>
+//</div>
+// 
+// Styleguide 20.1
+
+//点击小三角形后状态
+//
+// Markup:
+//<div class="dropdown dropdown-selected">
+//    <a class="dropdown-title" href="javascript:;" target="_blank">XXXXXXXXXX</a>
+//	  <a href="javascript:;" class="dropdown-arrow"></a>
+//    <div class="dropdown-panel">
+//       <ul><li>111111</li><li>222222</li><li>33333</li></ul>
+//    </div>
+//</div>
+// 
+// Styleguide 20.2
+
+.dropdown {
+	padding-right: 20px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+
+    .dropdown-title {
+        z-index: 0;
+    }
+
+    .dropdown-arrow {
+    	position: absolute;
+    	top: 6px;
+    	right: 2px;
+    	width: 0;
+    	height: 0;
+    	display: block;
+    	overflow: hidden;
+    	border-width: 7px;
+    	border-style: solid dashed dashed dashed;
+    	border-color: #999 transparent transparent transparent;
+        z-index: 0;
+    }
+    .dropdown-arrow:hover {
+    	border-color: #666666 transparent transparent transparent;
+    }
+
+    .dropdown-panel {
+    	display: none;
+    	position: absolute;
+    	top: 28px;
+    	right: 0;
+    	padding-top: 6px;
+        padding-bottom: 6px; 
+    	min-width: 80px;
+    	_width: 80px;
+    	background: #fff;
+    	border: 1px solid #DADADA;
+    	border-radius: 5px;
+    	box-shadow: 3px 3px 3px #D3D3D3;
+        z-index: 9;
+
+    	ul li {
+    		height: 30px;
+    		line-height: 30px;
+            padding-left:10px;
+            padding-right:10px;
+            &:hover{
+                background-color: #eee;
+            }
+    	}
+    }
+}
+
+.dropdown-selected .dropdown-panel {
+	display: block;
+}
+.dropdown-selected .dropdown-arrow {
+	border-color: #666666 transparent transparent transparent;
+}

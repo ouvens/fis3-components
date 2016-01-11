@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+// Steps
+//
+// 步骤状态组件
+//
+// @css fierayan
+//
+// Styleguide 9
+
+// 第一步被选中
+//
+// Markup:
+//<div class="mod-steps">
+//	<ul class="mod-steps__ul">
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_chose mod-steps__status_first">
+//			<span class="mod-steps__seq">1</span>
+//			<span class="mod-steps__text">第一步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_before">
+//			<span class="mod-steps__seq">2</span>
+//			<span class="mod-steps__text">第二步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">3</span>
+//			<span class="mod-steps__text">第三步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">4</span>
+//			<span class="mod-steps__text">第四步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">5</span>
+//			<span class="mod-steps__text">第五步</span>
+//		</li>
+//	</ul>
+//</div>
+//
+// Styleguide 9.1
+
+// 第二步被选中
+//
+// Markup:
+//<div class="mod-steps">
+//	<ul class="mod-steps__ul">
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_first">
+//			<span class="mod-steps__seq">1</span>
+//			<span class="mod-steps__text">第一步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_chose">
+//			<span class="mod-steps__seq">2</span>
+//			<span class="mod-steps__text">第二步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_before">
+//			<span class="mod-steps__seq">3</span>
+//			<span class="mod-steps__text">第三步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">4</span>
+//			<span class="mod-steps__text">第四步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">5</span>
+//			<span class="mod-steps__text">第五步</span>
+//		</li>
+//	</ul>
+//</div>
+//
+// Styleguide 9.2
+
+// 最后一步被选中
+//
+// Markup:
+//<div class="mod-steps">
+//	<ul class="mod-steps__ul">
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_first">
+//			<span class="mod-steps__seq">1</span>
+//			<span class="mod-steps__text">第一步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">2</span>
+//			<span class="mod-steps__text">第二步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">3</span>
+//			<span class="mod-steps__text">第三步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status">
+//			<span class="mod-steps__seq">4</span>
+//			<span class="mod-steps__text">第四步</span>
+//		</li>
+//		<li class="mod-steps__li mod-steps__status mod-steps__status_chose">
+//			<span class="mod-steps__seq">5</span>
+//			<span class="mod-steps__text">第五步</span>
+//		</li>
+//	</ul>
+//</div>
+//
+// Styleguide 9.3
+
+
+//   当前选中，添加 mod-steps__status_chose，前一个被选中，添加  mod-steps__status_before
+
+.mod-steps{
+	padding-top: 20px;
+}
+
+.mod-steps__ul {
+	font-size: 0;
+	.mod-steps__li {
+		display:inline-block;vertical-align:middle;
+		width: 182px;
+		height: 32px;
+		text-align: center;
+		color: #777;
+	}
+	.mod-steps__seq {
+		font-size: 22px;
+		height: 32px;
+		line-height: 32px;
+		margin-right: 10px;
+		display:inline-block;
+		font-style: italic;
+	}
+	.mod-steps__text {
+		font-size: 14px;
+		height: 32px;
+		line-height: 32px;
+		display:inline-block;
+		vertical-align: top;
+	}
+	.mod-steps__status {
+		background: #e4e4e4 url("../img/bg/reg-s-n.png#unsprite") no-repeat 0 0;
+	}
+	.mod-steps__status_before {
+		background: #e4e4e4 url("../img/bg/reg-s-yn.png#unsprite") no-repeat 0 0;
+	}
+	.mod-steps__status_chose {
+		background: #049ee4 url("../img/bg/reg-s-y.png#unsprite") no-repeat 0 0;
+		color: #fff;
+	}
+	.mod-steps__status_first {
+		background-image: none;
+		width: 190px;
+	}
+}

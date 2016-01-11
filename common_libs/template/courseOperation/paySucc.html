@@ -1,0 +1,79 @@
+<!-- <div class="mrl22 mb10"><%=nick%>同学：</div> -->
+<i class="icon-font i-success icon-msg-large"></i>
+<div class="mrl22">
+    <div class="part part-title"><% if(payid !== 1 && !isweixin) { %>购买成功，机构已将您加入付费服务群[<a href="/faq.html#/2/2/9" target="_blank" class="nor-link">?</a>]<% }else{ %>报名成功<% } %>
+    </div>
+    <%if (c.flag === 1){%>
+    <ul class="part-list"><li class="part part-content">您已报名多门上课时间冲突的课程，您可以在<a class="nor-link" href="http://ke.qq.com/myCourse/index.html#sid=signup" target="_blank">我的报名记录</a>中进行管理。</li></ul>
+    <%}%>
+    <% if(typeof qunid !== "undefined" && qunid != 0) { %>
+
+        <% if(payid === 1) { %>
+        	<ul class="part-list">
+    				<li class="part part-content">您还可以加入课程讨论群，获得专业辅导：</li>
+    		</ul>
+    		<div class="part part-content"><i class="icon-font i-group"></i>
+    				<a href="javascript:void(0)" id="js_addgroup_tencent" class="part-action nor-link"><%=userInfo.gname%></a>(<%=qunid%>)
+    		</div>
+        <% } else { %>
+            <ul class="part-list">
+                <li class="part part-content">
+                    <span class="part-content-desc">付费服务群：</span><span class="part-qunavatar"></span><a href="javascript:void(0)" id="js_discuss_tencent" class="part-action nor-link"><%=userInfo.gname%></a>(<%=qunid%>)
+                </li>
+            </ul>
+        <% } %>
+
+    <% } %>
+    <% if(payid !== 1) { %>
+        <ul class="part-list">
+            <li class="part part-row part-row-desc">
+            <% if(user_notify_status == 1) { %>
+                您的手机号已屏蔽了开课提醒，建议重新开启
+            <%} else {%>
+                我们会在上课前通过QQ、短信或邮件通知您
+            <% } %>
+            <% if(typeof qunid !== "undefined" && qunid != 0) { %>
+                <a class="part-action nor-link" id="part-expand">开课提醒设置</a>
+            <% } %></li>
+        </ul>
+
+        <div class="part-form<% if(typeof qunid === 'undefined' || qunid == 0) { %> part-form-expand<% } %>">
+            <div class="part part-row">QQ<span class="part-row-cont"><%= userInfo.qq %></span></div>
+            <div class="part part-row">
+                <label for="js_pay_mobile">手机</label>
+                <input maxlength="11" class="ipt" type="text" id="js_pay_mobile" value="<%=typeof userInfo.mobile !== 'undefined' ? userInfo.mobile: ''%>" placeholder="填写手机号"/>
+                <div class="error-tip error-tip-hidden"><span><i></i>格式不正确</span></div>
+            </div>
+            <div class="part part-row part-id-code">
+                <input maxlength="6" class="ipt" type="text" id="js_id_code"  placeholder="填写验证码"/>
+                <a href="javascript:void(0) " class="btn-weak btn" id="js_id_code_btn" >获取验证码</a>
+                <div class="error-tip error-tip-hidden"><span><i></i>验证码错误</span></div>
+            </div>
+            <div class="part part-row">
+                <label for="js_pay_email">邮箱</label>
+                <input class="ipt" type="text" id="js_pay_email" value="<%=typeof userInfo.email !== 'undefined' ? userInfo.email: ''%>" placeholder="填写常用邮箱"/>
+                <div class="error-tip error-tip-hidden"><span><i></i>格式不正确</span></div>
+            </div>
+            <div class="part part-row">
+                <button class="btn-default part-info-submit" id="js_pay_submit">确定</button>
+            </div>
+<!--             <div class="part part-link">
+                <a href="/faq.html#/0/1" target="_blank" class="nor-link hide">下载新版QQ，畅享在线教育新体验</a>
+            </div> -->
+            <input type="hidden" id="moblie-no-change-token" value="<%=typeof  userInfo.token !== 'undefined' ?  userInfo.token: ''   %>">
+        </div>
+    <% } %>
+
+<!--     <a href="javascript:void(0);" class="tips-er-code" title="腾讯课堂手机QQ公众号二维码">
+        <div class="tips-er-code-float">
+            <img width="114" height="114" src="http://9.url.cn/edu/img/er-code-for-public-account-on-mobile.jpg" class="er-code-for-public-account-on-mobile"/>
+            <p>扫一扫 查看我的课程</p>
+        </div>
+    </a> -->
+</div>
+
+
+<div class="modal-ft">
+    <a href="javascript:void(0);" title="继续找课" class="modal-ft-btn--link js-pay-continue" target="_blank">继续找课</a>
+    <a href="javascript:void(0);" title="立即学习" class="btn-default js-pay-studynow" target="_blank">立即学习</a>
+</div>

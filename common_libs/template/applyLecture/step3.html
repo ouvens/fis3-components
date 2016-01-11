@@ -1,0 +1,45 @@
+<%
+    if(typeof agency_step_flag=='undefined'){
+        agency_step_flag = 0;
+    }
+%>
+<%if(state == 3){%>
+<!-- 成功 -->
+<div class="section-msg">
+    <div class="msg-inner">
+        <i class="icon-msg-large icon-font i-success"></i>
+        <div class="msg-text msg-text--lines">
+            <h3 class="msg-tt">恭喜您，入驻成功！</h3>
+            <a href="/agency/index/index.html" class="nor-link">进入机构管理页</a>
+        </div>
+    </div>
+</div>
+<%}else if(state == 2){%>
+<!-- 失败 -->
+<div class="section-msg">
+    <div class="msg-inner">
+        <i class="icon-msg-large icon-font i-alert"></i>
+        <div class="msg-text msg-text--lines">
+            <h3 class="msg-tt">很遗憾，<%if(reason){%>由于<%=reason%>，<%}%>审核不通过。</h3>
+            <p>建议您返回上一步修改资料。如有疑问，请联系<a href="http://wpa.b.qq.com/cgi/wpa.php?ln=2&uin=800082734" class="nor-link" target="_blank">在线客服</a></p>
+            <a href="javascript:void(0)" class="btn-weak btn-m wrap-result__btn-pre js-btn-pre <%=agency_step_flag==7 ? 'btn-disabled' : ''%>">上一步</a>
+        </div>
+    </div>
+</div>
+<%}else if(state == 1){%>
+<!-- 审核中 -->
+<div class="wrap-result wrap-wait">
+    <p class="wrap-result__info">您好，我们已经收到贵机构的入驻申请，将在1-2个工作日内完成审核。</p>
+    <div class="wrap-result__agency clearfix">
+        <img src="<%=cover_url%>90" alt="" class="wrap-result__agency-img">
+        <div class="wrap-result__agency-info">
+            <p class="wrap-result__agency-name">
+                <span><%=name%></span>
+                <a href="javascript:void(0);"><%=domain%></a>
+            </p>
+            <p class="wrap-result__agency-resign">感谢您的加入，期待与您共同在腾讯课堂传递思想、创造价值。</p>
+        </div>
+    </div>
+</div>
+<%}%>
+

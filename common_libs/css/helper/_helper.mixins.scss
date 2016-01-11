@@ -1,0 +1,342 @@
+@charset "utf-8";
+
+// clearfix
+@mixin clearfix($extend:true) {
+  @if $extend {
+    @extend %clearfix;
+  } @else {
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+}
+%clearfix{
+  @include clearfix(false);
+}
+
+// Center-align a block level element
+// block得有宽度margin左右为auto才能居中
+@mixin center-block ($extend:true) {
+  @if $extend {
+    @extend %center-block;
+  } @else {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+%center-block{
+  @include center-block(false);
+}
+
+// inline-block
+@mixin inline-block($extend:true) {
+	@if $extend {
+		@extend %inline-block;
+	} @else {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+%inline-block{
+	@include inline-block(false);
+}
+
+// Hide only visually, but have it available for screenreaders
+// 只隐藏于视觉，屏幕浏览器可以阅读
+@mixin hidden-clip($extend: true) {
+    @if $extend {
+        @extend %hidden-clip;
+    }
+    @else {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+}
+
+%hidden-clip {
+    @include hidden-clip(false);
+}
+
+// user-select
+@mixin user-select($select: none){
+	-webkit-user-select: $select;
+	-moz-user-select: $select;
+	-ms-user-select: $select;
+	user-select: $select;
+}
+%user-select{
+	@include user-select;
+}
+
+// 图片替换文字
+// 高级浏览器直接2就可以
+// 原生7,8不支持color的transparent，所以采用1;
+@mixin no-font($extend: true) {
+	@if $extend {
+		@extend %no-font;
+	} @else {
+		font: 0/0 a; // 1
+		text-shadow: none;
+		border:0 none;
+		color: transparent; // 2
+		// line-height: 0;
+		// font-size: 0;
+		// text-indent: -9999px;
+		// overflow: hidden;
+	}
+}
+%no-font{
+	@include no-font(false);
+}
+
+// ellipsis
+@mixin ellipsis($extend: true) {
+	@if $extend {
+		@extend %ellipsis;
+	} @else {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		word-wrap: normal;
+	}
+}
+%ellipsis{
+	@include ellipsis(false);
+}
+// 只有webkit支持多行省略号
+@mixin ellipsis-lines($lines: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+// word-break
+@mixin word-break($extend: true) {
+	@if $extend {
+		@extend %word-break;
+	} @else {
+		white-space: normal;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+}
+%word-break{
+	@include word-break(false);
+}
+
+// disabled
+// 禁用样式，加!important
+@mixin disabled($bgColor: #e3e3e3, $textColor: #999, $borderColor: false) {
+    background-color: $bgColor !important;
+    color: $textColor !important;
+    cursor: default !important;
+    pointer-events: none !important;
+    @if $borderColor {
+        border: 1px solid $borderColor !important;
+    }
+}
+%disabled {
+    @include disabled;
+}
+
+// opacity
+@mixin opacity($opacity: 0.5, $filter: true) {
+	$filterOpacity: 100 * $opacity;
+	opacity: $opacity;
+	@if $filter {
+		filter: alpha(opacity = $filterOpacity);
+	}
+}
+
+// background rgba
+%filter-gradient-none{
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled='false');
+}
+@mixin filter-gradient($startColor, $endColor) {
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}');
+	:root & {
+		@extend %filter-gradient-none;
+	}
+}
+@mixin background-rgba($bgcolor: rgba(0,0,0,.5), $filter: true){
+  @if $filter {
+  	@include filter-gradient($bgcolor, $bgcolor);
+  }@else {
+  	background-color: rgb(red($bgcolor), green($bgcolor), blue($bgcolor));
+  }
+  background-color:$bgcolor;
+}
+%background-rgba {
+    @include background-rgba;
+}
+
+
+// triangle 三角箭头
+%triangle-basic {
+    content: "";
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+@mixin triangle($direction: top, $borderWidth: 6px, $borderColor: $gray9) {
+    @extend %triangle-basic;
+    @if $direction == top {
+        border-bottom: $borderWidth solid $borderColor;
+        border-left: $borderWidth dashed transparent;
+        border-right: $borderWidth dashed transparent;
+    }
+    @else if $direction == right {
+        border-left: $borderWidth solid $borderColor;
+        border-top: $borderWidth dashed transparent;
+        border-bottom: $borderWidth dashed transparent;
+    }
+    @else if $direction == bottom {
+        border-top: $borderWidth solid $borderColor;
+        border-left: $borderWidth dashed transparent;
+        border-right: $borderWidth dashed transparent;
+    }
+    @else if $direction == left {
+        border-right: $borderWidth solid $borderColor;
+        border-top: $borderWidth dashed transparent;
+        border-bottom: $borderWidth dashed transparent;
+    }
+}
+
+
+// btn
+@mixin btn($extend: true){
+	@if $extend {
+		@extend %btn;
+	} @else {
+		display: inline-block;
+		vertical-align: middle;
+		cursor: pointer;
+		font-size: 14px;
+		text-align: center;
+		border-radius: 2px;
+		border: 0;
+		user-select: none;
+	}
+}
+%btn{
+	@include btn(false);
+}
+
+// %btn-default, %btn-weak, %btn-primary
+@each $btn in $btns {
+	%btn-#{nth($btn,1)}{
+		@include btn();
+		background-color: nth($btn, 2);
+		color: nth($btn, 3);
+		&:hover{
+			background-color: nth($btn, 4);
+		}
+		&:active{
+			background-color: nth($btn, 5);
+		}
+		&.disabled,
+		&.dis-btn {
+			@extend %disabled;
+		}
+	}
+}
+
+// btn size
+%btn-m{
+	width: 120px;
+	line-height: 40px;
+	font-size: 16px;
+
+}
+%btn-s{
+	padding: 0 1em;
+	line-height: 30px;
+}
+
+// rem
+@mixin rem($px: 1.4, $property: font-size) {
+    #{$property}: $px * 10px;
+    #{$property}: #{$px}rem;
+}
+
+// 针对火狐浏览器打bug
+// @include firefox{.test{padding-bottom:3px;}}
+@mixin firefox {
+  @-moz-document url-prefix(){
+    @content;
+  }
+}
+
+// @function
+//------------------------------------------------------------
+
+// px转em
+@function pxToEm($px, $base: 16) {
+  @return ($px / $base) * 1em;
+}
+
+// 为颜色添加白色，以百分比形式
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+// 为颜色添加黑色，以百分比形式
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+
+// warn, help, info, succ
+// 抽空整理下这块，先放着，请不要使用
+// 2015-07-23
+@mixin ico-base($type, $size) {
+	background: url("../img/bg/ico-#{$type}-#{$size}.png") no-repeat;
+}
+@mixin ico($type, $size) {
+	background: url("../img/bg/ico-#{$type}-#{$size}.png") no-repeat;
+
+	@if $size==large{
+		width: 36px;
+		height: 36px;
+	}
+	@if $size==normal{
+		width: 24px;
+		height: 24px;
+	}
+	@if $size==small{
+		width: 14px;
+		height: 14px;
+	}
+
+	display:block;
+	float: left;
+	margin-top: 4px;
+}
+
+// min/max
+// 已经过时，请不要使用
+// 2015-07-23
+@mixin min-height($height) {
+	min-height: $height;
+	height: auto !important;
+}
+@mixin max-height($height) {
+	max-height: $height;
+	height: auto !important;
+}
+@mixin min-width($width) {
+	min-width: $width;
+	width: auto !important;
+}
+@mixin max-width($width) {
+	max-width: $width;
+	width: auto !important;
+}

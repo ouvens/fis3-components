@@ -1,0 +1,388 @@
+@charset "utf-8";
+
+// Picker
+//
+// 选择QQ群或人
+//
+// @css kaelyang
+// @css 修改 fierayan
+//
+// Styleguide 10
+
+// 选择群或人
+//
+// Markup:
+//<div class="mod-picker mod-picker_qq" style="display:block;position:relative;margin:0;top:0;left:0;">
+//  <div class="mod-picker__hd">
+//      <h2 class="mod-picker__hd-title">选择老师</h2>
+//      <a href="" class="mod-picker__close">x</a>
+//  </div>
+//  <div class="mod-picker__bd">
+//      <div class="mod-picker__data-options">
+//          <h3 class="mod-picker__list-title">选择老师：</h3>
+//          <div class="mod-picker__cont">
+//              <input type="text" placeholder="输入账号/姓名/拼音进行咨询" class="mod-picker__input">
+//              <ul class="mod-picker__options-ul">
+//                  <li class="selecting">
+//                      <img src="http://q.qlogo.cn/g?b=qq&amp;nk=1815480209&amp;s=40" width="20" height="20">
+//                      <span class="name">EDUDKL...(1815480209)</span>
+//                  </li>
+//                  <li class="">
+//                      <img src="http://q.qlogo.cn/g?b=qq&amp;nk=1815480209&amp;s=40" width="20" height="20">
+//                      <span class="name">EDUDKL...(1815480209)</span>
+//                  </li>
+//                  <li class="">
+//                      <img src="http://q.qlogo.cn/g?b=qq&amp;nk=1815480209&amp;s=40" width="20" height="20">
+//                      <span class="name">EDUDKL...(1815480209)</span>
+//                  </li>
+//                  <li class="">
+//                      <img src="http://q.qlogo.cn/g?b=qq&amp;nk=1815480209&amp;s=40" width="20" height="20">
+//                      <span class="name">EDUDKL...(1815480209)</span>
+//                  </li>
+//                  <li class="">
+//                      <img src="http://q.qlogo.cn/g?b=qq&amp;nk=1815480209&amp;s=40" width="20" height="20">
+//                      <span class="name">EDUDKL...(1815480209)</span>
+//                  </li>
+//              </ul>
+//          </div>
+//      </div>
+//      <div class="mod-picker__action-btns">
+//          <a href="#" class="btn-add btn-weak">添加</a>
+//          <a href="javascript:;" class="btn-del btn-weak disabled">删除</a>
+//      </div>
+//      <div class="mod-picker__data-selected">
+//          <h3 class="mod-picker__list-title">已选择老师：</h3>
+//          <div class="mod-picker__cont">
+//              <ul class="mod-picker__selected-ul">
+//                  <li class="">
+//                      <img src="http://q.qlogo.cn/g?b=qq&amp;nk=1815480209&amp;s=40" width="20" height="20">
+//                      <span class="name">EDUDKL...(1815480209)</span>
+//                  </li>
+//              </ul>
+//          </div>
+//      </div>
+//  </div>
+//  <div class="mod-picker__ft">
+//      <a href="javascript:;" class="btn-default btn-save">确定</a>
+//  </div>
+//</div>
+//
+// Styleguide 10.1
+
+// 选择文件或文件夹
+//
+// Markup:
+//<div class="mod-picker mod-picker_files hide" style="display:block;position:relative;margin:0;top:0;left:0;">
+//  <div class="mod-picker__hd">
+//      <h2 class="mod-picker__hd-title">选择视频</h2>
+//      <a href="javascript:;" class="mod-picker__close">x</a>
+//  </div>
+//  <div class="mod-picker__bd">
+//      <div class="mod-picker__data-options">
+//          <h3 class="mod-picker__list-title">选择视频：</h3>
+//          <div class="mod-picker__cont">
+//              <ul class="mod-picker__options-ul">
+//                  <li>
+//                      <span class="name">曲皆雪贤进主昔玉宰主古雪长耳羊。曲皆雪贤进主昔玉宰主古雪长耳羊。</span>
+//                  </li>
+//                  <li>
+//                      <span class="name">曲皆雪贤进长耳羊</span>
+//                  </li>
+//                  <li class="mod-picker__with-sub">
+//                      <span class="name"><i class="icon-folder"></i><span>曲皆雪贤进长耳羊曲皆雪贤进长耳羊</span></span>
+//                  </li>
+//                  <li class="mod-picker__with-sub mod-picker__sub-open">
+//                      <span class="name"><i class="icon-folder"></i><span>曲皆雪贤进长耳羊曲皆雪贤进长耳羊</span></span>
+//                  </li>
+//                  <li class="mod-picker__sub-li">
+//                      <span class="name"><i class="icon-sub-sep"></i><span>曲皆雪贤进长耳羊</span></span>
+//                  </li>
+//                  <li class="mod-picker__sub-li">
+//                      <span class="name"><i class="icon-sub-sep"></i><span>曲皆雪贤进长耳羊</span></span>
+//                  </li>
+//                  <li>
+//                      <span class="name">曲皆雪贤进长耳羊</span>
+//                  </li>
+//                  <li>
+//                      <span class="name">曲皆雪贤进长耳羊</span>
+//                  </li>
+//                  <li>
+//                      <span class="name">test2(1901889591)test2(1901889591)test2(1901889591)</span>
+//                  </li>
+//              </ul>
+//          </div>
+//      </div>
+//      <div class="mod-picker__action-btns">
+//          <a href="javascript:;" class="btn-add btn-weak disabled">添加</a>
+//          <a href="javascript:;" class="btn-del btn-weak">删除</a>
+//      </div>
+//      <div class="mod-picker__data-selected">
+//          <h3 class="mod-picker__list-title">已选择视频：</h3>
+//          <div class="mod-picker__cont">
+//              <ul class="mod-picker__selected-ul">
+//                  <li class="selecting">
+//                      <span class="name">test2(1901889591)</span>
+//                  </li>
+//              </ul>
+//          </div>
+//      </div>
+//  </div>
+//  <div class="mod-picker__ft">
+//      <a href="javascript:;" class="btn-default btn-save">确定</a>
+//  </div>
+//</div>
+//
+// Styleguide 10.2
+
+.mod-picker{
+    display: none;
+    width: 576px;
+    height: 530px;
+    margin: -265px 0 0 -288px;
+    box-shadow: rgba(gray,0.3) 0 0 5px;
+    border-radius: 3px;
+    background: #FFFFFF;
+    position: fixed;
+    _position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+    cursor: default;
+    _border:1px solid #E5E5E5;
+}
+.mod-picker__hd{
+    background: #039AE3;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    clear: both;
+    overflow: hidden;
+    *zoom: 1;
+}
+.mod-picker__hd-title{
+    padding-left:15px;
+    float: left;
+    margin: 0;
+    color: #ECECEC;
+}
+.mod-picker__close{
+    font-size: 20px;
+    color: #ECECEC;
+    float: right;
+    padding:0 10px;
+}
+.mod-picker__bd{
+    padding:15px 0 0 20px;
+    clear: both;
+    overflow: hidden;
+    zoom: 1;
+}
+.mod-picker__list-title{
+    font-size: 14px;
+    color: #333333;
+    padding-left: 10px;
+    margin-bottom:10px;
+}
+
+.mod-picker__data-options,
+.mod-picker__data-selected{
+    float: left;
+}
+.mod-picker__cont{
+    width: 208px;
+    border: 1px solid #E5E5E5;
+    background: #FAFAFA;
+    height: 378px;
+    overflow: hidden;
+}
+.mod-picker__input{
+    padding: 5px;
+    margin: 5px;
+    width:184px;
+}
+.mod-picker__options-ul, .mod-picker__selected-ul{
+    height:378px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    li{
+        cursor: pointer;
+        line-height: 20px;
+        img{
+            border-radius: 20px;
+        }
+        .name{
+            display:inline-block;vertical-align:middle;
+            font-size: 14px;
+            vertical-align: top;
+            margin-bottom: 1px;
+            padding: 5px 10px;
+            @include user-select(none);
+            &:hover{
+                background:  #D3D3D3;
+            }
+        }
+    }
+    .selecting{
+        .name {
+            background: #039AE3;
+        }
+      .name:hover {
+        background:  #0580BB;
+      }
+    }
+}
+.mod-picker__options-ul{
+    border-top: 1px solid #E5E5E5;
+    height:333px;
+}
+
+.mod-picker__options-item-hide{
+    display: none;
+}
+
+.mod-picker__options-item-optimize {
+    .mod-picker__options-item-hide{
+        display: block;
+    }
+}
+.mod-picker__data-options .selected,
+.mod-picker__data-options .not-match,
+.mod-picker__data-options .opt-hidden{
+    display: none;
+}
+.mod-picker__action-btns{
+    float: left;
+    padding: 105px 18px 0;
+    _width: 80px;
+    .btn-weak{
+        display: block;
+        width: 78px;
+        height: 36px;
+        line-height: 34px;
+        text-align: center;
+        font-size: 14px;
+        /*margin: 0 auto;*/
+        border:1px solid #D9D9D9;
+    }
+    .btn-add{
+        margin-bottom: 20px;
+    }
+
+}
+.mod-picker__ft{
+    overflow: hidden;
+    padding: 20px;
+    .picker-help{
+        display: none;
+        font-size: 14px;
+        line-height: 38px;
+    }
+    .btn-save{
+        display: block;
+        height: 36px;
+        line-height: 36px;
+        width: 100px;
+        float: right;
+    }
+}
+.mod-picker__tips,
+.mod-picker__warning{
+    display: block;
+    padding-top: 20px;
+    width: 80px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.mod-picker__warning{
+    color: #E80808;
+    display: none;
+}
+
+
+// 选择群或人情况
+
+.mod-picker_qq{
+    .mod-picker__options-ul, .mod-picker__selected-ul{
+        li{
+            font-size: 14px;
+            cursor: pointer;
+            line-height: 20px;
+            padding: 5px 10px;
+            img{
+                border-radius: 20px;
+            }
+            .name{
+                display:inline-block;vertical-align:middle;
+                font-size: 14px;
+                vertical-align: top;
+                margin-bottom: 1px;
+                @include user-select(none);
+                padding: 0;
+                padding-left: 3px;
+            }
+            &:hover{
+                background: #D3D3D3;
+            }
+        }
+        .selecting{
+            background: #039AE3;
+           &:hover {
+             background: #0580BB;
+               .name {
+                 background: #0580BB;
+             }
+           }
+        }
+
+    }
+}
+
+// 选择文件情况
+
+.mod-picker_files{
+    .mod-picker__options-ul{
+        border-top: none;
+        li{
+            height: auto;
+        }
+    }
+    .name{
+        margin-left: 0;
+        width: 188px;
+        @include ellipsis();
+    }
+    .mod-picker__with-sub{
+        .icon-folder{
+            display:inline-block;vertical-align:middle;
+            background: url("../img/bg/icon_folder_plus.png") no-repeat;
+            margin-right: 5px;
+            _vertical-align: -2px;
+            width: 19px;
+            height: 15px;
+            margin-bottom: 3px;
+        }
+        &.mod-picker__sub-open{
+            .icon-folder{
+                background: url("../img/bg/icon_folder_minus.png") no-repeat;
+            }
+        }
+    }
+    .mod-picker__sub-li{
+        .name{
+            padding-left: 35px;
+            width: 163px;
+        }
+    }
+    .mod-picker__sub-sep{
+        color:#999999;
+    }
+    .icon-sub-sep{
+        display:inline-block;vertical-align:middle;
+        background: #999;
+        width: 10px;
+        height: 2px;
+        margin-right: 5px;
+    }
+}
+

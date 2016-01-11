@@ -1,0 +1,213 @@
+<%
+opt.termInfo || (opt.termInfo = {});
+opt.termInfo.agency_info = opt.termInfo.agency_info || {};
+
+
+for(var k = 0, len = taskList.length; k < len; k++) {
+	var item = taskList[k],
+		rowType = opt.rowType || 'a', // 每一行是a标签还是div，默认为a
+		fontClass = '', title = '',
+		suffixHTML = '',			//标题右侧描述
+		now = +new Date(),
+		hoverGuide = '', 			//hover 上去的提示语
+		finishedTag = false,		//完成标志
+		linkTarget = 'javascript:void(0);', 			//跳转链接
+		process = null,
+		disabled = false,
+		action = '',
+		rightTips = '',				//最右边的描述
+		curVid,						//当前的回放VID
+		vidTime;					//当前回放的时长
+
+	switch(item.type) {
+		case 1 :
+			fontClass = 'i-course-live';
+			title = '直播';
+			showSuffix = true;
+
+			switch(item.status) {
+				case 1:
+					//未开课
+					action = 'enterRoom';
+					suffixHTML = '<span class="tt-suffix">(' + 
+						opt.formatDate('M月D日 hh:mm', item.bgtime * 1000) + '-' + 
+						(new Date(item.endtime * 1000).getDate() - new Date(item.bgtime * 1000).getDate() >= 1 ? '次日' : '') +
+						opt.formatDate('hh:mm',item.endtime * 1000) + 
+						')</span>';
+					break;
+				case 2:
+					//直播中
+					action = 'enterRoom';
+					//suffixHTML = '<span class="flag-orange">正在直播</span>';
+					hoverGuide = '进入课堂';
+					break;
+				case 3:
+					//已结束无回放
+					disabled = true;
+					suffixHTML = '<span class="tt-suffix">(' + opt.formatDate('M月D日 hh:mm', item.bgtime * 1000) + '-' + opt.formatDate('hh:mm',item.endtime * 1000) + '已完结，暂无回放)</span>';
+
+					if(item.play_ts > 0 ) {
+						//直播结束看了
+						hoverGuide = '已完成';
+						finishedTag = true;
+					} else {
+						//直播结束看了 如果没上，则为空。无hover态，不可点击。
+						//finishedTag = true;
+					}
+					break;
+				case 4:
+					//已结束有回放
+					action = null;
+					curVid = item.latest_vid || item.resid_list[0];
+
+					item.resid_ext.list || (item.resid_ext.list = []);
+
+					for(var t = 0, lenT = item.resid_ext.list.length; t < lenT; t++) {
+						if(curVid === item.resid_ext.list[t].id) {
+							vidTime = item.resid_ext.list[t].times;
+						}
+					}
+
+					linkTarget = '/webcourse/index.html#course_id={cid}&term_id={tid}&vid={vid}'
+							.replace('{cid}', opt.termInfo.cid)
+							.replace('{tid}', opt.termInfo.term_id)
+							.replace('{vid}', curVid);
+
+					if(item.video_play === 0) {
+						//未观看回放
+						suffixHTML = '<span class="flag-orange">有回放</span>';
+						hoverGuide = '立即学习';
+					} else {
+						//已观看回放
+						suffixHTML = '<span class="icon-playback"></span>'
+						process = {};
+						process.desc = Math.ceil(item.video_play / 60) + '分钟/' + Math.ceil(vidTime / 60) + '分钟';
+						process.rate = item.video_play / vidTime * 100 + '%';
+
+						hoverGuide = '继续学习';
+					}
+
+					break;
+			}
+
+			break;
+
+		case 2:
+			fontClass = 'i-course-record';
+			title = '录播';
+
+			linkTarget = '/webcourse/index.html#course_id={cid}&term_id={tid}&vid={vid}'
+					.replace('{cid}', opt.termInfo.cid)
+					.replace('{tid}', opt.termInfo.term_id)
+					.replace('{vid}', item.resid_list);
+			suffixHTML = '<span class="tt-suffix">(' + Math.ceil(item.resid_ext.times / 60) + '分钟)</span>';
+
+			if(item.play_ts > 0) {
+				//上过了
+				if(item.play_ts / item.resid_ext.times >= 0.85) {
+					//观看时长，大于85%即完成任务
+					hoverGuide = '再学一遍';
+					finishedTag = true;
+				} else {
+					hoverGuide = '继续学习';
+
+					process = {};
+					process.desc = Math.ceil(item.play_ts / 60) + '分钟/' + Math.ceil(item.resid_ext.times / 60) + '分钟';
+					process.rate = item.play_ts / item.resid_ext.times * 100 + '%';
+				}
+
+			} else {
+				//没上过
+				//item.resid_ext.times = item.resid_ext.times || 0;
+				hoverGuide = '立即学习';
+			}
+
+			break;
+
+		case 3:
+			fontClass = 'i-course-data';
+			title = '资料';
+			action = 'file';
+
+			if(item.study_ts > 0) {
+				finishedTag = true;
+			}
+
+			linkTarget = item.url ? item.url : linkTarget;
+
+
+			hoverGuide = '下载学习';
+			break;
+
+		case 4:
+			//rowType = 'a'; // 习题 查看结果
+			fontClass = 'i-course-test';
+			title = '习题';
+
+			linkTarget = '/exam.html?course_id={cid}&term_id={tid}&task_id={taid}&exam_id={eid}'
+					.replace('{eid}', item.resid_list)
+					.replace('{tid}', opt.termInfo.term_id)
+					.replace('{cid}', opt.termInfo.cid)
+					.replace('{taid}', item.taid);
+
+			item.total = item.resid_ext && item.resid_ext.list && item.resid_ext.list[0] && item.resid_ext.list[0].count;
+			suffixHTML = '<span class="tt-suffix">(' + item.total + '道)</span>';
+
+			if(item.update_ts) {
+				if(item.state === 0) {
+					//草稿状态
+					process = {};
+					process.desc = item.count + '道/' + item.total + '道';
+					process.rate = item.count / item.total * 100 + '%';
+					hoverGuide = '继续答题';
+				} else {
+					//已经提交
+					hoverGuide = '再答一遍';
+					rightTips = '正确率' + item.score + '%';
+					finishedTag = true;
+				}
+			} else {
+				//未答题
+				hoverGuide = '立即答题';
+			}
+
+			break;
+	}
+%>
+	<%if(rowType==='a'){%>
+		<% if(item.type === 1 && item.status !== 4) { %>
+			<a class="task-task-item js-task-action js-open-tencent<%=finishedTag ? ' task-part-item--done' : ''%><%=disabled ? ' task-task-item--disabled' : ''%>" href="<%=linkTarget%>" target="_blank"
+				 data-resid="<%=item.resid_list%>" data-cid="<%=opt.termInfo.cid%>" data-taid="<%=item.taid%>" data-aid="<%=opt.termInfo.agency_info.aid%>" data-tid="<%=opt.termInfo.term_id%>" data-target="<%=opt.termInfo.room_url%>">
+		<% } else { %>
+			<a class="task-task-item js-task-action<%=finishedTag ? ' task-part-item--done' : ''%><%=disabled ? ' task-task-item--disabled' : ''%>" href="<%=linkTarget%>"  target="_blank" data-action="<%=action%>" data-resid="<%=item.resid_list%>" data-cid="<%=opt.termInfo.cid%>" data-taid="<%=item.taid%>">
+		<% } %>
+	<%}else{%>
+		<div class="task-task-item js-task-action js-open-tencent<%=finishedTag ? ' task-part-item--done' : ''%><%=disabled ? ' task-task-item--disabled' : ''%>">
+	<%}%>
+	<i class="icon-font <%=fontClass%> item-icon"></i>
+	<p class="task-tt">
+		<span class="ask-tt-text" title="【<%=title%>】<%=item.name%>">【<%=title%>】<%=item.name%></span><%=suffixHTML%>
+	</p>
+	<div class="line-right">
+		<% if(hoverGuide && rowType ==='a') { %>
+		<span class="hover-guide"><%=hoverGuide%><i class="icon-font i-v-right"></i></span>
+		<% } %>
+		<% if(rightTips !== '') { %>
+		<span class="item-num-percent"><%=rightTips%></span>
+		<% } %>
+		<% if(finishedTag) { %>
+		<i class="icon-font i-right"></i>
+		<% } %>
+		<% if(process) { %>
+			<span class="item-num-percent"><%=process.desc%></span>
+			<span class="item-progress">
+				<span class="percent" style="width:<%=process.rate%>"></span>
+			</span>
+		<% } %>
+	</div>
+	<%if(rowType==='a'){%>
+		</a>
+	<%}else{%>
+		</div>
+	<%}%>
+<% } %>

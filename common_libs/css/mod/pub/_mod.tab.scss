@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+// Tab
+//
+// tab 组件
+// css @fierayan
+//
+// Styleguide 12
+
+// 示例
+//
+// Markup:
+//<div class="mod-tab">
+//	<ul class="mod-tab__ul">
+//		<li class="mod-tab__li mod-tab__li_current"><a href="#">tab1</a></li>
+//		<li class="mod-tab__li"><a href="#">tab2</a></li>
+//		<li class="mod-tab__li"><a href="#">tab3</a></li>
+//	</ul>
+//	<div class="mod-tab__content">
+//		<p style="padding: 20px;font-size: 16px;">tab内容区域，使用时去掉这个P</p>
+//	</div>
+//</div>
+//
+// Styleguide 12.1
+
+.mod-tab{
+	width: 100%; // 改成100%宽度 ycxu
+}
+.mod-tab__ul{
+	font-size: 0;
+	/*cursor: pointer;*/
+	_margin-bottom:-1px;
+}
+.mod-tab__li{
+	display:inline-block;vertical-align:middle;
+	width: 150px;
+	height:40px;
+	padding-top: 5px;
+	// background: #FCFCFC;
+	a{
+		display:inline-block;vertical-align:middle;
+		width: 148px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		border-bottom: 1px solid #DFDFDF;
+		color: #666666;
+		font-size: 16px;
+		// background:#FCFCFC;
+	}
+
+	&:hover{
+		a{
+			color: #178EEE;
+		}
+	}
+}
+.mod-tab__li_current{
+	background:#178EEE;
+	a{
+		color: #178EEE;
+		border-left: 1px solid #DFDFDF;
+		border-right: 1px solid #DFDFDF;
+		border-bottom: 1px solid transparent;
+		background: #fff;
+	}
+}
+.mod-tab__content{
+	border-top: 1px solid #DFDFDF;
+	overflow: hidden;
+}

@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+// .hz-menu-bd{
+//     position:relative;
+//     .hz-menu-bd-inner{
+//         margin: 0 auto;
+//         width: 940px;
+//         overflow: hidden;
+//         position:relative;
+//     }
+//     .prev-btn,.next-btn,.prev-btn-dis,.next-btn-dis{
+
+//         width:38px;
+//         height:72px;
+//         position:absolute;
+//         top: 19px;
+//         background: url("../img/bg/agency-arr.png#unsprite") no-repeat transparent;
+
+//     }
+//     .prev-btn,.prev-btn-dis{
+//         left: 20px;
+//         visibility: visible;
+//     }
+//     .prev-btn{
+//         background-position: -38px 0;
+
+//         &:hover{
+//             background-position:-76px 0;
+//         }
+//         &:active{
+//             background-position: -114px 0;
+//         }
+//     }
+//     .prev-btn, .next-btn{
+//       &:hover{filter: none;}
+//       &:active{filter: none;}
+//     }
+//     .next-btn,.next-btn-dis{
+//         right: 20px;
+//         visibility: visible;
+//     }
+//     .next-btn{
+//         background-position: -38px -72px;
+
+//         &:hover{
+//             background-position:-76px -72px;
+//         }
+//         &:active{
+//             background-position: -114px -72px;
+//         }
+//     }
+//     .next-btn-dis{
+//         background-position: 0 -72px;
+//     }
+// }

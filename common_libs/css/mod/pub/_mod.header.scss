@@ -1,0 +1,427 @@
+@charset "utf-8";
+
+
+// 改版新样式  @fierayan
+
+
+.mod-header__wrap{
+	border-bottom: 1px solid #E0E0E0;
+	margin-bottom: 20px;
+	background-color: #fff;
+	a{
+		color: #333;
+		&:hover{
+			color: #188EEE;
+		}
+	}
+}
+
+.mod-header{
+	width: 1200px;
+	height:100px;
+	margin: 0 auto;
+	*zoom: 1;
+}
+.mod-header__link-logo{
+	background: url("/common/img/bg/index-sprite.png#unsprite") no-repeat 0 18px;
+	font: 0/0 a;
+	color: transparent;
+	width:297px;
+	height: 81px;
+	float: left;
+}
+.mod-header__wrap-search{
+	position: relative;
+	float: right;
+	padding-top:10px;
+	margin-right: 38px;
+}
+.mod-header__wrap-login{
+	width: 146px;
+	height: 40px;
+	position: relative;
+	padding-top: 10px;
+	float: right;
+	line-height: 40px;
+	text-align: right;
+	margin-left: 20px;
+
+	.mod-header__wrap-common-operation{
+		display:inline-block;vertical-align:middle;
+		line-height: 30px;
+	}
+	.mod-header__link-user,.mod-header__wrap-agency,.mod-header__link-logout{
+		display: none;
+	}
+	.mod-header__link-login,.mod-header__link-help{
+		font-size: 12px;
+		color: #333;
+		padding:0 5px;
+		display: inline-block;
+	}
+	.mod-header__link-help{
+		margin-left: 5px;
+	}
+	.mod-header__my-course,.mod-header__user-operation,.mod-header__link-logout{
+		font-size: 12px;
+		color: #333333;
+	}
+}
+.mod-header_wrap-user{
+	display: none;
+	position: relative;
+	float: left;
+	text-align: left;
+	padding-bottom: 10px;
+
+	.icon-red-circle{
+		width: 8px;
+		height: 8px;
+		position: absolute;
+		top: 0;
+		left: 35px;
+		&:after{
+			content: "●";
+			color: #f94d4d;
+			font-size: 16px;
+			line-height: 1;
+			position: absolute;
+			top: -6px;
+			left: 0;
+		}
+	}
+
+	.indicate-remind{
+		position: relative;
+		&:after{
+			content: "●";
+			color: #f94d4d;
+			font-size: 14px;
+			line-height: 1;
+			display: inline-block;
+			vertical-align: 0;
+			position: absolute;
+			top: 2px;
+		}
+	}
+
+	.mod-header__user-operations{
+		width: 84px;
+		position: absolute;
+		top: 50px;
+		left: 20px;
+		border: 1px solid #ddd;
+		z-index: 5;
+		display: none;
+
+		a{
+			background: #fff;
+			display: block;
+			line-height: 30px;
+			text-align: center;
+			&:hover{
+				background: #eee;
+			}
+		}
+	}
+	.mod-header__user-img{
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		float: left;
+	}
+	.mod-header__user-name{
+		margin-left: 45px;
+		width: 60px;
+		font-size: 12px;
+		b{
+			font-weight: normal;
+		}
+		a{
+			display: block;
+			position: relative;
+			max-width: 64px;
+			padding-right: 10px;
+			color: #333;
+			@include ellipsis;
+
+			&:after{
+				content: "";
+				width: 0;
+				height: 0;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				margin-top: -2px;
+				border-top: 4px solid;
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				transition: transform 0.3s;
+				overflow: hidden;
+			}
+		}
+	}
+
+	&:hover{
+		.mod-header__user-operations{
+			display: block;
+		}
+		.mod-header__user-name a{
+			color: #188EEE;
+			&:after{
+				-webkit-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+.mod-header__wrap-logined{
+	// width: 160px;
+
+	.mod-header__link-login{
+		display: none;
+	}
+	.mod-header__link-user,.mod-header__wrap-agency,.mod-header__link-logout{
+		display:inline-block;vertical-align:middle;
+		vertical-align: baseline;
+	}
+
+	.mod-header__my-course{
+		display:inline-block;vertical-align:middle;
+		vertical-align: baseline;
+		height: 40px;
+		line-height: 45px;
+		margin-right: 10px;
+		margin-top: -6px;
+		*margin-top:-3px;
+	}
+
+}
+
+// 内页头部 常规960px
+.mod-header_inner{
+	width: 960px;
+	height: 50px;
+	position: relative;
+	z-index: 900;
+	.mod-header__wrap-login{
+		width: 136px;
+		height: 30px;
+		line-height: 30px;
+	}
+	.mod-header-logo{
+		float: left;
+	}
+	.mod-header__link-logo{
+		width: 142px;
+		height: 50px;
+		background: url("../img/bg/c-sprite.png#unsprite") 0 10px no-repeat;
+	}
+	.mod-header__nav{
+		float: left;
+		margin-left: 18px;
+		height: 50px;
+	}
+	.mod-header__nav-item,.mod-header__link-nav{
+		float: left;
+	}
+
+	// .mod-header__link-nav-hot {
+	// 	background: url("../img/bg/banner-tag-hot.png") no-repeat top right;
+	// 	background-position-y: 4px;
+	// }
+	// .mod-header__link-nav-new {
+	// 	background: url("../img/bg/banner-tag-new1.png") no-repeat top right;
+	// 	background-position-y: 4px;
+	// }
+
+	.mod-header__nav-item_current{
+		.mod-header__link-nav{
+			color: #188EEE;
+			&:hover{
+				color: #188EEE;
+			}
+		}
+	}
+	.mod-header__link-nav{
+		position: relative;
+		padding: 0 15px;
+		line-height: 50px;
+		font-size: 16px;
+		z-index: 9;
+	}
+	.mod-header__nav-item-more {
+		position: relative;
+		margin-left: 5px;
+	}
+	.mod-header__nav-item-more .mod-header__link-nav {
+	  	margin-top: 7px;
+		padding-right: 21px;
+		padding-left: 10px;
+		*padding-right: 15px;
+		height: 44px;
+		line-height: 31px;
+		border: 1px solid #fff;
+		border-bottom: none;
+	}
+
+	.mod-header__nav-item-selected {
+		.mod-header__activity-list {
+			display: block;
+		}
+
+		.mod-header__link-nav {
+			color: #333;
+			border-color: #d9d9d9;
+		}
+
+		.mod-header__nav-item-arrow-outer {
+			top: -7px;
+			border-color: transparent transparent #000 transparent;
+			border-style: dashed dashed solid dashed;
+		}
+
+		.mod-header__nav-item-arrow-inner {
+			top: -6px;
+			border-color: transparent transparent #fff transparent;
+			border-style: dashed dashed solid dashed;
+		}
+	}
+
+	.mod-header__nav-item-arrow {
+		display:inline-block;vertical-align:middle;
+		position: relative;
+		margin-top: 2px;
+		margin-left: 6px;
+		width: 14px;
+		height: 14px;
+	}
+	.mod-header__nav-item-arrow-outer, .mod-header__nav-item-arrow-inner {
+		display:inline-block;vertical-align:middle;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		font-size: 0;
+		line-height: 0;
+		border-width: 7px;
+		border-style: solid dashed dashed dashed;
+	}
+	.mod-header__nav-item-arrow-outer {
+		top: 1px;
+		border-color: #000 transparent transparent transparent;
+	}
+	.mod-header__nav-item-arrow-inner {
+		border-color: #fff transparent transparent transparent;
+	}
+	.mod-header__activity-list {
+		position: absolute;
+		top: 51px;
+		left: 0;
+		border: 1px solid #d9d9d9;
+		display: none;
+		box-shadow: 3px 2px 5px #eee;
+	}
+	.mod-header__activity-item {
+		/*border-bottom: 1px solid #1681c4;*/
+		background: #fff;
+	}
+	.mod-header__activity-item-content {
+		display:inline-block;vertical-align:middle;
+		width: 140px;
+		height: 40px;
+		line-height: 40px;
+		color: #333;
+		font-size: 16px;
+		/*background: #0477c0;*/
+
+		&:hover {
+			color: #188eee;
+			background: #eee;
+		}
+	}
+	.mod-header__activity-item-text {
+		display:inline-block;vertical-align:middle;
+		padding-left: 10px;
+		padding-right: 18px;
+	}
+	// .mod-header__activity-item-hot {
+	// 	background: url("../img/bg/banner-tag-hot-cn.png") no-repeat top right;
+	// 	background-position-y: 8px;
+	// }
+	// .mod-header__activity-item-new {
+	// 	background: url("../img/bg/banner-tag-new-cn.png") no-repeat top right;
+	// 	background-position-y: 8px;
+	// }
+
+	.mod-header__wrap-search{
+		margin-right: 0;
+	}
+	.mod-search{
+	 	border:1px solid #188EEE;
+		height:28px;
+		line-height: 28px;
+		width:240px;
+	}
+	.mod-search__input{
+		margin: 4px 10px 4px 64px;
+		width: 125px;
+		height: 20px;
+		line-height: 20px;
+		vertical-align: top;
+	}
+	.mod-search__btn-search{
+		width: 40px;
+		height: 30px;
+		margin-top: -1px;
+	}
+	.mod-search-dropdown-item {
+		height: 26px;
+		line-height: 26px;
+	}
+	
+	.mod-search-dropdown-item i {
+		top: 10px;
+	}
+
+	.mod-header_wrap-user{
+		.icon-red-circle{
+			left: 25px;
+		}
+	}
+	.mod-header__user-img{
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+	}
+	.mod-header__user-name{
+		margin-left: 35px;
+	}
+	.mod-header__user-operations{
+		top: 40px;
+		left: 15px;
+	}
+}
+
+// 内页头部 1200px
+
+.mod-header_inner-1200{
+	width: 1200px;
+}
+
+.mod-header_inner-990{
+	width: 990px;
+}
+
+// 全部课程 内页1200px无导航
+// 没搜到该样式有效
+.mod-header_inner-no-nav{
+	.mod-header__nav{
+		display: none;
+	}
+}
+
+.mod-header_hide-tab{
+	.mod-header__nav-item{display: none;}
+}

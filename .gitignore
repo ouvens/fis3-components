@@ -3,7 +3,6 @@ Thumbs.db
 ehthumbs.db
 
 # Folder config file
-Desktop.ini
 dist
 dev
 
@@ -40,10 +39,3 @@ $RECYCLE.BIN/
 # Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-src-smart/widget/panel-3/main.js
-*.js
-src-smart/widget/banner-2/main.js
-src-smart/widget/panel-3/main.js

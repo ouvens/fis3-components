@@ -1,0 +1,301 @@
+@charset "UTF-8";
+
+// ICONS
+//
+// 按钮可以通过添加`.ico-`类来产生。
+//
+// Styleguide 5
+
+// 警告ICON
+//
+// .ico-warn-large         	- 警告36*36
+// .ico-warn-normal			- 警告24*24
+// .ico-warn-small			- 警告14*14
+//
+// Markup:
+// <i class="{$modifiers}"></i>
+//
+// Styleguide 5.1
+
+// 帮助ICON
+//
+// .ico-help-large         	- 帮助36*36
+// .ico-help-normal			- 帮助24*24
+// .ico-help-small			- 帮助14*14
+//
+// Markup:
+// <i class="{$modifiers}"></i>
+//
+// Styleguide 5.2
+
+// 提示ICON
+//
+// .ico-info-large         	- 提示36*36
+// .ico-info-normal			- 提示24*24
+// .ico-info-small			- 提示14*14
+//
+// Markup:
+// <i class="{$modifiers}"></i>
+//
+// Styleguide 5.3
+
+// 成功ICON
+//
+// .ico-succ-large         	- 成功36*36
+// .ico-succ-normal			- 成功24*24
+// .ico-succ-small			- 成功14*14
+//
+// Markup:
+// <i class="{$modifiers}"></i>
+//
+// Styleguide 5.4
+
+@each $size in large, normal, small {
+	@each $type in warn, help, info, succ {
+		.ico-#{$type}-#{$size} {
+			@include ico(#{$type}, #{$size});
+		}
+	}
+}
+
+// .icon{
+// 	background:url("../img/bg/icon_2.png#unsprite") no-repeat;
+// }
+
+// icon calendar
+.i-calendar{
+  position: absolute;
+  right: 0;
+  top: 2px;
+  line-height: 28px;
+  font-size: 20px;
+  color: #b2b3b3;
+  cursor: pointer;
+}
+
+// 评分小星星
+
+// .icon-star{
+// 	display:inline-block;vertical-align:middle;
+// 	background: url("../img/bg/icon-star.png") no-repeat;
+// 	width: 12px;
+// 	height: 12px;
+// 	&.icon-star_gray{
+// 		background: url("../img/bg/icon-star_gray.png") no-repeat;
+// 	}
+// 	&.icon-star_half{
+// 		background: url("../img/bg/icon-star_half.png") no-repeat;
+// 	}
+// }
+
+// 小三角
+
+// .icon-triangle{
+// 	display:inline-block;vertical-align:middle;
+// 	background: url("../img/bg/icon_triangle.png") no-repeat;
+// 	width: 15px;
+// 	height: 10px;
+// }
+
+// 绿色角标旗
+// span.icon-corner-selected>i.icon-font.i-right
+.icon-corner-selected{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 12px solid $green;
+	border-top: 12px solid $green;
+	border-right: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	color: #fff;
+	.i-right{
+		position: absolute;
+		font-size: 14px;
+		left: -12px;
+		top: -12px;
+	}
+}
+
+
+
+// qq 和 qun icon
+.icon-qq,
+.icon-qzone,
+.icon-weixin,
+.icon-weibo{
+	background: url("../img/bg/c-sprite.png#unsprite") no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+    height:30px;
+    width:30px;
+}
+.icon-qq{
+    background-position: -5px -185px;
+}
+.icon-qzone{
+    background-position: -36px -186px;
+}
+.icon-weixin{
+    background-position: -66px -185px;
+}
+.icon-weibo{
+    background-position: -100px -186px;
+}
+
+.icon-qun{
+	display:inline-block;vertical-align:middle;
+	background: url("../img/bg/icon-qun.png") no-repeat;
+	width: 24px;
+	height: 20px;
+}
+
+// 电话图标
+
+.icon-phone{
+	display:inline-block;vertical-align:middle;
+	background: url("../img/bg/icon-phone.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+// 蓝色增加图标
+
+// .icon-add-blue{
+// 	display:inline-block;vertical-align:middle;
+// 	background: url("../img/bg/icon_add_blue.png") no-repeat;
+// 	width: 18px;
+// 	height: 18px;
+// 	vertical-align: -3px;
+// }
+
+// 三栏日历图标
+
+// .icon-calender{
+// 	display:inline-block;vertical-align:middle;
+// 	background: url("../img/bg/ico-cal.png") no-repeat;
+// 	width: 18px;
+// 	height: 14px;
+// }
+
+// 小分隔符
+.icon-sep{
+	display:inline-block;vertical-align:middle;
+	width: 1px;
+	height: 14px;
+	background: #ddd;
+}
+
+// 机构等级
+.icon-agency-level{
+	display:inline-block;
+	vertical-align: middle;
+	background: url("../img/bg/c-sprite.png#unsprite") no-repeat 1px -150px;
+	width: 72px;
+	height: 26px;
+	&.level--3{
+		background-position: -78px -148px;
+	}
+	&.level--4{
+		background-position: -165px -148px;
+	}
+	&.level--5{
+		background-position: -253px -148px;
+	}
+}
+.icon-level{
+	display:inline-block;
+	vertical-align: middle;
+	background: url("../img/bg/icon-level.png#unsprite") no-repeat 0 3px;
+	width: 72px;
+	height: 26px;
+	&.icon-level_3{
+		background-position: 0 -33px;
+	}
+	&.icon-level_4{
+		background-position: 0 -68px;
+	}
+	&.icon-level_5{
+		background-position: 0 -104px;
+	}
+}
+
+
+// 个人老师认证图标
+// .i-a-media,
+// .i-a-profession,
+// .i-a-education,
+// .i-a-teacher{
+// 	&.un-open{
+// 		color: #ccc;
+// 	}
+// }
+// .i-a-media{
+// 	color: #f6891d;
+// }
+// .i-a-profession{
+// 	color: #f7795c;
+// }
+// .i-a-education{
+// 	color: #83bf52;
+// }
+// .i-a-teacher{
+// 	color: #6fb3ea;
+// }
+
+// 录播课
+.icon-lu{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background: url("/common/img/bg/index-sprite.png#unsprite") no-repeat -60px -400px;
+    &.icon-lu--small{
+		background-position: -110px -441px;
+		width: 16px;
+		height: 16px;
+		bottom: 5px;
+		left: 5px;
+	}
+}
+// 免费试听
+.icon-try-listen{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 56px;
+    line-height: 18px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    @include background-rgba;
+}
+
+// 课程进度icon
+.icon-person {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-left: -12px;
+	background: url("../img/bg/c-sprite.png#unsprite") no-repeat -346px 0;
+	.task-schedule--overdue &{
+		background-position: -366px 0;
+	}
+}
+.icon-person-white-run {
+	background: url("../img/bg/icon-run-white.gif") no-repeat 0 0;
+}
+.icon-person-black-run {
+	background: url("../img/bg/icon-run-black.gif") no-repeat 0 0;
+}
+.icon-person-multi{
+	display: inline-block;
+	vertical-align: 0;
+	width: 24px;
+	margin-left: -12px;
+	height: 14px;
+	line-height: 1;
+	background: url("../img/bg/c-sprite.png#unsprite") no-repeat -320px -20px;
+}

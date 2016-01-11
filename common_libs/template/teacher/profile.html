@@ -1,0 +1,44 @@
+<div class="expand-mod mt30">
+  <div class="expand-mod-name mt35"><b>*</b>头像</div>
+  <div class="expand-mod-cont need-show-upload-error">
+    <div class="img-right">
+      <form class="upload-form2" id="teacherLogoForm" method="post" enctype="multipart/form-data">
+        <img lazy-src="<%=teacher.cover_url ? (teacher.cover_url+'130') : '/img/temp.png'%>" alt="老师头像" class="edit-teacher-logo img" />
+        <a href="#" tabindex="-1" id="teacherLogoBg" class="umask"><span></span><i>重新上传图片</i></a>
+        <input type="hidden" name="teacher_logo" class="teacher_logo" value="<%=teacher.cover_url%>" data-pattern="notNull" />
+        <input type="file" name="filename" id="teacherLogo"  accept="image/gif, image/jpeg, image/bmp, image/png" class="" data-holder="<%=teacher.cover_url%>" title="重新上传图片" />
+      </form>
+      <div class="upload-wording">尺寸：130*130<br/>格式：png/jpg/gif/bmp<br/>大小：小于2M</div>
+      <div class="field-help" style="margin:10px 0 0 0"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="expand-mod">
+  <div class="expand-mod-name"><b>*</b>姓名</div>
+  <div class="expand-mod-cont">
+    <input type="text" id="teacherName" data-pattern="notNull" value="<%=teacher.name%>" data-holder="<%=teacher.name%>" data-uin="<%=teacher.uin%>" data-prop="name" data-tips="请输入姓名" class="am-input-text" maxlength="24" placeholder="请输入姓名" data-type="teacher" />
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="expand-mod">
+  <div class="expand-mod-name"><b>*</b>电话</div>
+  <div class="expand-mod-cont">
+    <input type="text" id="teacherPhone" data-pattern="notNull|phone" maxlength="11" value="<%=teacher.phone%>" data-holder="<%=teacher.phone%>" data-prop="phone" class="am-input-text" data-tips="请输入手机号码" placeholder="请输入手机号码" data-type="teacher" />
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="expand-mod">
+  <div class="expand-mod-name"><b>*</b>邮箱</div>
+  <div class="expand-mod-cont">
+    <input type="text" id="teacherEmail" data-pattern="notNull|email" data-tips="请输入电子邮箱" value="<%=teacher.email%>" data-holder="<%=teacher.email%>" data-prop="email" class="am-input-text" placeholder="请输入电子邮箱" data-type="teacher" />
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="expand-mod expand-mod-summary">
+  <div class="expand-mod-name"><b>*</b>简介</div>
+  <div class="expand-mod-cont">
+    <textarea type="text" id="teacherSummary" data-pattern="notNull|summary" data-tips="请填写老师简介" data-holder="<%=teacher.summary%>" data-prop="summary" class="am-input-text" placeholder="输入简介说明(30-150字之间)" data-type="teacher"><%=teacher.summary%></textarea>
+  </div>
+  <div class="clear"></div>
+</div>

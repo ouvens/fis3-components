@@ -1,0 +1,56 @@
+<%
+var label = ['很不满意' , '不满意' , '一般' , '满意' , '很满意'];
+for(var i=0;i<rows.comments.length;i++){
+  var row = rows.comments[i];
+  var comment2="";
+  if(!row.comment){
+    comment2+="课程与描述相符";
+    comment2+=label[row.quality_rating - 1];
+    comment2+="、老师的讲解表达";
+    comment2+=label[row.level_rating - 1];
+    comment2+="、老师的课前服务";
+    comment2+=label[row.attitude_rating - 1];
+  }
+%>
+<tr >
+
+    <td>
+        <div class="mo-comments-list__col-1">
+            <div class="mod-comments-list__img" >
+                <img lazy-src="http://q.qlogo.cn/g?b=qq&nk=<%=row.uin%>&s=40" src="" height="40px" width="40px">
+            </div>
+            <div class="mod-comments-list__name">
+                    <%= row.nick_name %>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="mod-comments-list-item">
+            <div class="mod-comments-list-item__title">
+               <%= ext.renderStar(row) %>
+            </div>
+            <div class="mod-comments-list-item__date">
+                <%= ext.timeRender( new Date(row.time * 1000)) %>
+            </div>
+            <div class="clear"></div>
+            <div class="mod-comments-list-item__content">
+                <%= (row.comment||comment2 +'').replace(/<br\/?>/gi , '') %>
+            </div>
+            <%if(typeof rows.course_name !== 'undefined'){%>
+            <p class="mod-comments-list-item__bottom">
+                来自<a target="_blank" href="http://ke.qq.com/cgi-bin/courseDetail?course_id=<%=rows.course_id%>">《<%=rows.course_name%>》</a>
+            </p>
+            <%}%>
+        </div>
+    </td>
+</tr>
+<%
+}
+
+if(rows.comments.length == 0){
+%>
+<tr class="no-data">
+    <td></td>
+    <td style="text-align: center;position: relative;left:-25px;">暂无评论</td>
+</tr>
+<%}%>

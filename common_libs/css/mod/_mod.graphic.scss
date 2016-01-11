@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+// 图形化数据组件
+// @css fierayan
+
+.mod-graphic{
+	width: 355px;
+	height: 230px;
+	border:1px solid #DEDEDE;
+	border-top: none;
+	border-right: none;
+	position: relative;
+	font-size: 14px;
+	color: #666666;
+}
+.mod-graphic__h{
+	.mod-graphic__rule{
+		position: absolute;
+		width: 50px;
+		height:30px;
+		line-height: 30px;
+		bottom: -30px;
+		text-align: center;
+		&.mod-graphic__rule_1{
+			left: -26px;
+		}
+		&.mod-graphic__rule_2{
+			left: 25px;
+		}
+		&.mod-graphic__rule_3{
+			left: 75px;
+		}
+		&.mod-graphic__rule_4{
+			left: 125px;
+		}
+		&.mod-graphic__rule_5{
+			left: 175px;
+		}
+		&.mod-graphic__rule_6{
+			left: 225px;
+		}
+		&.mod-graphic__rule_7{
+			left: 275px;
+		}
+	}
+	.mod-graphic__mark{
+		position: absolute;
+		width: 1px;
+		height:5px;
+		background: #DEDEDE;
+		top:-5px;
+		left: 25px;
+	}
+
+}
+.mod-graphic__v{
+	.mod-graphic__mark{
+		position: absolute;
+		height: 24px;
+		line-height: 24px;
+		left: 35px;
+		top: 0;
+		text-align: center;
+		color: #ffffff;
+		font-size: 14px;
+	}
+	.mod-graphic__rule{
+		position: absolute;
+		width: 335px;
+		height: 24px;
+		line-height: 24px;
+		left: -35px;
+		&.mod-graphic__rule_1{
+			bottom:10px;
+			.mod-graphic__mark{
+				background: #9BD8F4;
+				width:50px;
+			}
+		}
+		&.mod-graphic__rule_2{
+			bottom:46px;
+			.mod-graphic__mark{
+				background: #81CEF1;
+				width:100px;
+			}
+		}
+		&.mod-graphic__rule_3{
+			bottom:81px;
+			.mod-graphic__mark{
+				background: #68C5EF;
+				width:150px;
+			}
+		}
+		&.mod-graphic__rule_4{
+			bottom:114px;
+			.mod-graphic__mark{
+				background: #36B1E9;
+				width:200px;
+			}
+		}
+		&.mod-graphic__rule_5{
+			bottom:147px;
+			.mod-graphic__mark{
+				background: #1DA8E7;
+				width:250px;
+			}
+		}
+		&.mod-graphic__rule_6{
+			bottom:182px;
+			.mod-graphic__mark{
+				background: #049EE4;
+				width:300px;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.r-mod{
+    padding: 18px 0 17px 30px;
+    color: #202020;
+}
+.r-mod-hd{
+    font-size: 16px;
+    height: 38px;
+    line-height: 38px;
+}
+.faq-mod-bd{
+    margin-top: 3px;
+    color: #7f7f7f;
+    min-height: 100px;
+    .faq-item{
+        list-style: square;
+        list-style-position: inside;
+        height: 32px;
+        line-height: 32px;
+        @include ellipsis;
+        a{
+            color: #7f7f7f;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.org-mod-bd{
+    margin: 9px 0 0 -8px;
+    width: auto;
+    height: auto;
+    .org-item{
+        margin: 2px 4px 1px 0;
+        float: left;
+        height: 106px;
+        width: 106px;
+        a, img {
+            height: 90px;
+            width: 90px;
+        }
+        a {
+            padding: 8px;
+        }
+        img {
+            margin: 0;
+            border-style: none;
+        }
+        .border {
+            width: 88px;
+            height: 88px;
+            display: block;
+        }
+    }
+}
+
+.business-list .business-item .org-item_super-teacher{
+  img{border-radius: 45px;}
+  &:hover{background-color: #fff;}
+}

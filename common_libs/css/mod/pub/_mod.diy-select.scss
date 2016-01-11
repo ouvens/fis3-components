@@ -1,0 +1,181 @@
+@charset "utf-8";
+
+/*通用-下拉框*/
+.diy-select-area{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    position:relative;
+    width: 191px;
+	font-size: 14px;
+    .diy-select{
+        position:relative;
+        padding-left:10px;
+        height: 37px;
+        color: #202020;
+        line-height:37px;
+        border:1px solid #dedede;
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 1px;
+        span, .diy-select-toggle{
+            background: #fff;
+            position:absolute;
+            top: 0;
+            right: 0;
+            width: 22px;
+            height: 37px;
+            overflow: hidden;
+        }
+        b{
+            position:absolute;
+            top: 18px;
+            right: 7px;
+            width: 0;
+            height: 0;
+            display: block;
+            overflow: hidden;
+            border-top:4px solid #dedede;
+            border-right:4px solid #fff;
+            border-left:4px solid #fff;
+            border-bottom:4px solid #fff;
+        }
+        &.disabled{
+            background: #EBEBE4;
+            border-color: #DEDEDE;
+            color: #545454;
+            b{
+                border-top:4px solid #dedede;
+                border-right:4px solid #EBEBE4;
+                border-left:4px solid #EBEBE4;
+                border-bottom:4px solid #EBEBE4;
+            }
+            span{
+                background: #EBEBE4;
+            }
+            &:hover {
+                background: #EBEBE4;
+                border-color: #DEDEDE;
+                b{
+                    border-top:4px solid #dedede;
+                    border-right:4px solid #EBEBE4;
+                    border-left:4px solid #EBEBE4;
+                    border-bottom:4px solid #EBEBE4;
+                }
+            }
+        }
+    }
+	.text-tip{
+		color:#999;
+	}
+    .diy-optgroud{
+        position:absolute;
+        top: 38px;
+        left: 0;
+        width: 189px;
+        background:#fff;
+        border:1px solid #9a9a9a;
+        display: none;
+	    z-index: 3;
+        .diy-option{
+            position: relative;
+            line-height:30px;
+            color: #202020;
+            background: #fff;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #dedede;
+            a,span,i{
+                color: #202020;
+                display: block;
+                text-indent: 10px;
+                cursor:pointer;
+            }
+            i{
+                text-indent: 5px;
+            }
+            &:hover,a:hover{
+                background:#eeeeee;
+            }
+        }
+    }
+    &:hover .diy-select{
+        background: #fff;
+        border-color: #9a9a9a;
+        b{
+            border-color: #fff;
+            border-top-color: #666666;
+        }
+    }
+	.diy-select-ipt{
+		width: 80px;
+		border: 0;
+		height: 19px;
+		line-height: 19px;
+		padding:10px 0 10px 10px;
+        margin-left: -10px;
+	}
+}
+.diy-select-on{
+    position: relative;
+    z-index: 10;
+    .diy-select{
+        border-color:#9a9a9a;
+        span{
+            border-color:#666666;
+        }
+    }
+}
+
+// 错误提示时边框变红
+
+.g-err{
+	.diy-select{
+		border:1px solid #e80808;
+	}
+}
+
+.diy-select-checkbox{
+    position: relative;
+    .diy-option{
+        a{
+            padding-left: 21px;
+        }
+    }
+    .check-box{
+        position: absolute;
+        left: 10px;
+        top: 11px;
+        width: 18px;
+        height: 18px;
+        background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -100px;
+    }
+    .opt-checked .check-box{
+        background: url("/common/img/bg/icon-form.png#unsprite") no-repeat 0 -140px;
+    }
+    .diy-option-save{
+        position: absolute;
+        display: none;
+        left: 0;
+        top: 100px;
+        z-index: 5;
+        width: 189px;
+        height: 47px;
+        background: #FFF;
+        border: 1px solid #9A9A9A;
+        .btn-opt-save{
+            width: 109px;
+            height: 36px;
+            line-height: 36px;
+            margin: 4px 0 0 40px;
+        }
+    }
+}
+
+.diy-optgroud{
+  overflow-y: auto;
+  height: 81px;
+}
