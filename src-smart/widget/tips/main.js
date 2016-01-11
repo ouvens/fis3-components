@@ -1,7 +1,3 @@
-/**
- * main
- * @require './index.scss' // 无需在页面中控制 css
- */
 
 /**
     content string  ''  提示内容，用来填充模板

@@ -1,7 +1,3 @@
-/**
- * main
- * @require './index.scss' // 无需在页面中控制 css
- */
 
 /**
     scrollX boolean false   水平滚动

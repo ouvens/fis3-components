@@ -1,7 +1,3 @@
-/**
- * main
- * @require './index.scss' // 无需在页面中控制 css
- */
 
 /**
  *  title   string  ''  浮层标题，用来填充模板
