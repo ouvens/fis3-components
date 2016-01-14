@@ -1,7 +1,7 @@
 (function(root, factory) {
-    if (typeof define === 'function' && define.amd) {
+    if (typeof define === 'function' || typeof require === 'function' ||  define.amd) {
         // AMD
-        define(['zepto'], factory);
+        require(['zepto'], factory);
     } else if (typeof exports === 'object') {
         // Node, CommonJS之类的
         module.exports = factory(require('zepto'));

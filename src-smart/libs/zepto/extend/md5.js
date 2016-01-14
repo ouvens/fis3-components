@@ -20,7 +20,7 @@
         module.exports = factory(require('zepto'));
     } else {
         // 浏览器全局变量(root 即 window)
-        root['Zepto'] = factory(root['Zepto']);
+        root['md5'] = factory(root['Zepto']);
     }
 
 })(this, function($) {
@@ -272,5 +272,5 @@
 
     $.md5 = hex_md5;
 
-    return exports;
+    return hex_md5;
 });

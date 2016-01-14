@@ -89,7 +89,7 @@
             return !u?null:parseInt(u.substring(1, u.length),10);
         }
     };
-    $.cookie = exports;
+    
     // 处理腾讯视频 播放组件 http://imgcache.gtimg.cn/tencentvideo_v1/tvp/js/tvp.player_v2.js 覆盖 $.cookie 的问题
     // 这是一个坑爹的设计
     // 作为一个公用的组件 为什么并且支持模块化 为什么还要 把方法挂到 $ 下
@@ -97,5 +97,6 @@
         $.cookie = exports;
     }
 
+    $.cookie = exports;
     return exports;
 });

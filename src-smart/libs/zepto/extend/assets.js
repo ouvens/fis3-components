@@ -16,7 +16,7 @@
 
 })(this, function($) {
     var cache = [],
-        timeout
+        timeout;
 
     $.fn.remove = function() {
         return this.each(function() {

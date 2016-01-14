@@ -50,9 +50,12 @@ fis.match('**/_*.scss', {
         isMod: true,
         id: '$1'
     })
-    .match(/^\/widget\/(.+)\/.+\.js$/i, {
+    .match(/^\/widget\/(.+)\/main\.js$/i, {
         isMod: true,
         id: '$1'
+    })
+    .match(/^\/widget\/.+\/.+\.js$/i, {
+        isMod: true
     })
     .match(/^\/asyncWidget\/(.+)\/.+\.js$/i, {
         isMod: true,
@@ -123,7 +126,7 @@ fis.media('dev')
             to: '../dev'
         })
     })
-    .match('pkg/**.js', {
+    .match('{pkg, modules}/**.js', {
         deploy: fis.plugin('local-deliver', {
             to: '../dev'
         })

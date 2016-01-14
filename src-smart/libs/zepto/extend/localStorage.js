@@ -5,13 +5,13 @@
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['zepto'], factory);
+        define('zepto', factory);
     } else if (typeof exports === 'object') {
         // Node, CommonJS之类的
         module.exports = factory(require('zepto'));
     } else {
         // 浏览器全局变量(root 即 window)
-        root['Zepto'] = factory(root['Zepto']);
+        root['localData'] = factory(root['Zepto']);
     }
 
 })(this, function($) {
@@ -74,6 +74,6 @@
             return false;
         }
     };
-
+    $.localData = exports;
     return exports;
 });
