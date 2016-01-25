@@ -173,11 +173,9 @@ fis.media('dist')
         useHash: true,
         optimizer: fis.plugin('uglify-js')
     })
-    .match('pkg/**.js', {
-        useHash: true,
-        optimizer: fis.plugin('uglify-js'),
+    .match('{pkg, modules}/**.js', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: '../dev'
         })
     })
     .match('pkg/*/*.{css,scss,sass}', {
