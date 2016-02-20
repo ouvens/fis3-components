@@ -56,6 +56,8 @@
          */
         if (!e._caught) {
 
+            var orgOnerror;
+            
             if (timeoutkey) {
                 clearTimeout(timeoutkey);
             } else {
