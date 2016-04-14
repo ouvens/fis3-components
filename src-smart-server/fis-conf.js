@@ -6,6 +6,13 @@
 fis.set('project.md5Connector', '-');
 fis.hook('commonjs');
 
+fis.set('project.ignore', [
+  'server/**',
+  'node_modules/**',
+  '.git/**',
+  '.svn/**'
+]);
+
 fis.match('**/_*.scss', {
         release: false
     })
@@ -123,12 +130,12 @@ fis.match('**/_*.scss', {
 fis.media('dev')
     .match('/*.html', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     })
     .match('{pkg, modules}/**.js', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     })
     .match('**.js', {
@@ -138,29 +145,29 @@ fis.media('dev')
     })
     // .match('asyncWidget/**.js', {
     //     deploy: fis.plugin('local-deliver', {
-    //         to: '../dev'
+    //         to: './server/pages'
     //     })
     // })
 
     .match('pkg/*/*.{css,scss,sass}', {
         optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     })
     .match('::image', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     })
     .match('**.{ttf, eot, tpl, png}', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     })
     .match('**.json', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     });
 
@@ -171,7 +178,7 @@ fis.media('dev')
 fis.media('dist')
     .match('/*.html', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: './server/pages'
         })
     })
     .match('**.{js,tpl}', {
@@ -180,7 +187,7 @@ fis.media('dist')
     })
     .match('{pkg, modules}/**.js', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dev'
+            to: './server/pages'
         })
     })
     .match('**.js', {
@@ -193,30 +200,30 @@ fis.media('dist')
         useSprite: true,
         optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: './server/pages'
         })
     })
     .match('::image', {
         useHash: true,
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: './server/pages'
         })
     })
     .match('**.png', {
         useHash: true,
         optimizer: fis.plugin('png-compressor'),
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: './server/pages'
         })
     })
     .match('**.{ttf, eot}', {
         useHash: true,
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: './server/pages'
         })
     })
     .match('**.json', {
         deploy: fis.plugin('local-deliver', {
-            to: '../dist'
+            to: './server/pages'
         })
     });

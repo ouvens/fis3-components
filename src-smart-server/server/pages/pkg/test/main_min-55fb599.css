@@ -1,0 +1,20 @@
+/* /widget/tab/index.scss */.ui-tab .ui-list {
+  min-height: 360px; }
+/* /widget/dialog/index.scss *//* /widget/search-bar/index.scss */.ui-searchbar-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99; }
+/* /widget/label-list/index.scss */.ui-label-panel {
+  position: fixed;
+  width: 100%;
+  z-index: 90;
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  top: -150px;
+  background-color: #fff; }
+
+.ui-label-panel.show {
+  top: 44px; }
+
