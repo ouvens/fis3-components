@@ -1,6 +1,4 @@
-/* /widget/dialog/index.scss *//* /widget/tab/index.scss */.ui-tab .ui-list {
-  min-height: 360px; }
-/* /widget/search-bar/index.scss */.ui-searchbar-fixed {
+/* /widget/z-template/index.scss */.ui-searchbar-fixed {
   position: fixed;
   top: 0;
   width: 100%;
@@ -17,31 +15,7 @@
 
 .ui-label-panel.show {
   top: 44px; }
-/* /widget/page-menu/index.scss *//* /widget/banner-2/index.scss */.ui-banner-2 {
-  margin: 20px 0;
-  padding: 10px 0;
-  overflow: hidden; }
-  .ui-banner-2 .ui-border-t {
-    float: left;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-left: 0;
-    width: 50%;
-    background-image: none; }
-  .ui-banner-2 .ui-list-img {
-    width: 60px;
-    height: 60px; }
-  .ui-banner-2 .ui-list-info {
-    padding: 0; }
-    .ui-banner-2 .ui-list-info .ui-nowrap {
-      font-size: 12px; }
-/* /widget/slider/index.scss *//* /widget/banner-3/index.scss */.ui-banner-3 .ui-grid-trisect-img {
-  padding-top: 60%; }
-/* /widget/loading/index.scss *//* /widget/panel-3/index.scss */.ui-panel {
-  margin: 20px 0;
-  padding: 10px 0;
-  overflow: hidden; }
-/* /modules/sass/frozenjs.scss */@charset "UTF-8";
+/* /widget/z-template-1/index.scss *//* /modules/sass/frozenjs.scss */@charset "UTF-8";
 @media screen and (max-width: 319px) {
   html {
     font-size: 85.33333px; } }
@@ -2899,10 +2873,6 @@ h6, .ui-txt-tips {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, transparent), color-stop(.5, #e0e0e0), to(#e0e0e0));
     background-repeat: repeat-x;
     -webkit-background-size: 100% 1px; } }
-/* /asyncWidget/testMod/index.scss */#testMod {
-  display: block; }
-/* /asyncWidget/testMod1/index.scss */#testMod1 {
-  display: block; }
 /* /pages/index/index.scss */body {
   padding-top: 44px; }
 

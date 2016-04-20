@@ -41,7 +41,7 @@ fis.match('**/_*.scss', {
         id: '$1.tpl',
         moduleId: '$1.tpl',
         release: '$1.tpl', // 发布的后的文件名，避免和同目录下的 js 冲突
-        parser: fis.plugin('imweb-tpl')
+        parser: fis.plugin('swig')
     })
     // modules/index/tupu/index.js -> require('index/tupu/index');
     .match(/^\/modules\/(.+)\.js$/, {
@@ -124,10 +124,11 @@ fis.match('**/_*.scss', {
         })]
     });
 
+
 /**
  * 开发
  */
-fis.media('dev')
+fis.media('server')
     .match('/*.html', {
         deploy: fis.plugin('local-deliver', {
             to: './server/pages'
@@ -138,11 +139,11 @@ fis.media('dev')
             to: './server/pages'
         })
     })
-    .match('**.js', {
-        parser: fis.plugin('babel'),
-        release: '$0',
-        rExt: '.js'
-    })
+    // .match('**.js', {
+    //     parser: fis.plugin('babel'),
+    //     release: '$0',
+    //     rExt: '.js'
+    // })
     // .match('asyncWidget/**.js', {
     //     deploy: fis.plugin('local-deliver', {
     //         to: './server/pages'
@@ -168,6 +169,53 @@ fis.media('dev')
     .match('**.json', {
         deploy: fis.plugin('local-deliver', {
             to: './server/pages'
+        })
+    });
+
+/**
+ * 开发
+ */
+fis.media('dev')
+    .match('/*.html', {
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
+        })
+    })
+    .match('{pkg, modules}/**.js', {
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
+        })
+    })
+    // .match('**.js', {
+    //     parser: fis.plugin('babel'),
+    //     release: '$0',
+    //     rExt: '.js'
+    // })
+    // .match('asyncWidget/**.js', {
+    //     deploy: fis.plugin('local-deliver', {
+    //         to: './server/pages'
+    //     })
+    // })
+
+    .match('pkg/*/*.{css,scss,sass}', {
+        optimizer: fis.plugin('clean-css'),
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
+        })
+    })
+    .match('::image', {
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
+        })
+    })
+    .match('**.{ttf, eot, tpl, png}', {
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
+        })
+    })
+    .match('**.json', {
+        deploy: fis.plugin('local-deliver', {
+            to: '../dev'
         })
     });
 

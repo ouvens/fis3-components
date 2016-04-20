@@ -656,7 +656,6 @@
 
                 this.currentPage = 0;
                 this.count = this.scroller.children.length;
-
                 this.scroller.style.width = this.count + "00%";
 
                 this.itemWidth = this.scroller.children[0].clientWidth;

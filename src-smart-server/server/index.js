@@ -2,10 +2,10 @@
 
 const http = require('http');
 
-const koa = require('koa')
-const logger = require('koa-logger')
-const route = require('koa-route')
-const serve = require('koa-static')
+const koa = require('koa');
+const logger = require('koa-logger');
+const route = require('koa-route');
+const serve = require('koa-static');
 const stylus = require('koa-stylus');
 
 const routes = require('./routes');
@@ -15,11 +15,11 @@ const app = koa();
 
 // middleware
 app.use(logger());
-app.use(stylus('./public'));
-app.use(serve('./public'));
+app.use(stylus('./pages'));
+app.use(serve('./pages'));
 
 // 路由中间件
-app.use(route.get('/indexPage', routes.indexPage));
+app.use(route.get('/index', routes.indexPage));
  
 app.use(route.get('/', routes.list));
 app.use(route.get('/todo/new', routes.add));

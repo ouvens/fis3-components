@@ -3,27 +3,20 @@ const render = require('../lib/views');
 const todos = require('../models/todos');
 const pages = require('../lib/pages');
 
-
+const dataMock = require('../mock/indexPage');
 
 /**
  * Item List.
  */
 exports.indexPage = function*() {
     var results = yield todos.find({});
-    console.log(results);
-    this.body = yield pages('index', { todos: results });
+
+    this.body = yield pages('index', { 
+        pageMenu: dataMock.result.pageMenu,
+        keywords: dataMock.result.keywords
+        });
 };
 
-// 路由定义
-
-/**
- * Item List.
- */
-exports.list = function*() {
-    var results = yield todos.find({});
-    console.log(results);
-    this.body = yield render('index', { todos: results });
-};
 
 /**
  * Form for creating new todo item.

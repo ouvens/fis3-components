@@ -11,13 +11,12 @@ var labelList = {
     $el: $('#ui-label-panel'),
 
     init: function(data) {
-
         this._renderData(data);
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.find('.ui-label-list').html(labelTpl({data: data}));
+        this.$el.find('.ui-label-list').html(labelTpl({keywords: data}));
     },
 
     _bindEvent: function() {
