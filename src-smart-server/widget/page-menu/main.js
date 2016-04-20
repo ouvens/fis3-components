@@ -15,19 +15,23 @@
 
 var menuTpl = require('./index.tpl');
 
+
 var slider = {
     $el: $('#ui-page-menu'),
 
     init: function (data) {
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function (data) {
-        this.$el.find('#ui-slider-content').html(menuTpl({data: data}));
+        this.$el.find('#ui-slider-content').html(menuTpl({pageMenu: data}));
     },
 
     _bindEvent: function () {
+
         var slider = new fz.Scroll('#ui-page-menu', {
             role: 'slider',
             indicator: true,

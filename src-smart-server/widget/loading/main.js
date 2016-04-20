@@ -8,8 +8,9 @@
 var loading = {
     $el: $('.ui-search-bar'),
     init: function() {
-
-        this._renderData();
+        if(window.r){
+            this._renderData();
+        }
         this._bindEvent();
     },
 

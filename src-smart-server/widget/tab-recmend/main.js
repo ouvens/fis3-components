@@ -6,14 +6,16 @@ var tips = {
 
     init: function(data) {
 
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function(data) {
         var self = this;
         if(self.$el.data('type')){
-            self.$el.html(listTpl({data: data}));
+            self.$el.html(listTpl({tabRecmend: data}));
         }
         self.$el.next().hide();
     },

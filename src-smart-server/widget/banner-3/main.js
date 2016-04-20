@@ -11,13 +11,14 @@ var tips = {
     $el: $('#ui-banner-3'),
 
     init: function(data) {
-
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.html(bannerTpl({data: data}));
+        this.$el.html(bannerTpl({banner3: data}));
     },
 
 

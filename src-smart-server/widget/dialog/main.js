@@ -30,17 +30,17 @@ var dialog = {
     _bindEvent: function() {
         var $dialog = this.$el.dialog('show');
 
-        // $dialog.on("dialog:action",function(e){
-        //     alert(1)
-        // });
-        // $dialog.on("dialog:hide",function(e){
-        //     alert(2)
-        // });
-        // var dia = $.dialog({
-        //     title: '温馨提示',
-        //     content: '温馨提示内容',
-        //     button: ["确认", "取消"]
-        // });
+        $dialog.on("dialog:action",function(e){
+            alert(1)
+        });
+        $dialog.on("dialog:hide",function(e){
+            alert(2)
+        });
+        var dia = $.dialog({
+            title: '温馨提示',
+            content: '温馨提示内容',
+            button: ["确认", "取消"]
+        });
 
     }
 }

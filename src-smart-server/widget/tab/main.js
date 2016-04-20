@@ -22,12 +22,14 @@ var tab = {
     
     init: function(data) {
         this.model = data;
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        recmendList.init(data.recmendList);
+        recmendList.init(data && data.recmendList);
     },
 
     _bindEvent: function() {
@@ -48,10 +50,10 @@ var tab = {
             // curPage 当前页
             switch(curPage){
                 case 1:
-                    moreList.init(self.model.moreList);
+                    moreList.init(self.model && self.model.moreList);
                     break;
                 case 0:
-                    recmendList.init(self.model.recmendList);
+                    recmendList.init(self.model && self.model.recmendList);
                     break;
                 default:
                     break;

@@ -1,9 +1,9 @@
 
 
-<% for(var i = 0, len = data.length; i < len; i++ ){ %>
+{% for item in slider %}
     <li>
-        <a href="<%= data[i].url %>">
-            <img src="<%= data[i].image %>" alt="data[i].title">
+        <a href="{{ item.url }}">
+            <img src="{{ item.image }}" alt="{{ item.title }}">
         </a>
     </li>
-<% } %>
+{% endfor %}

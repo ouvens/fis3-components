@@ -10,10 +10,17 @@ const dataMock = require('../mock/indexPage');
  */
 exports.indexPage = function*() {
     var results = yield todos.find({});
+    var data = dataMock.result;
 
     this.body = yield pages('index', { 
-        pageMenu: dataMock.result.pageMenu,
-        keywords: dataMock.result.keywords
+            pageMenu: data.pageMenu,
+            keywords: data.keywords,
+            banner2: data.banner2,
+            banner3: data.banner3,
+            slider: data.slider,
+            tabRecmend: data.tabs.recmendList,
+            tabMore: data.tabs.moreList,
+            panel3: data.panel3
         });
 };
 

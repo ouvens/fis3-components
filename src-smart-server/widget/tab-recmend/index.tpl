@@ -1,14 +1,14 @@
 
-<% for(var i = 0, len = data.list.length; i < len; i++ ){ %>
-    <li class="ui-border-t" data-href="<%= data.list[i].url %>">
+{% for item in tabRecmend.list %}
+    <li class="ui-border-t" data-href="{{ item.url }}">
         <div class="ui-list-img">
-            <a href="<%= data.list[i].url %>">
-                <img src="<%= data.list[i].image %>" alt="<%= data.list[i].title %>" width="90" height="70">
+            <a href="{{ item.url }}">
+                <img src="{{ item.image }}" alt="{{ item.title }}" width="90" height="70">
             </a>
         </div>
         <div class="ui-list-info">
-            <h4 class="ui-nowrap"><%= data.list[i].title %></h4>
-            <p class="ui-nowrap"><%= data.list[i].desc %></p>
+            <h4 class="ui-nowrap">{{ item.title }}</h4>
+            <p class="ui-nowrap">{{ item.desc }}</p>
         </div>
     </li>
-<% } %>
+{% endfor %}

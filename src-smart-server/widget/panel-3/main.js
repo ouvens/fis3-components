@@ -11,13 +11,14 @@ var tips = {
     $el: $('#ui-panel-3'),
 
     init: function(data) {
-
-        this._renderData(data);
+        if (window.r) {
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.html(panelTpl({data: data}))
+        this.$el.html(panelTpl({panel3: data}))
     },
 
     _ajaxData: function() {

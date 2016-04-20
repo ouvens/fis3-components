@@ -12,12 +12,14 @@ var tips = {
 
     init: function(data) {
 
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.html(bannerTpl({data: data}));
+        this.$el.html(bannerTpl({banner2: data}));
     },
 
 

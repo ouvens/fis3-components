@@ -5,8 +5,9 @@ var labelList = require('label-list');
 var searchBar = {
     $el: $('#ui-search-bar'),
     init: function(data) {
-
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 

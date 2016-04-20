@@ -11,8 +11,9 @@ var tips = {
     $el: $('#ui-more-list'),
 
     init: function(data) {
-
-        this._renderData(data);
+        if(window.r){
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
@@ -20,7 +21,7 @@ var tips = {
         var self = this;
 
         if(self.$el.data('type')){
-            self.$el.html(moreTpl({data: data}));
+            self.$el.html(moreTpl({tabMore: data}));
         }
         self.$el.next().hide();
     },

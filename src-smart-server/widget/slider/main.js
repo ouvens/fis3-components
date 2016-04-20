@@ -19,13 +19,15 @@ var slider = {
     $el: $('#ui-slider'),
 
     init: function(data) {
+        if(window.r){
 
-        this._renderData(data);
+            this._renderData(data);
+        }
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.find('.ui-slider-content').html(sliderTpl({data: data}));
+        this.$el.find('.ui-slider-content').html(sliderTpl({slider: data}));
     },
 
     _bindEvent: function() {
