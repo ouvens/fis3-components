@@ -1,1 +1,0 @@
-<div id="asyncMod">{{ word }}</div>
