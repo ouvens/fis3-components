@@ -1,5 +1,4 @@
 // var name = 'fis3';
-
 // fis.project.setProjectRoot('src');
 // fis.processCWD = fis.project.getProjectPath()
 
@@ -9,16 +8,20 @@ var dist = '../dist';
 fis.set('project.md5Connector', '-');
 fis.hook('commonjs');
 
+/**
+ * 配置进行处理的目录或文件
+ */
 fis.set('project.ignore', [
     'server/**',
     'node_modules/**',
     '.git/**',
     '.svn/**',
     'dev/**',
+    'dist/**',
+    '**/_*.scss',
+    '**.md',
     'fis-conf.js',
     'package.json',
-    '**.md',
-    '**/_*.scss',
     'MIT-LICENSE'
 ]);
 
@@ -34,7 +37,7 @@ fis.match('libs/**.min.js', {
         parser: fis.plugin('swig')
     })
     .match(/^\/libs\/.+\/(.+)\.js$/i, {
-        packTo: '/libs/$3.js',
+        packTo: '/libs/$1.js',
         isMod: true,
         id: '$1'
     })
@@ -87,7 +90,7 @@ fis.match('libs/**.min.js', {
  * 开发
  */
 fis.media('dev')
-    .match('/pages/*.html', {
+    .match('/pages/*/*.html', {
         deploy: fis.plugin('local-deliver', {
             to: devDist
         })
@@ -97,7 +100,7 @@ fis.media('dev')
             to: devDist
         })
     })
-    .match('/pkg/pages/*/*.{css,scss,sass}', {
+    .match('/pkg/pages/*/**.{css,scss,sass}', {
         optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
             to: devDist
@@ -124,7 +127,7 @@ fis.media('dev')
  *  压缩、合并、文件指纹
  */
 fis.media('dist')
-    .match('/pages/*.html', {
+    .match('/pages/*/*.html', {
         deploy: fis.plugin('local-deliver', {
             to: dist
         })
@@ -136,7 +139,7 @@ fis.media('dist')
             to: dist
         })
     })
-    .match('/pkg/pages/*/*.{css,scss,sass}', {
+    .match('/pkg/pages/*/**.{css,scss,sass}', {
         useHash: true,
         useSprite: true,
         optimizer: fis.plugin('clean-css'),
