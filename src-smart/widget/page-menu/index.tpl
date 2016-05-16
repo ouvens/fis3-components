@@ -1,18 +1,20 @@
 <li>
     <ul class="page">
-    <% for(var i = 0, len = data.length; i < len; i++ ){ %>
 
-        <% if( i>0 && i%8 === 0) {%>
+    {% for item in pageMenu %}
+        
+        {% if loop.index > 0 && loop.index % 8 == 0 %}
             </ul>
         </li>
         <li>
             <ul class="page">
-        <% } %>
+        {% endif %}
 
-        <li class="page-item" data-href="<%= data[i].url %>">
-            <span class="page-item-bd <%= data[i].icon %>" style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
-            <span class="page-item-ft"><%= data[i].title %></span>
+        <li class="page-item {% if loop.first %}first{% else %}{{loop.index}}{% endif %}" data-href="{{ item.url }}">
+            <span class="page-item-bd {{ item.icon }}" style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
+            <span class="page-item-ft">{{ item.title }}</span>
         </li>
-    <% } %>
+    {% endfor %}
     </ul>
+
 </li>

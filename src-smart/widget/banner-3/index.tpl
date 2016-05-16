@@ -1,17 +1,16 @@
-
 <ul class="ui-grid-trisect">
-    <% for(var i = 0, len = data.list.length; i < len; i++ ){ %>
+    {% for item in banner3.list %}
     <li>
         <div class="ui-border">
             <div class="ui-grid-trisect-img">
-                <a href="<%= data.list[i].url %>">
-                    <img src="<%= data.list[i].image %>" alt="">
+                <a href="{{ item.url }}">
+                    <img src="{{ item.image }}" alt="">
                 </a>
             </div>
             <div>
-                <h4 class="ui-nowrap-multi"><%= data.list[i].title %></h4>
+                <h4 class="ui-nowrap-multi">{{ item.title }}</h4>
             </div>
         </div>
     </li>
-    <% } %>
+    {% endfor %}
 </ul>

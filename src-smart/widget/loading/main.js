@@ -1,14 +1,12 @@
-
 /**
  * 
     name    type    default description
     content string  '加载中...'    提示内容，用来填充模板
  */
- 
+
 var loading = {
     $el: $('.ui-search-bar'),
     init: function() {
-
         this._renderData();
         this._bindEvent();
     },
@@ -23,13 +21,13 @@ var loading = {
 
     _bindEvent: function() {
         var el = $.loading({
-            content:'加载中...',
+            content: '加载中...',
         })
-        setTimeout(function(){
+        setTimeout(function() {
             el.loading("hide");
-        },100);
+        }, 100);
 
-        el.on("loading:hide",function(){
+        el.on("loading:hide", function() {
             console.log("loading hide");
         });
     }

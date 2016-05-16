@@ -1,4 +1,3 @@
-
 /**
     content string  ''  提示内容，用来填充模板
     stayTime    int 1000    提示停留时间，过了这个时间自动隐藏，设置0则不自动隐藏
@@ -13,23 +12,25 @@ var tips = {
     init: function(data) {
 
         this._renderData(data);
+
         this._bindEvent();
     },
 
     _renderData: function(data) {
         var self = this;
 
-        if(self.$el.data('type')){
-            self.$el.html(moreTpl({data: data}));
+        if (self.$el.data('type')) {
+            self.$el.html(moreTpl({
+                tabMore: data
+            }));
         }
         self.$el.next().hide();
     },
 
 
     _bindEvent: function() {
-        
+
     }
 }
 
 module.exports = tips;
-

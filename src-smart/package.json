@@ -2,6 +2,8 @@
   "name": "project",
   "version": "0.0.1",
   "dependencies": {
-    "fis3-parser-node-sass": "0.0.1"
+    "fis-parser-imweb-tplv2": "0.0.3",
+    "fis3-parser-node-sass": "0.0.1",
+    "fis3-parser-swig": "0.0.3"
   }
 }

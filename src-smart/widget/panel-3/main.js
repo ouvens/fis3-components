@@ -1,4 +1,3 @@
-
 /**
     content string  ''  提示内容，用来填充模板
     stayTime    int 1000    提示停留时间，过了这个时间自动隐藏，设置0则不自动隐藏
@@ -11,21 +10,21 @@ var tips = {
     $el: $('#ui-panel-3'),
 
     init: function(data) {
-
         this._renderData(data);
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.html(panelTpl({data: data}))
+        this.$el.html(panelTpl({
+            panel3: data
+        }))
     },
 
     _ajaxData: function() {
 
     },
 
-    _bindEvent: function() {
-    }
+    _bindEvent: function() {}
 }
 
 module.exports = tips;

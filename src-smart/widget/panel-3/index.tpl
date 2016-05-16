@@ -1,21 +1,21 @@
 
-<h2 class="ui-arrowlink" data-href="<%= data.url %>">
-    <%= data.title %><span class="ui-panel-subtitle"><%= data.total || 0 %>条</span>
+<h2 class="ui-arrowlink" data-href="{{ panel3.url }}">
+    {{ panel3.title }}<span class="ui-panel-subtitle">{{ panel3.total || 0 }}条</span>
 </h2>
 <ul class="ui-grid-trisect">
-    <% for(var i = 0, len = data.list.length; i < len; i++ ){ %>
+    {% for item in panel3.list %}
     <li>
         <div class="ui-border">
             <div class="ui-grid-trisect-img">
-                <a href="<%= data.list[i].url %>">
-                    <img src="<%= data.list[i].image %>" alt="">
+                <a href="{{ item.url }}">
+                    <img src="{{ item.image }}" alt="">
                 </a>
             </div>
             <div>
-                <h4 class="ui-nowrap-multi"><%= data.list[i].title %></h4>
-                <h5 class="ui-nowrap"><%= data.list[i].desc %></h5>
+                <h4 class="ui-nowrap-multi">{{ item.title }}</h4>
+                <h5 class="ui-nowrap">{{ item.desc }}</h5>
             </div>
         </div>
     </li>
-    <% } %>
+    {% endfor %}
 </ul>

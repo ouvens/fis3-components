@@ -1,4 +1,3 @@
-
 /**
     indicator   boolean true    指示点
     autopaly    boolean false   自动播放
@@ -19,13 +18,15 @@ var slider = {
     $el: $('#ui-slider'),
 
     init: function(data) {
-
         this._renderData(data);
+
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        this.$el.find('.ui-slider-content').html(sliderTpl({data: data}));
+        this.$el.find('.ui-slider-content').html(sliderTpl({
+            slider: data
+        }));
     },
 
     _bindEvent: function() {

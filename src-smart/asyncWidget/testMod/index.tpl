@@ -1,1 +1,1 @@
-<div id="asyncMod"><%= word %></div>
+<div id="asyncMod">{{ word }}</div>

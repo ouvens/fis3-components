@@ -1,19 +1,20 @@
-
 var listTpl = require('./index.tpl');
 
 var tips = {
     $el: $('#ui-recmend-list'),
 
     init: function(data) {
-
         this._renderData(data);
+
         this._bindEvent();
     },
 
     _renderData: function(data) {
         var self = this;
-        if(self.$el.data('type')){
-            self.$el.html(listTpl({data: data}));
+        if (self.$el.data('type')) {
+            self.$el.html(listTpl({
+                tabRecmend: data
+            }));
         }
         self.$el.next().hide();
     },

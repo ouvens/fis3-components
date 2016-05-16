@@ -1,4 +1,3 @@
-
 /**
     autopaly    boolean false   自动播放
     interval    int 2000ms  自动播放间隔时间
@@ -19,15 +18,17 @@ var hasLoaded = false;
 var tab = {
     $el: $('.ui-tab'),
     model: {},
-    
+
     init: function(data) {
         this.model = data;
+
         this._renderData(data);
+
         this._bindEvent();
     },
 
     _renderData: function(data) {
-        recmendList.init(data.recmendList);
+        recmendList.init(data && data.recmendList);
     },
 
     _bindEvent: function() {
@@ -46,12 +47,12 @@ var tab = {
         /* 滑动结束 */
         $tab.on('scrollEnd', function(curPage) {
             // curPage 当前页
-            switch(curPage){
+            switch (curPage) {
                 case 1:
-                    moreList.init(self.model.moreList);
+                    moreList.init(self.model && self.model.moreList);
                     break;
                 case 0:
-                    recmendList.init(self.model.recmendList);
+                    recmendList.init(self.model && self.model.recmendList);
                     break;
                 default:
                     break;
