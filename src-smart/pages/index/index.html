@@ -1,18 +1,16 @@
 
-<link rel="stylesheet" href="../../modules/sass/frozenjs.scss">
+<link rel="stylesheet" href="../../libs/frozen/sass/frozenjs.scss">
 
 <script>
+require.async(['zepto', 'frozen', './main'], function($, frozen, main) {
+    main.init();
+});
 
 require.async(['badjs'], function(badjs) {
     badjs.init({
         id: '2016'
     });
 });
-
-require.async(['zepto', 'frozen', './main'], function($, frozen, main) {
-    main.init();
-});
-
 </script>
 
 

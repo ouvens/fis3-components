@@ -17,30 +17,14 @@ fis.set('project.ignore', [
     'dev/**',
     'fis-conf.js',
     'package.json',
-    'README.md'
+    '**.md',
+    '**/_*.scss',
+    'MIT-LICENSE'
 ]);
 
-fis.match('**/_*.scss', {
+fis.match('libs/**.min.js', {
         release: false
     })
-    .match('**.md', {
-        release: false
-    })
-    .match('package.json', {
-        release: false
-    })
-    .match('MIT-LICENSE', {
-        release: false
-    })
-    // .match('libs/**/*.html', {
-    //     release: false
-    // })
-    .match('libs/**.min.js', {
-        release: false
-    })
-    // .match('libs/**/*.js', {
-    //     release: false
-    // })
     .match(/.+\/(.+)\/.+\.tpl$/, { // js 模版一律用 .tpl,可以使用[模块名.tpl]作为模板
         isMod: true,
         rExt: 'js',
@@ -49,40 +33,25 @@ fis.match('**/_*.scss', {
         release: '$1.tpl', // 发布的后的文件名，避免和同目录下的 js 冲突
         parser: fis.plugin('swig')
     })
-    // modules/index/tupu/index.js -> require('index/tupu/index');
-    .match(/^\/modules\/(.+)\.js$/, {
-        isMod: true,
-        id: '$1'
-    })
-    // 简化 modules同名引用
-    // modules/index/tupu/tupu.js -> require('index/tupu');
-    .match(/^\/modules\/((?:[^\/]+\/)*)([^\/]+)\/\2\.(js)$/i, {
-        id: '$1$2'
-    })
     .match(/^\/libs\/.+\/(.+)\.js$/i, {
+        packTo: '/libs/$3.js',
         isMod: true,
         id: '$1'
     })
-    .match(/^\/widget\/(.+)\/main\.js$/i, {
-        isMod: true,
-        id: '$1'
+    .match(/libs\/mod\/(mod)\.js$/i, {
+        packTo: '/libs/$1.js',
+        isMod: false
     })
-    .match(/^\/asyncWidget\/(.+)\/.+\.js$/i, {
+    .match(/^\/(component|asyncComponent)\/(.+)\/main\.js$/i, {
         isMod: true,
-        id: '$1'
-    })
-    .match(/(mod|badjs|bj-report)\.js$/, { // 非模块
-        isMod: true
+        id: '$2'
     })
     .match('pages/**.js', {
         isMod: true
     })
-    // .match('*.{html,js}', { // 同名依赖
-    //     useSameNameRequire: true
-    // })
     .match('**.{scss,sass}', {
         parser: fis.plugin('node-sass', {
-            include_paths: ['modules/sass', 'pages']
+            include_paths: ['libs', 'pages']
         }),
         rExt: '.css'
     })
@@ -105,19 +74,6 @@ fis.match('**/_*.scss', {
     .match('::image', {
         // domain: 'http://7.url.cn/edu/activity/' + name
     })
-
-/**
- * 添加同步打包配置,libs和modules默认打包二级目录的文件
- */
-.match(/(libs|modules)\/(js\/)?.+\/(.+)\.js$/i, {
-        packTo: '/libs/$3.js',
-        isMod: true,
-        id: '$3'
-    })
-    .match(/libs\/mod\/(mod)\.js$/i, {
-        packTo: '/libs/$1.js',
-        isMod: false
-    })
     .match('::package', { //smart 打包
         prepackager: fis.plugin('csswrapper'),
         packager: [fis.plugin('smart', {
@@ -136,12 +92,7 @@ fis.media('dev')
             to: devDist
         })
     })
-    .match('{pkg, modules}/**.js', {
-        deploy: fis.plugin('local-deliver', {
-            to: devDist
-        })
-    })
-    .match('asyncWidget/**.js', {
+    .match('/{pkg,libs,asyncComponent}/**.js', {
         deploy: fis.plugin('local-deliver', {
             to: devDist
         })
@@ -173,54 +124,47 @@ fis.media('dev')
  *  压缩、合并、文件指纹
  */
 fis.media('dist')
-    .match('/pkg/*.html', {
+    .match('/pages/*.html', {
         deploy: fis.plugin('local-deliver', {
-            to: './dist'
+            to: dist
         })
     })
-    .match('package/**.{js,tpl}', {
-        useHash: true,
-        optimizer: fis.plugin('uglify-js')
-    })
-    .match('{pkg, modules}/**.js', {
-        deploy: fis.plugin('local-deliver', {
-            to: './dist'
-        })
-    })
-    .match('**.js', {
+    .match('/{pkg,libs,asyncComponent}/**.js', {
         parser: fis.plugin('babel'),
-        release: '$0',
-        rExt: '.js'
+        optimizer: fis.plugin('uglify-js'),
+        deploy: fis.plugin('local-deliver', {
+            to: dist
+        })
     })
     .match('/pkg/pages/*/*.{css,scss,sass}', {
         useHash: true,
         useSprite: true,
         optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
-            to: './dist'
+            to: dist
         })
     })
     .match('::image', {
         useHash: true,
         deploy: fis.plugin('local-deliver', {
-            to: './dist'
+            to: dist
         })
     })
     .match('**.png', {
         useHash: true,
         optimizer: fis.plugin('png-compressor'),
         deploy: fis.plugin('local-deliver', {
-            to: './dist'
+            to: dist
         })
     })
     .match('**.{ttf, eot}', {
         useHash: true,
         deploy: fis.plugin('local-deliver', {
-            to: './dist'
+            to: dist
         })
     })
     .match('**.json', {
         deploy: fis.plugin('local-deliver', {
-            to: './dist'
+            to: dist
         })
     });
