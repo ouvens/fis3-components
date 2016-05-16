@@ -146,7 +146,7 @@ fis.media('dev')
             to: devDist
         })
     })
-    .match('/pkg/**.{css,scss,sass}', {
+    .match('/pkg/pages/*/*.{css,scss,sass}', {
         optimizer: fis.plugin('clean-css'),
         deploy: fis.plugin('local-deliver', {
             to: devDist
@@ -192,7 +192,7 @@ fis.media('dist')
         release: '$0',
         rExt: '.js'
     })
-    .match('pkg/*/*.{css,scss,sass}', {
+    .match('/pkg/pages/*/*.{css,scss,sass}', {
         useHash: true,
         useSprite: true,
         optimizer: fis.plugin('clean-css'),
